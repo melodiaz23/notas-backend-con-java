@@ -26,31 +26,35 @@ El algoritmo se ejecuta de manera "**secuencial**", lo que significa que cada l�
 
 Palabras reservadas propias del lenguaje que sirven para un uso específico:
 
-`Algoritmo` -> Inicio del código del programa.
-`FinAlgoritmo` -> Última línea del programa.
-`Definir` -> Declarar una variable.
-`Como` -> Tipo de dato.
+> `Algoritmo` -> Inicio del código del programa.
+> `FinAlgoritmo` -> Última línea del programa.
+> `Definir` -> Declarar una variable.
+> `Como` -> Tipo de dato.
 
-> En PSeInt, los tipos de datos que podemos utilizar incluyen: entero, real, caracter, cadena y lógico.
->
-> - **Entero** -> Permite guardar valores numéricos, sin decimales.
-> - **Real** -> Permite guardar valores numéricos, con decimales.
-> - **Caracter** -> Permite guardar letras, palabras, texto. También conocido como cadena de caracteres.
-> - **Logico** -> Permite guardar datos con valor de verdad (verdadero o falso).
+En PSeInt, los tipos de datos que podemos utilizar incluyen: entero, real, caracter, cadena y lógico:
 
-`Escribir` -> Nos permite mostrar información por la salida del programa (función de salida).
+- **Entero** -> Permite guardar valores numéricos, sin decimales.
+- **Real** -> Permite guardar valores numéricos, con decimales.
+- **Caracter** -> Permite guardar letras, palabras, texto. También conocido como cadena de caracteres.
+- **Logico** -> Permite guardar datos con valor de verdad (verdadero o falso).
 
-    Escribir <expresión o constante a imprimir separadas por comas>
+> `Escribir` -> Nos permite mostrar información por la salida del programa (función de salida).
 
-> Ejemplo:
-> `Escribir` "Hola mundo! Soy", `mi_nombre`, "y este es mi primer programa".
+```c
+Escribir <expresión o constante a imprimir separadas por comas>
+```
 
-`Leer` -> Función de entrada. Lee por teclado un valor que le he pedido al usuario para procesarlo dentro del programa.
+Ejemplo:
+
+    `Escribir` "Hola mundo! Soy", `mi_nombre`, "y este es mi primer programa".
+
+> `Leer` -> Función de entrada. Lee por teclado un valor que le he pedido al usuario para procesarlo dentro del programa.
 
     Leer <variable donde quiero que se cargue el valor leído>
 
-`//`-> Comentarios
-`///` -> Se usará para identificar decisiones genéricas que nos expliquen como utilizar funciones del lenguaje.
+> `//`-> Comentarios
+>
+> `///` -> Se usará para identificar decisiones genéricas que nos expliquen como utilizar funciones del lenguaje.
 
 ---
 
@@ -68,7 +72,7 @@ A las variables hay que
 **Valor nulo**: No hay valor/valor desconocido.
 **Valor vacío**: En datos numéricos el valor vacío es el 0. `""` también es un valor vacío.
 
-> [!Danger] Importante
+> [!note]  
 > No utilizar **palabras reservadas** para los nombres de las variables.
 
 **Datos**: Son la forma en la que la computadora entiende la representación de la información. - Numéricos: Enteros y reales. - Caracter - Lógico: Valor de verdad.
@@ -83,46 +87,44 @@ A las variables hay que
 
 **Precedencia de operadores**: Conjunto de reglas que determina el orden en que se ejecutan las operaciones cuando hay paréntesis.
 
----
-
 ## Estructuras Selectivas
 
 Son usadas cuando nos enfrentamos a múltiples opciones que están condicionadas por una evaluación específica.
 
 Existen tres tipos principales de estructuras selectivas/alternativas:
 
-- **Simples**: utiliza la instrucción "Si".
-  - 1 alternativa
+- **Simples**: utiliza la instrucción "Si" (1 alternativa)
 
-> Si `expresión-logica` Entonces
+```c
+Si `expresión-logica` Entonces
+	`acciones_por_verdadero`
+Fin Si
+```
 
-    	`acciones_por_verdadero`
-    Fin Si
+- **Dobles**: Emplea las instrucciones "Si" y "Sino". (2 alternativas).
 
-- **Dobles**: emplea las instrucciones "Si" y "Sino".
-  - 2 alternativas
+```c
+Si `expresión-logica` Entonces
+	`acciones_por_verdadero`
+SiNo
+	`acciones_por_falso`
+Fin Si
+```
 
-> Si `expresión-logica` Entonces
+- **Múltiples**: se desarrolla mediante instrucciones "Según" o "Si" anidado (n alternativas)
 
-    	`acciones_por_verdadero`
-    SiNo
-    	`acciones_por_falso`
-    Fin Si
-
-- **Múltiples**: se desarrolla mediante instrucciones "Según" o "Si" anidado.
-  - n alternativas
-
-> `Segun` `variable_numerica` Hacer
-
-    `opcion_1`:
-    	`secuencia_de_acciones_1`
-    `opcion_2`:
-    	`secuencia_de_acciones_2`
-    `opcion_3`:
-    	`secuencia_de_acciones_3`
-    De Otro Modo:
-    	`secuencia_de_acciones_dom`
-    Fin `Segun`
+```c
+`Segun` `variable_numerica` Hacer
+	`opcion_1`:
+		`secuencia_de_acciones_1`
+	`opcion_2`:
+		`secuencia_de_acciones_2`
+	`opcion_3`:
+		`secuencia_de_acciones_3`
+	De Otro Modo:
+		`secuencia_de_acciones_dom`
+Fin `Segun`
+```
 
 > [!NOTE]
 > Los condicionales múltiples permiten tener distintas alternativas a partir de seleccionar un valor posible que tiene una expresión.
@@ -133,24 +135,27 @@ Existen tres tipos principales de estructuras selectivas/alternativas:
 
 - **Mientras**:  primero se evalúa una condición (una expresión lógica). Si esta condición se evalúa como falsa, no se realiza ninguna acción y el programa continúa con la siguiente instrucción.
 
-> Mientras `expresion_logica` Hacer
-
-    	`secuencia_de_acciones`
-    Fin Mientras
+```c
+Mientras `expresion_logica` Hacer
+		`secuencia_de_acciones`
+	Fin Mientras
+```
 
 - **Hacer/Repetir - Mientras Que**: El contenido del bucle se ejecuta al menos una vez.
 
-> Hacer/Repetir
-
-    	`secuencia_de_acciones`
-    Mientras Que `expresion_logica`
+```c
+Hacer/Repetir
+	`secuencia_de_acciones`
+Mientras Que `expresion_logica`
+```
 
 - **Bucle Para**: Permite ejecutar un conjunto de acciones para cada paso de un conjunto de elementos.
 
-> Para `variable-numérica` = `valor-inicial` Hasta `valor_final` Con Paso `paso` Hacer
-
-    	`secuencia_de_acciones`
-    Fin Para
+```c
+Para `variable-numérica` = `valor-inicial` Hasta `valor_final` Con Paso `paso` Hacer
+	`secuencia_de_acciones`
+Fin Para
+```
 
 - `variable-numérica` es una variable de tipo contador
 - Paso es opcional y no es necesaria incluirla en el bucle. Por defecto la variación es de 1 en 1.
