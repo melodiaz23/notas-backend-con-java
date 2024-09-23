@@ -41,12 +41,14 @@ En PSeInt, los tipos de datos que podemos utilizar incluyen: entero, real, carac
 > `Escribir` -> Nos permite mostrar información por la salida del programa (función de salida).
 
 ```c
-Escribir <expresión o constante a imprimir separadas por comas>
+Escribir "expresión o constante a imprimir separadas por comas"
 ```
 
 Ejemplo:
 
-    `Escribir` "Hola mundo! Soy", `mi_nombre`, "y este es mi primer programa".
+```c
+Escribir "Hola mundo! Soy", mi_nombre ,"y este es mi primer programa".
+```
 
 > `Leer` -> Función de entrada. Lee por teclado un valor que le he pedido al usuario para procesarlo dentro del programa.
 
@@ -56,9 +58,88 @@ Ejemplo:
 >
 > `///` -> Se usará para identificar decisiones genéricas que nos expliquen como utilizar funciones del lenguaje.
 
----
+## Estructuras Selectivas
 
-## Definiciones claves
+Son usadas cuando nos enfrentamos a múltiples opciones que están condicionadas por una evaluación específica.
+
+Existen tres tipos principales de estructuras selectivas/alternativas:
+
+- **Simples**: utiliza la instrucción "Si" (1 alternativa)
+
+```c
+Si "expresión_logica" Entonces
+	"acciones_por_verdadero"
+Fin Si
+```
+
+- **Dobles**: Emplea las instrucciones "Si" y "Sino". (2 alternativas).
+
+```c
+Si "expresión_logica" Entonces
+	"acciones_por_verdadero"
+SiNo
+	"acciones_por_falso"
+Fin Si
+```
+
+- **Múltiples**: se desarrolla mediante instrucciones "Según" o "Si" anidado (n alternativas)
+
+```c
+Segun `variable_numerica` Hacer
+	`opcion_1`:
+		`secuencia_de_acciones_1`
+	`opcion_2`:
+		`secuencia_de_acciones_2`
+	`opcion_3`:
+		`secuencia_de_acciones_3`
+	De Otro Modo:
+		`secuencia_de_acciones_dom`
+Fin Segun
+```
+
+> [!NOTE]
+> Los condicionales múltiples permiten tener distintas alternativas a partir de seleccionar un valor posible que tiene una expresión.
+
+**Los condicionales múltiples NO utilizan una condición lógica para resolver un problema.** Usan una variable y un conjunto de valores posibles que pueden tomar esa variable.
+
+## Estructuras Repetitivas
+
+- **Mientras**:  primero se evalúa una condición (una expresión lógica). Si esta condición se evalúa como falsa, no se realiza ninguna acción y el programa continúa con la siguiente instrucción.
+
+```c
+Mientras `expresion_logica` Hacer
+	`secuencia_de_acciones`
+Fin Mientras
+```
+
+- **Hacer/Repetir - Mientras Que**: El contenido del bucle se ejecuta al menos una vez.
+
+```c
+Hacer/Repetir
+	`secuencia_de_acciones`
+Mientras Que `expresion_logica`
+```
+
+- **Bucle Para**: Permite ejecutar un conjunto de acciones para cada paso de un conjunto de elementos.
+
+```c
+Para `variable_numérica` = `valor-inicial` Hasta `valor_final` Con Paso `paso` Hacer
+	`secuencia_de_acciones`
+Fin Para
+```
+
+> - `variable_numérica` es una variable de tipo contador
+> - `Paso` es opcional y no es necesaria incluirla en el bucle. Por defecto la variación es de 1 en 1.
+
+> [!NOTE]
+> Con el bucle para podemos predecir cuantas vueltas va a dar el bucle porque sabemos el valor inicial, el final y el paso.
+> **Bucle para** es útil cuando podamos predecir la cantidad de vueltas que vamos a utilizar. Cuando no hay forma de saberlo, usamos el **bucle mientras** o el **bucle hacer mientras**
+
+## Estructuras anidadas
+
+Es una característica que nos permiten los lenguajes de programación para que una estructura pueda estar dentro de otra estructura.
+
+## Definiciones Claves
 
 **Variables**: Permiten guardar cierto tipo de información en la memoria de la computadora y luego poder trabajar con esos valores.
 A las variables hay que
@@ -70,7 +151,7 @@ A las variables hay que
    **Variable no inicializada**: La computadora ya reservó la memoria pero aún no tiene ningún valor.
 
 **Valor nulo**: No hay valor/valor desconocido.
-**Valor vacío**: En datos numéricos el valor vacío es el 0. `""` también es un valor vacío.
+**Valor vacío**: En **datos** numéricos el valor vacío es el 0. `""` también es un valor vacío.
 
 > [!note]  
 > No utilizar **palabras reservadas** para los nombres de las variables.
@@ -86,89 +167,6 @@ A las variables hay que
 - Lógicas: Evaluar decisiones en función de valores de verdad.
 
 **Precedencia de operadores**: Conjunto de reglas que determina el orden en que se ejecutan las operaciones cuando hay paréntesis.
-
-## Estructuras Selectivas
-
-Son usadas cuando nos enfrentamos a múltiples opciones que están condicionadas por una evaluación específica.
-
-Existen tres tipos principales de estructuras selectivas/alternativas:
-
-- **Simples**: utiliza la instrucción "Si" (1 alternativa)
-
-```c
-Si `expresión-logica` Entonces
-	`acciones_por_verdadero`
-Fin Si
-```
-
-- **Dobles**: Emplea las instrucciones "Si" y "Sino". (2 alternativas).
-
-```c
-Si `expresión-logica` Entonces
-	`acciones_por_verdadero`
-SiNo
-	`acciones_por_falso`
-Fin Si
-```
-
-- **Múltiples**: se desarrolla mediante instrucciones "Según" o "Si" anidado (n alternativas)
-
-```c
-`Segun` `variable_numerica` Hacer
-	`opcion_1`:
-		`secuencia_de_acciones_1`
-	`opcion_2`:
-		`secuencia_de_acciones_2`
-	`opcion_3`:
-		`secuencia_de_acciones_3`
-	De Otro Modo:
-		`secuencia_de_acciones_dom`
-Fin `Segun`
-```
-
-> [!NOTE]
-> Los condicionales múltiples permiten tener distintas alternativas a partir de seleccionar un valor posible que tiene una expresión.
-
-**Los condicionales múltiples NO utilizan una condición lógica para resolver un problema.** Usan una variable y un conjunto de valores posibles que pueden tomar esa variable.
-
-## Estructuras Repetitivas
-
-- **Mientras**:  primero se evalúa una condición (una expresión lógica). Si esta condición se evalúa como falsa, no se realiza ninguna acción y el programa continúa con la siguiente instrucción.
-
-```c
-Mientras `expresion_logica` Hacer
-		`secuencia_de_acciones`
-	Fin Mientras
-```
-
-- **Hacer/Repetir - Mientras Que**: El contenido del bucle se ejecuta al menos una vez.
-
-```c
-Hacer/Repetir
-	`secuencia_de_acciones`
-Mientras Que `expresion_logica`
-```
-
-- **Bucle Para**: Permite ejecutar un conjunto de acciones para cada paso de un conjunto de elementos.
-
-```c
-Para `variable-numérica` = `valor-inicial` Hasta `valor_final` Con Paso `paso` Hacer
-	`secuencia_de_acciones`
-Fin Para
-```
-
-- `variable-numérica` es una variable de tipo contador
-- Paso es opcional y no es necesaria incluirla en el bucle. Por defecto la variación es de 1 en 1.
-
-> [!NOTE]
-> Con el bucle para podemos predecir cuantas vueltas va a dar el bucle porque sabemos el valor inicial, el final y el paso.
-> **Bucle para** es útil cuando podamos predecir la cantidad de vueltas que vamos a utilizar. Cuando no hay forma de saberlo, usamos el **bucle mientras** o el **bucle hacer mientras**
-
-## Estructuras anidadas
-
-Es una característica que nos permiten los lenguajes de programación para que una estructura pueda estar dentro de otra estructura.
-
----
 
 # Subprogramas
 
@@ -206,7 +204,11 @@ Fin Funcion
 
 Los parámetros son una forma de comunicación entre los programas y los subprogramas.
 
-El resultado que devuelven las funciones se pueden utilizar: - Directamente en cualquier expresión - Invocarla - Utilizizarla dentro de otras funciones.
+El resultado que devuelven las funciones se pueden utilizar:
+
+- Directamente en cualquier expresión
+- Invocarla
+- Utilizarla dentro de otras funciones.
 
 ### Función recursiva
 
@@ -247,8 +249,6 @@ FinFuncion
 
 ```
 
----
-
 ## Procedimientos
 
 A diferencia de las funciones, los procedimientos no están obligados a retornar un valor.
@@ -266,15 +266,11 @@ FinSubProceso
 
 Con el paso del parámetro **por referencia** siempre tengo que definir una variable donde el sub-programa va a devolver el resultado.
 
----
-
-Definiciones claves:
+## Definiciones Claves
 
 - **Referencia en memoria**: Si dentro de un sub-programa modifico el valor del parámetro, también se modifica en memoria la misma posición del programa que invocó (Se comporta como u parámetro de entrada/salida)
 - **Ámbito/Scope**: Lugar donde una variable habita y puede ser utilizada.
 - **Pila de llamada**: Es la apilación de llamadas/invocaciones
-
----
 
 # Arreglos
 
@@ -291,7 +287,7 @@ Los arreglos pueden tener múltiples dimensiones, aunque en la práctica se util
 
 ## Vectores
 
-> Se representa gráficamente como una única fila con N columnas.
+Se representa gráficamente como una única fila con N columnas.
 
 Consiste en una secuencia de elementos, dispuestos uno detrás del otro, y posee las siguientes características:
 
@@ -316,7 +312,7 @@ Definir nombre_variable tipo
 
 ## Matrices
 
-> Tenemos un índice para identificar las filas y un indice para identificar las columnas.
+Tenemos un índice para identificar las filas y un indice para identificar las columnas.
 
 Una matriz puede concebirse como **una colección de vectores organizados en filas y columnas**. Está compuesta por elementos del mismo tipo, donde el orden de dichos elementos es crucial y se requiere la especificación de dos subíndices para identificar cada elemento en la estructura.
 
@@ -420,7 +416,7 @@ FinProceso
 
 ```
 
-### Ordenamiento por inserción
+## Ordenamiento por inserción
 
 Inicialmente se tiene un solo elemento, que obviamente es un conjunto ordenado. Después, cuando hay k elementos ordenados de menor a mayor, se toma el elemento k+1 y se compara con todos los elementos ya ordenados, deteniéndose cuando se encuentra un elemento menor.
 
@@ -453,5 +449,64 @@ Proceso porInsercion
 		Escribir "Posición ", i, " es: ", vector[i];
 	FinPara
 FinProceso
-
 ```
+
+# Control de versiones: GIT
+
+Git es un **sistema de control de versiones** que permite realizar un seguimiento
+de los cambios en el código fuente u otros archivos de texto.
+
+El sistema de control de Git está estructurado en tres áreas clave:
+
+- Working Directory (Directorio de trabajo),
+- Staging Area (Área de Preparación)
+- “Local” Repository (Repositorio local).
+
+![git areas](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/git-areas.png?raw=true)
+
+## Comandos
+
+> `git init` -> Inicializa un nuevo repositorio (proyecto) y si ya existe, se reinicia.
+>
+> `git status` -> Muestra los archivos que han cambiado desde el último commit y los cambios preparados para el próximo commit.
+>
+> `git add .` -> Mueve todos los archivos del working area al staging area.
+>
+> `git add [nombre_del_archivo]` -> Agrega un archivo específico
+>
+> `git commit -m [mensaje_descriptivo]` -> Toma los cambios del staging area y los añade al local repository
+>
+> `git log` -> Permite ver el historial de commits.
+>
+> `git log --oneline` -> Lista condensada con cada commit en una sola línea.
+>
+> `git log --graph` -> Representación de las ramificaciones y fusiones en el historial de commits.
+>
+> `touch [nombre_del_archivo]` -> Crea un nuevo archivo con el nombre especificado.
+
+### Para configurar GIT
+
+La configuración inicial consiste en establecer nombre de usuario y dirección de correo:
+
+```bash
+git config --global user.name [user]
+git config --global user.email [user@mail.com]
+```
+
+Para verificar el nombre de usuario y el correo configurado:
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+## Definiciones Claves
+
+**Repositorio:** Es un espacio centralizado donde se almacena, organiza y mantiene la información.
+
+**Commit:** Capturas instantáneas de los archivos en momentos específicos.
+
+**Markdown:** Es un lenguaje de marcado ligero diseñado para facilitar la lectura y
+escritura.
+
+**README.md:** Es la primera página de documentación del proyecto. Sirve para: - Describir el proyecto. - Instrucciones de instalación. - Uso y ejemplos. - Enlaces a documentación adicional. - Información para contribuyentes. - Licencia. - Contacto y reconocimientos. - Badges
