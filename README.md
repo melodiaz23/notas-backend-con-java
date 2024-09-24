@@ -464,14 +464,26 @@ El sistema de control de Git está estructurado en tres áreas clave:
 
 ![git areas](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/git-areas.png?raw=true)
 
+## Git workflow
+
+Es un conjunto de prácticas recomendadas para trabajar de manera eficiente y productiva. Este flujo define cómo añadir, probar y fusionar nuevas funcionalidades de forma que se eviten
+conflictos y problemas.
+
+Un buen flujo de trabajo ofrece:
+
+- Facilidad para deshacer cambios y corregir errores.
+- Escalabilidad, adaptándose tanto a equipos pequeños como grandes.
+- Claridad y simplicidad, permitiendo que todo el equipo trabaje de manera coherente.
+
+![git workflow](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/ramas_de_trabajo_git.png?raw=true)
+
 ## Definiciones Claves
 
 **Repositorio:** Es un espacio centralizado donde se almacena, organiza y mantiene la información.
 
 **Commit:** Capturas instantáneas de los archivos en momentos específicos.
 
-**Markdown:** Es un lenguaje de marcado ligero diseñado para facilitar la lectura y
-escritura.
+**Markdown:** Es un lenguaje de marcado ligero diseñado para facilitar la lectura y escritura.
 
 **README.md:** Es la primera página de documentación del proyecto. Sirve para:
 
@@ -485,6 +497,10 @@ escritura.
 - Badges
 
 **HEAD:** Commit más reciente en la rama activa
+
+**Ramas:** Permiten crear "caminos paralelos" para experimentar, desarrollar nuevas características o solucionar errores sin alterar la rama principal.
+
+**origin:** Es un alias que apunta a la URL del repositorio remoto donde está almacenado el proyecto.
 
 ## Comandos
 
@@ -504,7 +520,7 @@ escritura.
 
 `git log --graph` -> Representación de las ramificaciones y fusiones en el historial de commits.
 
-`touch [nombre_del_archivo]` -> Crea un nuevo archivo con el nombre especificado.
+`touch <nombre_del_archivo>` -> Crea un nuevo archivo con el nombre especificado.
 
 ### Para configurar GIT
 
@@ -559,6 +575,71 @@ Toma los cambios del staging area y los añade al local repository:
 ```sh
 git commit -m "[mensaje_descriptivo]"
 ```
+
+### Para trabajar con ramas
+
+Lista todas las ramas locales del repositorio local actual:
+
+```Sh
+git branch
+```
+
+Crear una nueva rama local:
+
+```sh
+git branch <nombre_de_la_rama>
+```
+
+Elimina localmente la rama indicada **solo** si ha sido fusionada con la rama actual:
+
+```sh
+git branch -d <nombre_de_la_rama>
+```
+
+Elimina localmente la rama sin verificar si ha sido fusionada con la rama actual:
+
+```sh
+git branch -D <nombre_de_la_rama>
+```
+
+Cambia de rama:
+
+```sh
+git checkout <nombre_de_la_rama>
+# Más reciente:
+git switch <nombre_de_la_rama>
+```
+
+Crea una nueva rama y cambia a ella inmediatamente:
+
+```sh
+git checkout -b <nombre_de_la_rama>
+```
+
+Crea un rama en base a una branch del repositorio remoto:
+
+```sh
+git switch -c newlocalbranchname origin/branch-name
+# Antes git checkout -b
+```
+
+Trae los cambios de otra rama, y los fusiona con la rama actual:
+
+```Sh
+git pull origin <nombre_de_la_rama>
+# Para asegurar que los cambios estén sincronizados con los últimos cambios en main:
+git pull origin main
+```
+
+> `origin`: Es el repositorio remoto
+
+Envía los cambios locales de la rama al repositorio remoto en la rama especificada:
+
+```Sh
+git push origin <nombre_de_la_rama>
+```
+
+> Si la rama remota no existe, el comando **creará** una nueva rama remota con el nombre especificado.
 
 ### `git clone`
 
@@ -635,41 +716,6 @@ git commit --amend -m "[mensaje_descriptivo]"
 ```
 
 > Remplaza el último commit con un nuevo commit que incluye todos los cambios que ya estaban en el commit original, más cualquier cambio adicional que se haya añadido.
-
-### `git branch`
-
-Crea una branch:
-
-```sh
-git branch <nombre_de_la_rama>
-```
-
-Lista las ramas:
-
-```sh
-git branch
-```
-
-Elimina la rama indicada **solo** si ha sido fusionada con la rama actual.
-
-```sh
-git branch -d <nameBranch>
-```
-
-Elimina sin verificar si ha sido fusionada con la rama actual:
-
-```sh
-git branch -D <nameBranch>
-```
-
-### `git push`
-
-Envía los cambios locales de la rama `master` al repositorio remoto en la rama `master` (origin)
-
-```sh
-git push <origin> <branch>
-# git push origin master
-```
 
 ### `git log`
 
