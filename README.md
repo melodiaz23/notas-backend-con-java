@@ -287,7 +287,7 @@ Los arreglos pueden tener múltiples dimensiones, aunque en la práctica se util
 
 ## Vectores
 
-Se representa gráficamente como una única fila con N columnas.
+> Se representa gráficamente como una única fila con N columnas.
 
 Consiste en una secuencia de elementos, dispuestos uno detrás del otro, y posee las siguientes características:
 
@@ -464,25 +464,47 @@ El sistema de control de Git está estructurado en tres áreas clave:
 
 ![git areas](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/git-areas.png?raw=true)
 
+## Definiciones Claves
+
+**Repositorio:** Es un espacio centralizado donde se almacena, organiza y mantiene la información.
+
+**Commit:** Capturas instantáneas de los archivos en momentos específicos.
+
+**Markdown:** Es un lenguaje de marcado ligero diseñado para facilitar la lectura y
+escritura.
+
+**README.md:** Es la primera página de documentación del proyecto. Sirve para:
+
+- Describir el proyecto.
+- Instrucciones de instalación.
+- Uso y ejemplos.
+- Enlaces a documentación adicional.
+- Información para contribuyentes.
+- Licencia.
+- Contacto y reconocimientos.
+- Badges
+
+**HEAD:** Commit más reciente en la rama activa
+
 ## Comandos
 
-> `git init` -> Inicializa un nuevo repositorio (proyecto) y si ya existe, se reinicia.
->
-> `git status` -> Muestra los archivos que han cambiado desde el último commit y los cambios preparados para el próximo commit.
->
-> `git add .` -> Mueve todos los archivos del working area al staging area.
->
-> `git add [nombre_del_archivo]` -> Agrega un archivo específico
->
-> `git commit -m [mensaje_descriptivo]` -> Toma los cambios del staging area y los añade al local repository
->
-> `git log` -> Permite ver el historial de commits.
->
-> `git log --oneline` -> Lista condensada con cada commit en una sola línea.
->
-> `git log --graph` -> Representación de las ramificaciones y fusiones en el historial de commits.
->
-> `touch [nombre_del_archivo]` -> Crea un nuevo archivo con el nombre especificado.
+`git init` -> Inicializa un nuevo repositorio (proyecto) y si ya existe, se reinicia.
+
+`git status` -> Muestra los archivos que han cambiado desde el último commit y los cambios preparados para el próximo commit.
+
+`git add .` -> Mueve todos los archivos del working area al staging area.
+
+`git add [nombre_del_archivo]` -> Agrega un archivo específico
+
+`git commit -m [mensaje_descriptivo]` -> Toma los cambios del staging area y los añade al local repository
+
+`git log` -> Permite ver el historial de commits.
+
+`git log --oneline` -> Lista condensada con cada commit en una sola línea.
+
+`git log --graph` -> Representación de las ramificaciones y fusiones en el historial de commits.
+
+`touch [nombre_del_archivo]` -> Crea un nuevo archivo con el nombre especificado.
 
 ### Para configurar GIT
 
@@ -500,13 +522,171 @@ git config --global user.name
 git config --global user.email
 ```
 
-## Definiciones Claves
+Marco de colores para los comandos:
 
-**Repositorio:** Es un espacio centralizado donde se almacena, organiza y mantiene la información.
+```shell
+git config --global color.ui true
+```
 
-**Commit:** Capturas instantáneas de los archivos en momentos específicos.
+### Iniciando repositorio
 
-**Markdown:** Es un lenguaje de marcado ligero diseñado para facilitar la lectura y
-escritura.
+Inicializa un nuevo repositorio (proyecto) y si ya existe, se reinicia.
 
-**README.md:** Es la primera página de documentación del proyecto. Sirve para: - Describir el proyecto. - Instrucciones de instalación. - Uso y ejemplos. - Enlaces a documentación adicional. - Información para contribuyentes. - Licencia. - Contacto y reconocimientos. - Badges
+```Shell
+git init
+```
+
+Clona el repositorio de GitHub o BitBucket
+
+```sh
+git clone <url>
+```
+
+Mueve todos los archivos del working area al staging area:
+
+```sh
+git add .
+```
+
+Agrega un archivo específico:
+
+```sh
+git add <nombre_del_archivo>
+```
+
+Toma los cambios del staging area y los añade al local repository:
+
+```sh
+git commit -m "[mensaje_descriptivo]"
+```
+
+### `git clone`
+
+Clona un repositorio desde GitHub o BitBucket:
+
+```sh
+git clone <url>
+```
+
+Clona un repositorio y le da un nombre específico al directorio clonado:
+
+```sh
+git clone <url> git-demo
+```
+
+### `git add`
+
+Añade todos los archivos para el commit:
+
+```sh
+git add .
+```
+
+Añade un archivo específico para el commit:
+
+```sh
+git add <archivo>
+```
+
+Añade todos los archivos nuevos, modificados y **eliminados**
+
+```sh
+git add --all
+```
+
+Añade todos los archivos con una extensión específica:
+
+```sh
+git add *.txt
+```
+
+Añade todos los archivos dentro de un directorio:
+
+```sh
+git add docs/
+```
+
+Añade todos los archivos de una extensión específica dentro de un directorio:
+
+```sh
+git add docs/*.txt
+```
+
+### `git commit`
+
+Carga en el HEAD los cambios realizados:
+
+```sh
+git commit -m "[mensaje_descriptivo]"
+```
+
+Agrega y carga en el HEAD los cambios realizados:
+
+```sh
+git commit -a -m "[mensaje_descriptivo]"
+```
+
+> `-a`: Indica que Git debe incluir todos los archivos que han sido modificados y rastreados (esta opción no incluye archivos nuevos que no han sido rastreados).
+
+Modifica el último commit:
+
+```sh
+git commit --amend -m "[mensaje_descriptivo]"
+```
+
+> Remplaza el último commit con un nuevo commit que incluye todos los cambios que ya estaban en el commit original, más cualquier cambio adicional que se haya añadido.
+
+### `git branch`
+
+Crea una branch:
+
+```sh
+git branch <nombre_de_la_rama>
+```
+
+Lista las ramas:
+
+```sh
+git branch
+```
+
+Elimina la rama indicada **solo** si ha sido fusionada con la rama actual.
+
+```sh
+git branch -d <nameBranch>
+```
+
+Elimina sin verificar si ha sido fusionada con la rama actual:
+
+```sh
+git branch -D <nameBranch>
+```
+
+### `git push`
+
+Envía los cambios locales de la rama `master` al repositorio remoto en la rama `master` (origin)
+
+```sh
+git push <origin> <branch>
+# git push origin master
+```
+
+### `git log`
+
+Permite ver el historial de commits:
+
+```sh
+git log
+```
+
+Lista condensada con cada commit en una sola línea.
+
+```sh
+git log --oneline
+```
+
+Representación de las ramificaciones y fusiones en el historial de commits.
+
+```sh
+git log --oneline --graph
+```
