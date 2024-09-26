@@ -477,6 +477,48 @@ Un buen flujo de trabajo ofrece:
 
 ![git workflow](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/ramas_de_trabajo_git.png?raw=true)
 
+## ¿Que es GitHub?
+
+GitHub es una plataforma en línea donde se pueden guardar y manejar los proyectos de software.
+
+GitHub proporciona una serie de herramientas y características adicionales que mejoran el flujo de trabajo, tales como:
+● Reportar y seguir problemas.
+● Revisar cambios.
+● Automatizar tareas.
+● Wiki y Páginas de GitHub.
+
+Las características más relevantes son:
+
+- Creación de repositorios
+- Utiliza Git para el control de versiones.
+- Facilita la colaboración en proyectos.
+- Se pueden hacer `pull requests` (PR) para sugerir cambios a un repositorio.
+- Los colaboradores de un proyecto pueden revisar los cambios de la PR.
+- Proporciona herramientas para el seguimiento de problemas y tareas.
+- Es conocido por ser un centro para proyectos de código abierto.
+
+## ¿Qué es una pull request?
+
+Es una solicitud para integrar cambios (commits) de una rama de desarrollo a otra, comúnmente de una rama de un fork o de una rama secundaria a la rama principal o main.
+
+### Proceso para subir cambios de una rama
+
+1. Crear una nueva rama
+2. Realizar cambios y commits en la rama
+3. Asegurarse de que la rama local esté actualizada con la rama principal.
+4. Subir los cambios a Github
+5. Crear una PR hacia el repositorio o rama objetiva.
+6. Revisión por el equipo
+7. Hacer merge en la rama principal o de desarrollo.
+
+IDEA ejercicio.
+
+1. Crear un proyecto.
+2. Cada uno le hace fork
+3. Cada uno crea una rama
+4. Hace cambios y los sube
+5. Hacer PR al repositorio principal.
+
 ## Definiciones Claves
 
 **Repositorio:** Es un espacio centralizado donde se almacena, organiza y mantiene la información.
@@ -558,6 +600,8 @@ Clona el repositorio de GitHub o BitBucket
 git clone <url>
 ```
 
+#### `git add`
+
 Mueve todos los archivos del working area al staging area:
 
 ```sh
@@ -570,10 +614,90 @@ Agrega un archivo específico:
 git add <nombre_del_archivo>
 ```
 
+Añade todos los archivos nuevos, modificados y **eliminados**
+
+```sh
+git add --all
+```
+
+Añade todos los archivos con una extensión específica:
+
+```sh
+git add *.txt
+```
+
+Añade todos los archivos dentro de un directorio:
+
+```sh
+git add docs/
+```
+
+Añade todos los archivos de una extensión específica dentro de un directorio:
+
+```sh
+git add docs/*.txt
+```
+
+#### `git rm`
+
+Borra un archivo del repositorio y lo prepara para el próximo commit:
+
+```sh
+git rm <archivo>
+```
+
+> Para este caso no se usaría `git add`
+
+#### `git commit`
+
 Toma los cambios del staging area y los añade al local repository:
 
 ```sh
 git commit -m "[mensaje_descriptivo]"
+```
+
+Agrega y carga en el HEAD los cambios realizados, en lugar de hacer `git add <archivo>` y luego `git commit`:
+
+```sh
+git commit -a -m "[mensaje_descriptivo]"
+```
+
+> `-a`: Indica que Git debe incluir todos los archivos que han sido modificados y rastreados (No incluye archivos nuevos que no han sido rastreados).
+
+Modifica el último commit:
+
+```sh
+git commit --amend -m "[mensaje_descriptivo]"
+```
+
+> Remplaza el último commit con un nuevo commit que incluye todos los cambios que ya estaban en el commit original, más cualquier cambio adicional que se haya añadido
+
+Quita del HEAD un archivo y le pone el estado `untracked`:
+
+```sh
+git checkout -- <file>
+# También se puede usar:
+# git restore --staged <file>
+```
+
+#### `git log`
+
+Permite ver el historial de commits:
+
+```sh
+git log
+```
+
+Lista condensada con cada commit en una sola línea.
+
+```sh
+git log --oneline
+```
+
+Representación de las ramificaciones y fusiones en el historial de commits.
+
+```sh
+git log --oneline --graph
 ```
 
 ### Para trabajar con ramas
@@ -619,31 +743,13 @@ git checkout -b <nombre_de_la_rama>
 Crea un rama en base a una branch del repositorio remoto:
 
 ```sh
-git switch -c newlocalbranchname origin/branch-name
+git switch -c <nuevo_nombre_de_la_rama> origin/branch-name
 # Antes git checkout -b
 ```
 
-Trae los cambios de otra rama, y los fusiona con la rama actual:
+### Para trabajar con el repositorio remoto
 
-```Sh
-git pull origin <nombre_de_la_rama>
-# Para asegurar que los cambios estén sincronizados con los últimos cambios en main:
-git pull origin main
-```
-
-> `origin`: Es el repositorio remoto
-
-Envía los cambios locales de la rama al repositorio remoto en la rama especificada:
-
-```Sh
-git push origin <nombre_de_la_rama>
-```
-
-> Si la rama remota no existe, el comando **creará** una nueva rama remota con el nombre especificado.
-
-### `git clone`
-
-Clona un repositorio desde GitHub o BitBucket:
+Clona un repositorio desde GitHub u otro servicio de alojamiento de Git:
 
 ```sh
 git clone <url>
@@ -655,84 +761,145 @@ Clona un repositorio y le da un nombre específico al directorio clonado:
 git clone <url> git-demo
 ```
 
-### `git add`
+Vincula un repositorio local con un repositorio remoto:
 
-Añade todos los archivos para el commit:
-
-```sh
-git add .
+```Shell
+git remote add origin <url>:
 ```
 
-Añade un archivo específico para el commit:
+> `origin` es un nombre convencional que se da al repositorio remoto principal.
 
-```sh
-git add <archivo>
+#### `git push`
+
+Envía los cambios locales de la rama al repositorio remoto en la rama especificada:
+
+```Sh
+git push origin <nombre_de_la_rama>
 ```
 
-Añade todos los archivos nuevos, modificados y **eliminados**
+> Si la rama remota no existe, el comando **creará** una nueva rama remota con el nombre especificado.
 
-```sh
-git add --all
+Sube los cambios al repositorio remoto y establece una rama de seguimiento upstream para la rama local actual:
+
+```Sh
+git push -u origin <nombre_de_la_rama>
 ```
 
-Añade todos los archivos con una extensión específica:
+> De este modo no se necesitará especificar el nombre del repositorio remoto y la rama, ya que quedará por defecto.
 
-```sh
-git add *.txt
+#### `git fetch`
+
+Descarga los cambios del repositorio remoto pero no los fusiona en la rama.
+
+```Sh
+git fetch
 ```
 
-Añade todos los archivos dentro de un directorio:
+> Se puede revisar los cambios antes de decidir integrarlos en la rama de trabajo local.
+
+#### `git merge`
+
+Une el branch actual con el especificado:
 
 ```sh
-git add docs/
+git merge <nombre_de_la_rama>
 ```
 
-Añade todos los archivos de una extensión específica dentro de un directorio:
+> Si no hay conflictos, Git realiza la fusión automáticamente. Si hay conflictos, se debe resolver manualmente para completar la fusión.
+
+#### `git pull`
+
+Trae los cambios de otra rama, y los fusiona con la rama actual:
+
+```Sh
+git pull origin <nombre_de_la_rama>
+# Para asegurar que los cambios estén sincronizados con los últimos cambios en main:
+git pull origin main
+```
+
+#### `git remote`
+
+Muestra la lista de los repositorios remotos a los que se le está haciendo fetch y push:
 
 ```sh
-git add docs/*.txt
+git remote -v
 ```
 
-### `git commit`
-
-Carga en el HEAD los cambios realizados:
+Cambia la URL del repositorio remoto asociado al nombre `origin`:
 
 ```sh
-git commit -m "[mensaje_descriptivo]"
+git remote set-url origin <url>
 ```
 
-Agrega y carga en el HEAD los cambios realizados:
+### Otros Comandos
+
+#### `git reset`
+
+Saca un archivo del commit:
 
 ```sh
-git commit -a -m "[mensaje_descriptivo]"
+git reset HEAD <archivo>
 ```
 
-> `-a`: Indica que Git debe incluir todos los archivos que han sido modificados y rastreados (esta opción no incluye archivos nuevos que no han sido rastreados).
+> El archivo queda en estado unstaged.
 
-Modifica el último commit:
+Devuelve el último commit que se hizo y pone los cambios en staging:
 
 ```sh
-git commit --amend -m "[mensaje_descriptivo]"
+git reset --soft HEAD^
 ```
 
-> Remplaza el último commit con un nuevo commit que incluye todos los cambios que ya estaban en el commit original, más cualquier cambio adicional que se haya añadido.
+Devuelve el último commit, restableciendo los archivos al estado de ese commit anterior:
 
-### `git log`
+```sh
+git reset --hard HEAD^
+```
 
-Permite ver el historial de commits:
+Devuelve los 2 últimos commits y todos los cambios al estado del commit anterior:
+
+```sh
+git reset --hard HEAD^^
+```
+
+Restablece el estado del repositorio al commit especificado:
 
 ```sh
 git log
+git reset --hard <commit_sha>
 ```
 
-Lista condensada con cada commit en una sola línea.
+> Todos los cambios que se hicieron en los commits posteriores al commit seleccionado se eliminarán.
+
+#### `git rebase`
+
+Une el branch actual con el master:
 
 ```sh
-git log --oneline
+git rebase
 ```
 
-Representación de las ramificaciones y fusiones en el historial de commits.
+> `git rebase` altera el historial de commits.
+
+Continúa la secuencia del rebase donde se pausó (si hay conflicto):
 
 ```sh
-git log --oneline --graph
+git rebase --continue
+```
+
+Omite el conflicto y sigue adelante:
+
+```sh
+git rebase --skip
+```
+
+Devuelve todo al principio del rebase:
+
+```sh
+git rebase --abort
+```
+
+Hace un rebase a un branch específico:
+
+```sh
+git rebase <nameBranch>
 ```
