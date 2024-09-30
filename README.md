@@ -482,10 +482,11 @@ Un buen flujo de trabajo ofrece:
 GitHub es una plataforma en línea donde se pueden guardar y manejar los proyectos de software.
 
 GitHub proporciona una serie de herramientas y características adicionales que mejoran el flujo de trabajo, tales como:
-● Reportar y seguir problemas.
-● Revisar cambios.
-● Automatizar tareas.
-● Wiki y Páginas de GitHub.
+
+- Reportar y seguir problemas.
+- Revisar cambios.
+- Automatizar tareas.
+- Wiki y Páginas de GitHub.
 
 Las características más relevantes son:
 
@@ -815,6 +816,36 @@ Trae los cambios de otra rama, y los fusiona con la rama actual:
 git pull origin <nombre_de_la_rama>
 # Para asegurar que los cambios estén sincronizados con los últimos cambios en main:
 git pull origin main
+```
+
+> [!NOTE]
+> **En Visual Studio Code:**
+>
+> - Accept Current Change: para aceptar la versión del repositorio local como la versión correcta y más actual.
+> - Accept Incoming Change: para aceptar la versión que viene del repositorio remoto como la versión correcta y más actual.
+> - Accept Both Changes: para aceptar ambos cambios.
+> - Compare Changes: para comparar los campos.
+
+---
+
+Cuando deseamos **integrar una rama con otra** podemos hacer pull desde la rama que vamos a integrar. Por ejemplo si vamos a hacer pull de "languages", hacia develop debemos:
+
+```Sh
+# 1.Cambiar a la rama de comparación
+git checkout languages
+# 2. Traer los cambios desde el repositorio remoto de la rama a la que le vamos a hacer PR
+git pull origin develop
+# 3. Resolver conflictos
+# 4. Adicionar los cambios
+git add <nombre_del_archivo>
+# 5. Hacer commit
+git commit -m [mensaje]
+# 6. Enviar los cambios al repositorio remoto
+git push origin languages
+# 7. Desde GitHub hacer PR e integrar los cambios
+# 8. Moverse a la rama develop y hacer pull para traer los cambios al repositorio local
+git pull origin develop
+
 ```
 
 #### `git remote`
