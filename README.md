@@ -26,10 +26,12 @@ El algoritmo se ejecuta de manera "**secuencial**", lo que significa que cada l�
 
 Palabras reservadas propias del lenguaje que sirven para un uso específico:
 
-> `Algoritmo` -> Inicio del código del programa.
-> `FinAlgoritmo` -> Última línea del programa.
-> `Definir` -> Declarar una variable.
-> `Como` -> Tipo de dato.
+- `Algoritmo` -> Inicio del código del programa.
+- `FinAlgoritmo` -> Última línea del programa.
+- `Definir` -> Declarar una variable.
+- `Como` -> Tipo de dato.
+
+---
 
 En PSeInt, los tipos de datos que podemos utilizar incluyen: entero, real, caracter, cadena y lógico:
 
@@ -38,7 +40,9 @@ En PSeInt, los tipos de datos que podemos utilizar incluyen: entero, real, carac
 - **Caracter** -> Permite guardar letras, palabras, texto. También conocido como cadena de caracteres.
 - **Logico** -> Permite guardar datos con valor de verdad (verdadero o falso).
 
-> `Escribir` -> Nos permite mostrar información por la salida del programa (función de salida).
+---
+
+- `Escribir` -> Nos permite mostrar información por la salida del programa (función de salida).
 
 ```c
 Escribir "expresión o constante a imprimir separadas por comas"
@@ -50,13 +54,14 @@ Ejemplo:
 Escribir "Hola mundo! Soy", mi_nombre ,"y este es mi primer programa".
 ```
 
-> `Leer` -> Función de entrada. Lee por teclado un valor que le he pedido al usuario para procesarlo dentro del programa.
+- `Leer` -> Función de entrada. Lee por teclado un valor que le he pedido al usuario para procesarlo dentro del programa.
 
-    Leer <variable donde quiero que se cargue el valor leído>
+```
+Leer <variable donde quiero que se cargue el valor leído>
+```
 
-> `//`-> Comentarios
->
-> `///` -> Se usará para identificar decisiones genéricas que nos expliquen como utilizar funciones del lenguaje.
+- `//`-> Comentarios
+- `///` -> Se usará para identificar decisiones genéricas que nos expliquen como utilizar funciones del lenguaje.
 
 ## Estructuras Selectivas
 
