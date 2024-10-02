@@ -970,6 +970,7 @@ Java es un lenguaje de programación que fue diseñado bajo el paradigma **orien
 ## Primeros pasos
 
 - En Java para ejecutar código usamos un método especial que se llama `main`. Si no existe el método main, no se ejecuta nada.
+- Para el nombre de la clase se usa `PascalCase`
 
 ```java
 public class MiPrimerPrograma {
@@ -981,7 +982,9 @@ public class MiPrimerPrograma {
 ```
 
 - `System.out.println();` -> Imprime en consola.
-- `println` -> Imprime en una nueva línea.
+- `System` -> Es una clase que representa al sistema
+- `out` -> Es otro objeto y es un atributo de la clase System que representa una salida del sistema.
+- `println` -> Es un método, imprime en una nueva línea en la consola.
 - `print` -> Imprime en la misma línea.
 
 > [!NOTE]
@@ -1077,10 +1080,8 @@ Permiten representar números tanto muy grandes como muy pequeños, además de n
 2. **double:** Utiliza un esquema de almacenamiento similar al `float`, pero con mayor capacidad.
    - _Tamaño:_ 8 bytes (64 bits).
 
-| Tipo   | Mínimo       | Máximo                     |
-| ------ | ------------ | -------------------------- |
-| float  | 1.4 × 10⁻⁴⁵  | 3.4028235 × 10³⁸           |
-| double | 4.9 × 10⁻³²⁴ | 1.7976931348623157 × 10³⁰⁸ |
+> [!NOTE]
+> Mientras que _float_ podría ser adecuado para representar datos con una precisión de hasta dos dígitos decimales, el tipo _double_ ofrece una mayor precisión y un rango de valores más amplio, lo que puede resultar beneficioso en aplicaciones comerciales donde la exactitud de los datos desempeña un papel crucial.
 
 #### Booleanos y caracteres
 
