@@ -939,3 +939,227 @@ Hace un rebase a un branch específico:
 ```sh
 git rebase <nameBranch>
 ```
+
+---
+
+# Servicios Backend
+
+Un programador backend es responsable de recibir, procesar y almacenar datos en una base de datos. También puede buscar y entregar esos datos en el formato solicitado por el cliente.
+
+![backend](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/servicios_backend.png?raw=true)
+
+# JAVA
+
+Java es un lenguaje de programación que fue diseñado bajo el paradigma **orientado a objetos**, lo que permite:
+
+- Modelar y representar objetos del mundo real de manera eficiente en código.
+- Organizar y estructurar el código de manera lógica y comprensible.
+- Reutilizar código de manera efectiva.
+
+## Entorno Java
+
+![entorno java](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/entorno-java.png?raw=true)
+
+- **JDK (Java Development Kit):** Herramientas para desarrollar, compilar y depurar aplicaciones Java, incluyendo el compilador (Javac) y el JRE.
+- **Javac:** Compilador de Java que convierte el código fuente en bytecode para ser ejecutado por la JVM.
+- **JRE (Java Runtime Environment):** Entorno de ejecución que incluye la JVM y las bibliotecas necesarias para ejecutar aplicaciones Java.
+- **Java SE (Java Standard Edition):** Conjunto de clases y APIs básicas para el desarrollo de aplicaciones Java.
+- **JVM (Java Virtual Machine):** Máquina virtual que ejecuta el código Java, permitiendo un entorno independiente de la plataforma.
+- **GC (Garbage Collector):** Gestor automático de memoria que elimina objetos no utilizados para evitar fugas de memoria y mejorar la eficiencia.
+
+## Primeros pasos
+
+- En Java para ejecutar código usamos un método especial que se llama `main`. Si no existe el método main, no se ejecuta nada.
+
+```java
+public class MiPrimerPrograma {
+  public static void main(String[] args) {
+    // Lo primero que se ejecuta es lo que está dentro de este bloque
+    System.out.println("Hola Mundo");
+  }
+}
+```
+
+- `System.out.println();` -> Imprime en consola.
+- `println` -> Imprime en una nueva línea.
+- `print` -> Imprime en la misma línea.
+
+> [!NOTE]
+> Al programar en Java, es crucial asignar y almacenar los datos en variables del tipo correcto para garantizar un funcionamiento adecuado.
+
+Para declarar una variable en Java:
+
+```Java
+int miVariable = 10;
+```
+
+- `int` -> tipo de dato.
+- `=` -> Operador de asignación.
+- `;` -> Fin de la sentencia.
+
+### Diferencia entre declarar e inicializar
+
+Para **declarar** una variable en Java, primero se especifica el tipo de dato que va a contener y luego asignarle un nombre.
+
+```Java
+int numero1;
+```
+
+Para **inicializar** una variable se usa el operador de asignación y se proporciona un valor que sea compatible con el tipo de dato declarado.
+
+```Java
+numero1 = 17;
+```
+
+También es posible combinar la declaración e inicialización en una misma línea.
+
+```Java
+int numero1 = 17;
+```
+
+## Variables Vs. Constantes
+
+- Una **constante** es un dato al que se le asigna un valor una sola vez y no puede ser modificado posteriormente.
+- Una vez que una constante está inicializada, su valor es inalterable.
+- Para declarar una constante en Java, se utiliza la palabra reservada final y se inicializa en la misma sentencia.
+
+```Java
+final int NUMERO_15 = 15;
+```
+
+- Al declarar una constante debemos _inicializarla de inmediato_.
+- Las variables se escriben en `camelCase`.
+- Las constantes se escriben en `UPPER_CASE.`.
+
+## Tipos de datos
+
+![tipos de datos](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/tipos_de_datos.png?raw=true)
+
+### Datos primitivos
+
+- Se caracterizan por poder almacenar un único valor.
+- La mayor parte de los tipos estructurados o complejos son composiciones a partir de datos primitivos.
+- Los datos primitivos (8), sirven para gestionar los tipos de información más básicos como números o booleanos.
+
+#### Numéricos
+
+6 de los datos primitivos, están destinados a facilitar el trabajo con números, se pueden agrupar en dos categorías:
+
+- **Enteros (4):** Permiten operar exclusivamente con números enteros, sin parte decimal.
+- **Numéricos en punto flotante (2):** Contempla números racionales o con parte decimal.
+
+##### Tipos numéricos enteros
+
+1. **byte:** Emplea un sólo byte
+   _Tamaño:_ 1 byte (8 bits).
+   _Rango:_ [-128, 127].
+
+2. **short:** Usa el doble de almacenamiento que el anterior.
+   _Tamaño:_ 2 bytes (16 bits).
+   _Rango:_ [-32.768, 32.767].
+
+3. **int:** Es el tipo de dato entero más empleado.
+   _Tamaño:_ 4 bytes (32 bits).
+   _Rango:_ [-2.147.483.648, 2.147.483.647] (o -2^31 a 2^31-1).
+
+4. **long:** Tipo de entero de mayor tamaño.
+   _Tamaño:_ 8 bytes (64 bits).
+   _Rango:_ [-9.223.372.036.854.775.808, 9.223.372.036.854.775.807] (o -2^63 a 2^63-1).
+
+##### Tipos numéricos decimales
+
+Permiten representar números tanto muy grandes como muy pequeños, además de números decimales.
+
+1. **float:** Conocido como tipo de precisión simple.
+
+   - _Tamaño:_ 4 bytes (32 bits).
+
+2. **double:** Utiliza un esquema de almacenamiento similar al `float`, pero con mayor capacidad.
+   - _Tamaño:_ 8 bytes (64 bits).
+
+| Tipo   | Mínimo       | Máximo                     |
+| ------ | ------------ | -------------------------- |
+| float  | 1.4 × 10⁻⁴⁵  | 3.4028235 × 10³⁸           |
+| double | 4.9 × 10⁻³²⁴ | 1.7976931348623157 × 10³⁰⁸ |
+
+#### Booleanos y caracteres
+
+##### `boolean`
+
+Facilita el trabajo con valores "verdadero/falso". El tipo de datos `boolean` Sólo acepta true o false,
+
+```Java
+boolean booleana = true;
+boolean booleana = false;
+```
+
+##### `char`
+
+- Se utiliza para almacenar caracteres individuales.
+- Aunque se considera un tipo numérico, su representación habitual es el carácter cuyo código almacena.
+- Utiliza la codificación _UTF-16_ de Unicode.
+- Debe estar rodeado de comillas simples
+
+```Java
+char caracter = 'a';
+```
+
+### Estructurados
+
+- Después de los primitivos, todos los demás tipos de datos son objetos, también llamados tipos estructurados o _"Clases"_.
+- Se denominan estructurados por que su mayor parte están destinados a contener múltiples valores.
+- Pueden contener valores de tipo primitivo o de tipo objeto.
+
+#### Cadenas de caracteres
+
+Se declara como:
+
+```Java
+String nombreCurso = "Iniciación a Java";
+```
+
+- **Las cadenas en Java son un objeto** de la clase String, aunque se declaren de este modo.
+- Las cadenas de caracteres se delimitan entre comillas dobles, en lugar de simples como los caracteres individuales.
+- Las cadenas, son objetos que disponen de métodos que permiten operar sobre la información almacenada en dicha cadena.
+
+#### Arrays
+
+- Son colecciones de datos de un mismo tipo.
+- Es una estructura de datos en la que a cada elemento le corresponde una posición identificada por uno o más índices numéricos enteros.
+- Es habitual llamar vectores a los arrays de una dimensión y matrices a los arrays que trabajan con dos dimensiones.
+- Los elementos de un array se empiezan a numerar en el 0.
+
+#### Tipos definidos por el usuario
+
+En Java, existen muchas clases estructuradas creadas por la plataforma o terceros que permiten realizar diversas operaciones. Además, los usuarios pueden crear sus propias clases para tareas específicas, lo que se conoce como **tipos estructurados definidos por el usuario**.
+
+### Envoltorio (Wrapper)
+
+- Java cuenta con tipos de datos **envoltorio** para cada tipo primitivo.
+- Estos tipos añaden métodos y propiedades útiles a los primitivos.
+- Facilitan el uso de datos por **referencia** en lugar de por valor.
+- Los tipos envoltorio son:
+  - `Byte`
+  - `Short`
+  - `Integer`
+  - `Long`
+  - `Float`
+  - `Double`
+  - `Boolean`
+  - `Character`
+
+## Definiciones claves
+
+**IDE:** Integrated development environment. Es el entorno de desarrollo
+
+**Compilación:** Es un proceso en el que el código fuente escrito en lenguaje Java se traduce a un lenguaje que la computadora pueda entender y ejecutar.
+
+**Programa:** Es una serie de instrucciones escritas que una computadora puede ejecutar para procesar datos y producir un resultado.
+
+**Sentencias:** Son unidades mínimas de ejecución en un programa y se componen de reglas gramaticales conocidas como sintaxis.
+
+**Sintaxis:** define cómo se deben combinar las palabras, los símbolos y los elementos gramaticales para formar instrucciones y expresiones válidas.
+
+**Clase:** Es una de las unidades básicas más importantes de JAVA como lenguaje de tipo orientado a objeto. Dentro de ella se colocan datos y código del programa que vamos a empezar a codificar.
+
+**Paquetes:** Nos permite organizar los programas java y empaquetar muchos programas con un mismo fin.
