@@ -26,8 +26,15 @@ public class Calculadora {
   }
 
   private void realizarOperacion(int operacion) {
-    result = operacion == 1 ? num1 + num2 : operacion == 2 ? num1 - num2 : operacion == 3 ? num1 * num2 : num1 / num2;
-    System.out.println("El resultado es: " + result);
+    if (operacion == 4) {
+      if (num2 == 0) {
+        System.out.println("No se puede dividir por cero");
+        return;
+      }
+      System.out.println("El resultado es: " + ((float) num1 / num2));
+    } else {
+      result = operacion == 1 ? num1 + num2 : operacion == 2 ? num1 - num2 : num1 * num2;
+      System.out.println("El resultado es: " + result);
+    }
   }
-
 }
