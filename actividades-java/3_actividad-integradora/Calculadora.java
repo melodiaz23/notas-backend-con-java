@@ -25,6 +25,7 @@ public class Calculadora {
   }
 
   private void realizarOperacion(int operacion) {
+    // A partir de Java 14
     switch (operacion) {
       case 1 -> // Sumar
         System.out.println("El resultado de la suma es: " + (num1 + num2));
