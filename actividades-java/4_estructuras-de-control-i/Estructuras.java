@@ -33,7 +33,7 @@ public class Estructuras {
       complementarias.reviewPassword(password);
 
       System.out.println("¿Cual es el precio del producto?");
-      int price = readNum.nextInt();
+      double price = readNum.nextInt();
       complementarias.calcularDescuento(price);
 
       System.out.println("¿Cual es tu edad?");

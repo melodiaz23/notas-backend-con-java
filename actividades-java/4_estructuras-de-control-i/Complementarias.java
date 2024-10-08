@@ -9,7 +9,7 @@ public class Complementarias {
     }
   }
 
-  public void calcularDescuento(int price) {
+  public void calcularDescuento(double price) {
     if (price >= 100) {
       price *= 0.90;
     }
