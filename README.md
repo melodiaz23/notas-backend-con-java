@@ -1073,11 +1073,11 @@ final int NUMERO_15 = 15;
 
 Permiten representar números tanto muy grandes como muy pequeños, además de números decimales.
 
-1. **float:** Conocido como tipo de precisión simple.
+1. **float:** Conocido como tipo de precisión simple. Soporta hasta 7 números después de la coma.
 
    - _Tamaño:_ 4 bytes (32 bits).
 
-2. **double:** Utiliza un esquema de almacenamiento similar al `float`, pero con mayor capacidad.
+2. **double:** Utiliza un esquema de almacenamiento similar al `float`, pero con mayor capacidad. Soporta 15 números después de la coma
    - _Tamaño:_ 8 bytes (64 bits).
 
 > [!NOTE]
@@ -1108,6 +1108,7 @@ char caracter = 'a';
 ### Estructurados
 
 - Después de los primitivos, todos los demás tipos de datos son objetos, también llamados tipos estructurados o _"Clases"_.
+- Los objetos son instancias de las clases.
 - Se denominan estructurados por que su mayor parte están destinados a contener múltiples valores.
 - Pueden contener valores de tipo primitivo o de tipo objeto.
 
@@ -1149,6 +1150,173 @@ En Java, existen muchas clases estructuradas creadas por la plataforma o tercero
   - `Boolean`
   - `Character`
 
+## Clases
+
+Una clase se puede visualizar como un plano o una plantilla que define las características y comportamientos de un objeto.
+
+Al crear una **instancia** de una clase, se crea un objeto específico basado en esa plantilla.
+
+Las clases `System` están en un paquete que se descarga por defecto.
+
+### Clase Scanner
+
+- La clase Scanner es utilizada en Java para obtener la entrada del usuario desde la consola.
+- La clase Scanner nos permite solicitar datos al usuario y detener la ejecución del programa hasta que se ingrese la información requerida.
+
+Para usar la clase `Scanner`, se debe:
+
+```Java
+// 1. Importarla
+import java.util.Scanner;
+// 2. Crear una instancia
+Scanner miScanner = new Scanner(System.in);
+```
+
+`System.in` -> Permite la entrada de datos.
+
+_Una vez que se tiene una instancia de Scanner, se pueden utilizar sus métodos para leer los datos ingresados por el usuario._ Algunos de ellos son:
+
+- `nextBoolean()`: Lee un valor booleano (`true` o `false`) desde la entrada.
+- `nextInt()`: Lee un número entero desde la entrada.
+- `nextDouble()`: Lee un número de tipo `double` desde la entrada.
+- `nextLine()`: Lee una línea completa de texto desde la entrada.
+- `next()` : Lee hasta el primer espacio.
+
+Ejemplo:
+
+```Java
+Scanner miScanner = new Scanner(System.in);
+System.out.print("Ingresa un número entero: ");
+int numero = miScanner.nextInt();
+System.out.println("El número ingresado es: " + numero);
+```
+
+La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fuente de datos que se quiera leer:
+
+1. **`System.in`**: Para leer desde la entrada estándar (teclado).
+
+   ```java
+   Scanner miScanner = new Scanner(System.in);
+   ```
+
+2. **`File`**: Para leer desde un archivo.
+
+   ```java
+   File file = new File("ruta/del/archivo.txt");
+   Scanner miScanner = new Scanner(file);
+   ```
+
+3. **`String`**: Para leer desde una cadena de texto.
+   ```java
+   String data = "texto de ejemplo";
+   Scanner miScanner = new Scanner(data);
+   ```
+
+> [!NOTE]
+> Es importante tener en cuenta que al utilizar la clase Scanner, es una buena práctica cerrar el objeto Scanner una vez que ya no se necesita. Esto se hace mediante la llamada al método `close()` del objeto Scanner.
+>
+> En el ejemplo sería: `miScanner.close();`
+>
+> La llamada a `close()` asegura que los recursos asociados con el objeto Scanner sean liberados adecuadamente, lo que contribuye a un mejor manejo de recursos y previene problemas de rendimiento en el programa.
+
+## Operadores en Java
+
+Los operadores en Java son símbolos especiales que se utilizan para realizar operaciones en variables y valores.
+
+### Operadores Aritméticos
+
+Son símbolos especiales utilizados para realizar operaciones matemáticas en variables. Incluyen:
+
+| Operador            | Descripción                         | Ejemplo |
+| ------------------- | ----------------------------------- | ------- |
+| Adición (+)         | Suma dos valores.                   | `a + b` |
+| Sustracción (-)     | Resta un valor de otro.             | `a - b` |
+| Multiplicación (\*) | Multiplica dos valores.             | `a * b` |
+| División (/)        | Divide un valor por otro.           | `a / b` |
+| Módulo (%)          | Obtiene el residuo de una división. | `a % b` |
+
+### Operadores de Asignación
+
+Se utilizan para asignar un valor a una variable, combinando la asignación con una operación aritmética o de bits. Los más comunes son:
+
+| Operador                          | Descripción                               | Ejemplo  |
+| --------------------------------- | ----------------------------------------- | -------- |
+| Asignación (=)                    | Asigna un valor a una variable.           | `a = b`  |
+| Suma y asignación (+=)            | Suma y luego asigna el valor.             | `a += b` |
+| Resta y asignación (-=)           | Resta y luego asigna el valor.            | `a -= b` |
+| Multiplicación y asignación (\*=) | Multiplica y luego asigna el valor.       | `a *= b` |
+| División y asignación (/=)        | Divide y luego asigna el valor.           | `a /= b` |
+| Módulo y asignación (%=)          | Aplica el módulo y luego asigna el valor. | `a %= b` |
+
+Ejemplo:
+
+```Java
+// Asignación simple
+a = b;
+// Suma y asignación
+a += b;      // a = a + b
+// Resta y asignación
+a -= b;      // a = a - b
+// ...
+
+```
+
+### Operadores de Incremento y Decremento
+
+Se utilizan para aumentar o disminuir el valor de una variable en una unidad.
+
+| Operador | Descripción                             | Ejemplo       |
+| -------- | --------------------------------------- | ------------- |
+| `++`     | Aumenta el valor de una variable en 1   | `a++` o `++a` |
+| `--`     | Disminuye el valor de una variable en 1 | `a--` o `--a` |
+
+### Operadores Relacionales o de Comparación
+
+Se utilizan para comparar dos valores y producir un resultado booleano que indica si la comparación es verdadera o falsa.
+
+| Operador               | Descripción                                     | Ejemplo  |
+| ---------------------- | ----------------------------------------------- | -------- |
+| Igual a (==)           | Verifica si dos valores son iguales.            | `a == b` |
+| No igual a (!=)        | Verifica si dos valores no son iguales.         | `a != b` |
+| Mayor que (>)          | Verifica si un valor es mayor que otro.         | `a > b`  |
+| Menor que (<)          | Verifica si un valor es menor que otro.         | `a < b`  |
+| Mayor o igual que (>=) | Verifica si un valor es mayor o igual que otro. | `a >= b` |
+| Menor o igual que (<=) | Verifica si un valor es menor o igual que otro. | `a <= b` |
+
+### Operadores Lógicos
+
+Se utilizan para combinar expresiones booleanas y producir un resultado booleano basado en ellas.
+
+| Operador         | Descripción                                                        | Ejemplo |
+| ---------------- | ------------------------------------------------------------------ | ------- |
+| AND lógico (&&)  | Devuelve verdadero si ambos operandos son verdaderos.              | a && b  |
+| OR lógico (\|\|) | Devuelve verdadero si al menos uno de los operadores es verdadero. | a\|\|b  |
+| NOT lógico (!)   | Invierte el valor de verdad del operando.                          | !a      |
+
+### Operador Condicional (Operador Ternario)
+
+Es una expresión condicional que permite tomar decisiones basadas en una condición.
+
+Es una forma concisa y eficiente de escribir expresiones condicionales simples en Java.
+
+| Operador | Descripción                                                         | Ejemplo         |
+| -------- | ------------------------------------------------------------------- | --------------- |
+| `? :`    | `a > b ? a : b` (si a es mayor que b, devuelve a, sino devuelve b). | `a > b ? a : b` |
+
+### Operadores de Bit
+
+Son utilizados para realizar operaciones a nivel de bits en los valores enteros. Estos operadores manipulan los bits individuales de los operandos.
+
+| Operador                                      | Descripción                                                                          | Ejemplo   |
+| --------------------------------------------- | ------------------------------------------------------------------------------------ | --------- |
+| AND binario (`&`)                             | Realiza una operación AND en cada par de bits.                                       | `a & b`   |
+| OR binario (\|)                               | Realiza una operación OR en cada par de bits.                                        | a \| b    |
+| OR binario (`^`)                              | Realiza una operación OR en cada par de bits.                                        | `a ^ b`   |
+| Complemento binario (`~`)                     | Invierte todos los bits.                                                             | `~a`      |
+| Desplazamiento a la izquierda (`<<`)          | Desplaza los bits a la izquierda, rellena con ceros a la derecha.                    | `a << 2`  |
+| Desplazamiento a la derecha (`>>`)            | Desplaza los bits a la derecha, rellena con el bit más significativo a la izquierda. | `a >> 2`  |
+| Desplazamiento a la derecha sin signo (`>>>`) | Desplaza los bits a la derecha, rellena con ceros a la izquierda.                    | `a >>> 2` |
+
 ## Definiciones claves
 
 **IDE:** Integrated development environment. Es el entorno de desarrollo
@@ -1164,3 +1332,176 @@ En Java, existen muchas clases estructuradas creadas por la plataforma o tercero
 **Clase:** Es una de las unidades básicas más importantes de JAVA como lenguaje de tipo orientado a objeto. Dentro de ella se colocan datos y código del programa que vamos a empezar a codificar.
 
 **Paquetes:** Nos permite organizar los programas java y empaquetar muchos programas con un mismo fin.
+
+## Estructuras de Control
+
+Son mecanismos que permiten controlar
+el flujo de ejecución de un programa.
+
+También permiten manejar excepciones y controlar situaciones inesperadas durante la ejecución
+del programa.
+
+### `if`
+
+El `if` es una estructura de control condicional que nos permite ejecutar un
+bloque de código si se cumple una condición determinada.
+
+```Java
+public static void main(String[] args){
+	// Sentencias que se ejecutan antes del if
+	if (condicion){
+	// Sentencias que se ejecutan si la condición es verdadera
+	}
+	// Sentencias que se ejecutan después del "if"
+}
+```
+
+## `if`-`else`
+
+Permite ejecutar un bloque de código si se cumple una condición determinada, y otro bloque  
+código si la condición no se cumple.
+
+```Java
+public static void main(String[] args){
+	// Sentencias que se ejecutan antes del if else
+	if (condicion){
+	// Sentencias que se ejecutan si la condición es verdadera
+	} else {
+	// Sentencias que se ejecutan si la condición es falsa.
+	}
+
+	// Sentencias que se ejecutan después del "if"
+}
+```
+
+## `if`-`else`-`if`
+
+permite ejecutar un bloque de código si se cumple una condición determinada y otro bloque de
+código sólo si se cumple otra condición.
+
+```Java
+public static void main(String[] args){
+	// Sentencias que se ejecutan antes del if else if
+	if (condicion1){
+	// Sentencias que se ejecutan si la condición es verdadera
+	} else if (condicion2){
+	// Sentencias que se ejecutan si la condición1 es falsa y la condicion2 es verdadera.
+	}
+
+	// Sentencias que se ejecutan después del "if"
+}
+```
+
+> Después de la llave de cierre del bloque "else if (`condicion2`)", podemos agregar otro bloque "else" o "else if (`condicion`)" tantas veces como queramos.
+
+## `switch`
+
+Permite seleccionar uno de varios bloques de código para ejecutar, dependiendo del valor de una expresión o variable.
+
+La expresión dentro del switch se evalúa y se compara con los casos definidos dentro de él. Cada caso representa una opción diferente, y se ejecutará el bloque de código correspondiente si el valor de la expresión coincide con el caso.
+
+```java
+public static void main(String[] args) {
+//Sentencias que se ejecutan antes del "switch".
+	switch (opcion) {
+		case 1:
+		case 2:
+			//Sentencias que se ejecutan si "opción" tiene el "valor 1 o 2".
+			System.out.println("Seleccionaste la opción 1 o 2");
+			break;
+		case 3:
+			//Sentencias que se ejecutan si "opción" tiene el "valor 3".
+			System.out.println("Seleccionaste la opción 3");
+			break;
+		default:
+			//Sentencias que se ejecutan si "opción" no coincide con el
+			valor de ningún "case".
+			System.out.println("Opción inválida");
+			break;
+	}
+//Sentencias que se ejecutan después del "switch".
+}
+```
+
+> Sin el `break`, el código continua ejecutando los casos siguientes, incluso si no coinciden con el valor de la expresión.
+
+### Jump statements
+
+Java soporta tres sentencias de salto:
+
+- **Break**:
+
+  - Termina una secuencia en una declaración `switch`.
+  - Sale de un bucle.
+
+- **Continue**:
+
+  - Fuerza una iteración anticipada de un bucle, saltando el resto del código y pasando a la siguiente.
+
+- **Return**:
+  - Termina explícitamente la ejecución de un método y, opcionalmente, devolviendo un valor.
+
+### Switch expression
+
+Otra forma mejorada de utilizar el switch introducida en Java 12. Permite evaluar diferentes tipos de datos, incluyendo
+cadenas de texto (strings), y utilizar expresiones más complejas.
+
+```java
+public static void main(String[] args) {
+    // Sentencias que se ejecutan antes del "switch".
+    switch (opcion) {
+      case 1 -> System.out.println("Seleccionaste la opción 1");
+      case 2 -> System.out.println("Seleccionaste la opción 2");
+      case 3 -> System.out.println("Seleccionaste la opción 3");
+      default -> System.out.println("Opción inválida");
+    }
+    // Sentencias que se ejecutan después del "switch".
+  }
+```
+
+> - Switch expressions no requieren el uso de la palabra `break`.
+> - Si se requiere incluir varias líneas de código se utilizan llaves `{` `}`.
+
+El switch como expresión es un nuevo enfoque que
+permite que el switch funcione como una expresión.
+
+Con el switch como expresión, podemos asignar directamente el resultado del switch a la variable, sin necesidad de declararla previamente:
+
+```java
+public static void main(String[] args) {
+    String mes = "February";
+    int numeroDeDias = switch (month) {
+      case "February" -> 28;
+      case "April", "June", "September", "November" -> 30;
+      case "January", "March", "May", "July", "August", "October", "December" -> 31;
+      default -> 0;
+    };
+    System.out.println(mes+" tiene "+numeroDeDias+" días.");
+    }
+```
+
+#### `yield`
+
+Al utilizar bloques de código en una expresión switch para manejar múltiples líneas de código, se emplea la palabra clave `yield` para indicar el valor de retorno del case.
+
+```java
+public static void main(String[] args) {
+    String position = "director";
+    boolean alcanzoObjetivos = true;
+    double bonus = switch (position) {
+      case "temporal" -> 50;
+      case "empleado" -> 1000;
+      case "director" -> {
+        double bonusBase = 2000;
+        double bonusPorRendimiento = alcanzoObjetivos ? 500 : 0;
+        double bonusTotal = bonusBase + bonusPorRendimiento;
+        yield bonusTotal;
+        }
+      default -> 0;
+      };
+      System.out.println("El bonus del "+position+" es $"+bonus);
+    }
+```
+
+> [!NOTE]
+> Si se conocen de antemano todos los valores que puede tomar una variable, es necesario tener un case correspondiente para cada uno de ellos. En caso de no conocer todos los posibles valores, es recomendable incluir una cláusula default para manejar cualquier valor no previsto.
