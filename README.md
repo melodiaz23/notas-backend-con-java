@@ -1150,6 +1150,10 @@ En Java, existen muchas clases estructuradas creadas por la plataforma o tercero
   - `Boolean`
   - `Character`
 
+> [!NOTE]
+> En Java, **las variables que se declaran dentro de un bloque tienen un ámbito limitado a ese bloque en particular**. Esto implica que solo son visibles y accesibles dentro de dicho bloque y no se pueden acceder desde fuera de él.
+> Una vez que se sale del bloque, esas variables dejan de existir y no se pueden utilizar.
+
 ## Clases
 
 Una clase se puede visualizar como un plano o una plantilla que define las características y comportamientos de un objeto.
@@ -1333,13 +1337,13 @@ Son utilizados para realizar operaciones a nivel de bits en los valores enteros.
 
 **Paquetes:** Nos permite organizar los programas java y empaquetar muchos programas con un mismo fin.
 
+**Recursos:** Es un objeto que debe ser cerrado después de que el programa finalice.
+
 ## Estructuras de Control
 
-Son mecanismos que permiten controlar
-el flujo de ejecución de un programa.
+Son mecanismos que permiten controlar el flujo de ejecución de un programa.
 
-También permiten manejar excepciones y controlar situaciones inesperadas durante la ejecución
-del programa.
+También permiten manejar excepciones y controlar situaciones inesperadas durante la ejecución del programa.
 
 ### `if`
 
@@ -1356,7 +1360,7 @@ public static void main(String[] args){
 }
 ```
 
-## `if`-`else`
+### `if`-`else`
 
 Permite ejecutar un bloque de código si se cumple una condición determinada, y otro bloque  
 código si la condición no se cumple.
@@ -1374,7 +1378,7 @@ public static void main(String[] args){
 }
 ```
 
-## `if`-`else`-`if`
+### `if`-`else`-`if`
 
 permite ejecutar un bloque de código si se cumple una condición determinada y otro bloque de
 código sólo si se cumple otra condición.
@@ -1394,7 +1398,7 @@ public static void main(String[] args){
 
 > Después de la llave de cierre del bloque "else if (`condicion2`)", podemos agregar otro bloque "else" o "else if (`condicion`)" tantas veces como queramos.
 
-## `switch`
+### `switch`
 
 Permite seleccionar uno de varios bloques de código para ejecutar, dependiendo del valor de una expresión o variable.
 
@@ -1424,22 +1428,6 @@ public static void main(String[] args) {
 ```
 
 > Sin el `break`, el código continua ejecutando los casos siguientes, incluso si no coinciden con el valor de la expresión.
-
-### Jump statements
-
-Java soporta tres sentencias de salto:
-
-- **Break**:
-
-  - Termina una secuencia en una declaración `switch`.
-  - Sale de un bucle.
-
-- **Continue**:
-
-  - Fuerza una iteración anticipada de un bucle, saltando el resto del código y pasando a la siguiente.
-
-- **Return**:
-  - Termina explícitamente la ejecución de un método y, opcionalmente, devolviendo un valor.
 
 ### Switch expression
 
@@ -1480,9 +1468,11 @@ public static void main(String[] args) {
     }
 ```
 
+_Las expresiones permiten retornar un valor._
+
 #### `yield`
 
-Al utilizar bloques de código en una expresión switch para manejar múltiples líneas de código, se emplea la palabra clave `yield` para indicar el valor de retorno del case.
+Al utilizar bloques de código en una **expresión switch** para manejar múltiples líneas de código, se emplea la palabra clave `yield` para indicar el valor de retorno del case.
 
 ```java
 public static void main(String[] args) {
@@ -1505,3 +1495,93 @@ public static void main(String[] args) {
 
 > [!NOTE]
 > Si se conocen de antemano todos los valores que puede tomar una variable, es necesario tener un case correspondiente para cada uno de ellos. En caso de no conocer todos los posibles valores, es recomendable incluir una cláusula default para manejar cualquier valor no previsto.
+
+### Jump statements
+
+Java soporta tres sentencias de salto:
+
+- **Break**:
+
+  - Termina una secuencia en una declaración `switch`.
+  - Sale de un bucle.
+
+- **Continue**:
+
+  - Fuerza una iteración anticipada de un bucle, saltando el resto del código y pasando a la siguiente.
+
+- **Return**:
+  - Termina explícitamente la ejecución de un método y, opcionalmente, devolviendo un valor.
+
+### Try Catch
+
+Es un mecanismo que nos permite lidiar con situaciones anómalas que pueden ocurrir durante la ejecución de un programa.
+
+Es importante porque:
+
+- **Brinda robustez:** Se gestionan situaciones inesperadas sin que colapsen de manera abrupta.
+- **Control de flujo:** Permite dirigir el flujo del programa incluso en presencia de errores.
+- **Depuración y calidad del código:** Facilita la identificación y corrección de errores.
+
+> [!NOTE]
+> Al utilizar el bloque `try-catch`, el programa salta las líneas de código dentro del bloque `try` cuando se encuentra con una línea que produce un error. En lugar de detenerse, continúa ejecutando el programa a partir del bloque `catch`, permitiendo que las líneas de código restantes se ejecuten después del bloque.
+
+Ejemplo:
+
+```java
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Clase {
+  public static void main(String[] args) {
+    try {
+      Scanner pepe = new Scanner(System.in);
+      System.out.print("Ingrese un divisor: ");
+      int numero = pepe.nextInt();// Posible entrada inválida
+      String palabra = "hola";
+      double resultado = 10 / numero;// Posible división por cero
+      System.out.println("El resultado es: " + resultado);
+    } catch (ArithmeticException e) {
+      System.out.println("Error: División por cero.");
+    } catch (InputMismatchException e) {
+      System.out.println("Error: Se detectó un valor inválido ingresado por teclado.");
+    } catch (Exception e) {
+      System.out.println("Error: Ups!");
+    }
+  }
+}
+```
+
+> `InputMismatchException` -> ocurre cuando se produce un error al intentar convertir la entrada del usuario.
+> `Exception` -> Permite atrapar cualquier excepción adicional no especificada. Va al final de todos los bloques catch.
+
+La variable `e` permite acceder a ciertos métodos que pueden ser utilizados, como:
+
+- `printStackTrace()` -> Imprime por consola la pila de llamadas de la excepción, mostrando el lugar exacto donde ocurrió el problema.
+- `getMessage()` -> Devuelve el mensaje de descripción del error.
+
+#### Excepciones Comunes en Java
+
+- `NullPointerException`: Se produce al intentar acceder a un objeto que tiene un valor `null`. Por ejemplo, cuando se llama a un método o se accede a un atributo de un objeto no inicializado.
+
+- `ArrayIndexOutOfBoundsException`: Ocurre al intentar acceder a un índice fuera del rango válido de un array, como un índice negativo o mayor que el tamaño del array.
+
+- `ArithmeticException`: Se lanza al realizar una operación aritmética inválida, como dividir por cero.
+
+- `NumberFormatException`: Se produce al intentar convertir una cadena a un tipo numérico, pero el formato de la cadena no es válido.
+
+- `FileNotFoundException`: Ocurre al intentar acceder a un archivo que no existe en el sistema de archivos.
+
+- `IOException`: Excepción genérica que se lanza cuando ocurre un error de entrada/salida durante la lectura o escritura de datos.
+
+  - Si no se puede abrir o leer un archivo.
+  - Si falla una operación de escritura en un archivo.
+  - Si hay una interrupción en la red al comunicarse con un servidor.
+
+- `ClassNotFoundException`: Se lanza cuando se intenta cargar dinámicamente una clase que no se encuentra en el `classpath`.
+
+  - El `classpath` es la ubicación que la JVM utiliza para buscar las clases que no forman parte de las bibliotecas estándar.
+
+- `InterruptedException`: Ocurre cuando un hilo en ejecución es interrumpido por otro hilo mientras está esperando, durmiendo o realizando una operación de bloqueo.
+  - Por ejemplo, si un usuario quiere cancelar una tarea larga (como un cálculo intensivo o una descarga), sin necesidad de esperar a que termine.
+- Todos los tipos de excepciones: https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html
