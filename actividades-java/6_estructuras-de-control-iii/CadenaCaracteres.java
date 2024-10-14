@@ -15,6 +15,5 @@ public class CadenaCaracteres {
       // e.printStackTrace();
       System.err.println("Error: " + e.getMessage());
     }
-
   }
 }

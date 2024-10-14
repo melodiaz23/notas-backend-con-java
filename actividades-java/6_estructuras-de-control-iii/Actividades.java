@@ -2,11 +2,11 @@
 import java.util.Scanner;
 
 public class Actividades {
+
   public static void main(String[] args) {
     // try-with-resources se asegura que que cada recurso sea cerrado al finalizar
     // la declaración
     try (Scanner scanner = new Scanner(System.in)) {
-
       // División segura
       Division division = new Division();
       division.IniciarActividad(scanner);

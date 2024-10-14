@@ -1,7 +1,6 @@
 import java.util.InputMismatchException;
 
 public class Division {
-
   public void IniciarActividad(java.util.Scanner scanner) {
     int num1, num2;
 
