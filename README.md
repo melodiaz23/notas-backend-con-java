@@ -1273,7 +1273,7 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 
 **Documentación**: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 
-**Código con ejemplos y notas**:
+**Código con ejemplos y notas**: https://github.com/melodiaz23/notas-backend-con-java/blob/master/actividades-java/7_clase-string/Notas.java
 
 | **Método**                                                                                                                                              | **Descripción**                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1304,6 +1304,127 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 | `replace(char oldChar, char newChar)`, `replace(CharSequence target, CharSequence replacement)`                                                         | Devuelve una nueva cadena que resulta de reemplazar todas las apariciones del carácter o la secuencia de caracteres de destino en esta cadena con el carácter o la secuencia de caracteres de reemplazo. |
 | `replaceAll(String regex, String replacement)`                                                                                                          | Reemplaza cada subcadena de esta cadena que coincide con la expresión regular dada con la cadena de reemplazo.                                                                                           |
 | `replaceFirst(String regex, String replacement)`                                                                                                        | Reemplaza la primera subcadena de esta cadena que coincide con la expresión regular dada con la cadena de reemplazo.                                                                                     |
+
+### Clase Math
+
+- Proporciona métodos estáticos para realizar operaciones numéricas comunes y complejas.
+- No se declaran objetos.
+- Es parte del paquete `java.lang` y no necesita ser importada.
+
+#### Métodos comunes de la clase `Math`
+
+- **`Math.abs()`**: Devuelve el valor absoluto de un número.
+
+  ```java
+  int num = -10;
+  int absNum = Math.abs(num); // absNum será igual a 10
+  ```
+
+- **`Math.sqrt()`**: Calcula la raíz cuadrada de un número.
+
+  ```java
+  double num = 16;
+  double sqrtNum = Math.sqrt(num); // sqrtNum será igual a 4.0
+  ```
+
+- **`Math.pow()`**: Calcula la potencia de un número.
+
+  ```java
+  double base = 2;
+  double exponente = 3;
+  double resultado = Math.pow(base, exponente); // resultado será igual a 8.0
+  ```
+
+- **`Math.random()`**: Genera un número aleatorio entre 0.0 (inclusive) y 1.0 (exclusivo).
+
+  ```java
+  double randomNum = Math.random(); // Genera un número aleatorio entre 0.0 y 1.0
+  ```
+
+- **`Math.round()`**: Realiza el redondeo de un número al entero más cercano.
+
+  ```java
+  double num = 3.6;
+  long roundedNum = Math.round(num); // roundedNum será igual a 4
+  ```
+
+- **`Math.floor()`**: Redondea hacia abajo un número decimal al entero más cercano.
+
+  ```java
+  double num = 4.9;
+  double flooredNum = Math.floor(num); // flooredNum será igual a 4.0
+  ```
+
+- **`Math.ceil()`**: Redondea hacia arriba un número decimal al entero más cercano.
+
+```java
+  double num = 2.2;
+  double ceiledNum = Math.ceil(num); // ceiledNum será igual a 3.0
+```
+
+#### Otros métodos
+
+**Documentación**: https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html
+
+**Código con ejemplos y notas**:
+
+| Método                                                | Descripción                                                                                            | Tipo de Dato |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
+| **`E`**                                               | Constante matemática _e_, la base del logaritmo natural.                                               | `double`     |
+| **`PI`**                                              | Constante matemática π, la relación entre la circunferencia de un círculo y su diámetro.               | `double`     |
+| **`IEEEremainder(double dividendo, double divisor)`** | Calcula el residuo de la división de dos números en formato de punto flotante según la norma IEEE 754. | `double`     |
+| **`abs(int valor)`**                                  | Devuelve el valor absoluto de un número entero.                                                        | `int`        |
+| **`absExact(int valor)`**                             | Devuelve el valor absoluto de un número entero, lanzando una excepción si no se puede representar.     | `int`        |
+| **`acos(double angulo)`**                             | Devuelve el arcocoseno de un número en formato de punto flotante.                                      | `double`     |
+| **`addExact(int a, int b)`**                          | Devuelve la suma de dos números enteros, lanzando una excepción si no se puede representar.            | `int`        |
+| **`asin(double angulo)`**                             | Devuelve el arcoseno de un número en formato de punto flotante.                                        | `double`     |
+| **`atan(double angulo)`**                             | Devuelve el arcotangente de un número en formato de punto flotante.                                    | `double`     |
+| **`atan2(double y, double x)`**                       | Devuelve el arcotangente del cociente de dos números en formato de punto flotante.                     | `double`     |
+| **`cbrt(double valor)`**                              | Devuelve la raíz cúbica de un número en formato de punto flotante.                                     | `double`     |
+| **`ceil(double valor)`**                              | Redondea hacia arriba un número en formato de punto flotante al entero más cercano.                    | `double`     |
+| **`class`**                                           | Devuelve el objeto `Class` que representa la clase de la instancia actual.                             | `Class<?>`   |
+| **`copySign(double magnitud, double signo)`**         | Devuelve un número con la magnitud del primer parámetro y el signo del segundo parámetro.              | `double`     |
+| **`cos(double angulo)`**                              | Devuelve el coseno de un ángulo en formato de punto flotante.                                          | `double`     |
+| **`cosh(double angulo)`**                             | Devuelve el coseno hiperbólico de un número en formato de punto flotante.                              | `double`     |
+| **`decrementExact(int valor)`**                       | Resta 1 a un número entero, lanzando una excepción si no se puede representar.                         | `int`        |
+| **`exp(double valor)`**                               | Devuelve el valor de _e_ elevado a la potencia de un número.                                           | `double`     |
+| **`expm1(double valor)`**                             | Devuelve el valor de _e_ elevado a la potencia de un número, menos 1.                                  | `double`     |
+| **`floor(double valor)`**                             | Redondea hacia abajo un número en formato de punto flotante al entero más cercano.                     | `double`     |
+| **`floorDiv(int dividendo, int divisor)`**            | Realiza la división entera de dos números enteros y redondea hacia abajo.                              | `int`        |
+| **`floorMod(int dividendo, int divisor)`**            | Calcula el módulo de dos números enteros y redondea hacia abajo.                                       | `int`        |
+| **`fma(double a, double b, double c)`**               | Realiza una multiplicación y suma precisa de tres números.                                             | `double`     |
+| **`getExponent(double valor)`**                       | Devuelve el exponente de un número en formato de punto flotante.                                       | `int`        |
+| **`hypot(double cateto1, double cateto2)`**           | Calcula la hipotenusa de un triángulo rectángulo dados los dos catetos.                                | `double`     |
+| **`incrementExact(int valor)`**                       | Suma 1 a un número entero, lanzando una excepción si no se puede representar.                          | `int`        |
+| **`log(double valor)`**                               | Calcula el logaritmo natural de un número en formato de punto flotante.                                | `double`     |
+| **`log10(double valor)`**                             | Calcula el logaritmo en base 10 de un número en formato de punto flotante.                             | `double`     |
+| **`log1p(double valor)`**                             | Calcula el logaritmo natural de (1 + valor) con precisión para valores cercanos a 0.                   | `double`     |
+| **`max(int a, int b)`**                               | Devuelve el valor máximo entre dos números enteros.                                                    | `int`        |
+| **`min(int a, int b)`**                               | Devuelve el valor mínimo entre dos números enteros.                                                    | `int`        |
+| **`multiplyExact(int a, int b)`**                     | Multiplica dos números enteros, lanzando una excepción si no se puede representar el resultado.        | `int`        |
+| **`multiplyFull(int a, int b)`**                      | Multiplica dos números enteros y devuelve los 64 bits de más peso del resultado.                       | `long`       |
+| **`multiplyHigh(int a, int b)`**                      | Multiplica dos números enteros y devuelve los 32 bits de más peso del resultado.                       | `int`        |
+| **`negateExact(int valor)`**                          | Cambia el signo de un número entero, lanzando una excepción si no se puede representar.                | `int`        |
+| **`nextAfter(double start, double direction)`**       | Devuelve el número más cercano al primer parámetro en la dirección del segundo parámetro.              | `double`     |
+| **`nextDown(double valor)`**                          | Devuelve el número más cercano al valor especificado, menor que dicho valor.                           | `double`     |
+| **`nextUp(double valor)`**                            | Devuelve el número más cercano al valor especificado, mayor que dicho valor.                           | `double`     |
+| **`pow(double base, double exponente)`**              | Calcula la potencia de un número en formato de punto flotante.                                         | `double`     |
+| **`random()`**                                        | Genera un número pseudoaleatorio entre 0.0 (incluido) y 1.0 (excluido).                                | `double`     |
+| **`rint(double valor)`**                              | Redondea un número en formato de punto flotante al entero más cercano.                                 | `double`     |
+| **`round(float valor)`**                              | Redondea un número en formato de punto flotante al entero más cercano.                                 | `int`        |
+| **`round(double valor)`**                             | Redondea un número en formato de punto flotante al entero más cercano.                                 | `long`       |
+| **`scalb(double valor, int escala)`**                 | Escala un número en formato de punto flotante según una potencia de 2 especificada.                    | `double`     |
+| **`signum(double valor)`**                            | Devuelve el signo de un número en formato de punto flotante.                                           | `double`     |
+| **`sin(double angulo)`**                              | Devuelve el seno de un ángulo en formato de punto flotante.                                            | `double`     |
+| **`sinh(double angulo)`**                             | Devuelve el seno hiperbólico de un número en formato de punto flotante.                                | `double`     |
+| **`sqrt(double valor)`**                              | Calcula la raíz cuadrada de un número en formato de punto flotante.                                    | `double`     |
+| **`subtractExact(int a, int b)`**                     | Resta dos números enteros, lanzando una excepción si no se puede representar el resultado.             | `int`        |
+| **`tan(double angulo)`**                              | Devuelve la tangente de un ángulo en formato de punto flotante.                                        | `double`     |
+| **`tanh(double angulo)`**                             | Devuelve la tangente hiperbólica de un número en formato de punto flotante.                            | `double`     |
+| **`toDegrees(double anguloRad)`**                     | Convierte un ángulo en radianes a grados.                                                              | `double`     |
+| **`toIntExact(long valor)`**                          | Convierte un número largo a un entero, lanzando una excepción si no se puede representar.              | `int`        |
+| **`toRadians(double anguloDeg)`**                     | Convierte un ángulo en grados a radianes.                                                              | `double`     |
+| **`ulp(double valor)`**                               | Devuelve la unidad de menor magnitud en el rango del valor especificado.                               | `double`     |
 
 ## Operadores en Java
 
