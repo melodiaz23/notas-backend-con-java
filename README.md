@@ -1223,6 +1223,88 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 >
 > La llamada a `close()` asegura que los recursos asociados con el objeto Scanner sean liberados adecuadamente, lo que contribuye a un mejor manejo de recursos y previene problemas de rendimiento en el programa.
 
+### Clase String
+
+- Es fundamental para representar y manipular cadenas de caracteres.
+- En Java las cadenas de caracteres son tratadas como objeto.
+- Cuenta con una amplia gama de métodos que permiten realizar operaciones.
+
+#### Métodos de la clase String
+
+- **`length()`**: Devuelve la longitud de la cadena (número de caracteres).
+
+  ```java
+  String texto = "Hola Mundo";
+  int longitud = texto.length();  // Devuelve 10
+  ```
+
+- **`charAt(int index)`**: Devuelve el carácter en la posición especificada.
+
+  ```java
+  String texto = "Hola Mundo";
+  char primerCaracter = texto.charAt(0);  // Devuelve 'H'
+  ```
+
+- **`substring(int beginIndex, int endIndex)`**: Devuelve una subcadena desde el índice de inicio hasta el índice de fin (excluido).
+
+  ```java
+  String texto = "Hola Mundo";
+  String subcadena = texto.substring(5, 10);  // Devuelve "Mundo"
+  ```
+
+  > - `substring` se puede usar con 1 o 2 parámetros. Cuando se puede usar el mismo método pero pasarle diferentes parámetros se le llama _sobrecarga de método_.
+  > - Si se indica un sólo parámetro, toma el valor del índice y retorna los caracteres hasta el final de la cadena.
+
+- **`equals(String str)`**: Compara dos cadenas y devuelve `true` si son iguales.
+
+  ```java
+  String texto1 = "Hola";
+  String texto2 = "Hola";
+  boolean sonIguales = texto1.equals(texto2);  // Devuelve true
+  ```
+
+- **`indexOf(String str)`**: Devuelve el índice de la primera aparición de una subcadena.
+  ```java
+  String texto = "Hola Mundo";
+  int indice = texto.indexOf("Mundo");  // Devuelve 5
+  ```
+
+#### Otros métodos
+
+**Documentación**: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+
+**Código con ejemplos y notas**:
+
+| **Método**                                                                                                                                              | **Descripción**                                                                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `charAt(int index)`                                                                                                                                     | Devuelve el carácter en la posición específica (índex).                                                                                                                                                  |
+| `chars()`                                                                                                                                               | Devuelve una secuencia de valores (`IntStream`) int que representan los caracteres de la cadena en orden.                                                                                                |
+| `codePointAt(int index)`                                                                                                                                | Devuelve el punto de código Unicode en la posición especificada.                                                                                                                                         |
+| `codePointBefore(int index)`                                                                                                                            | Devuelve el punto de código Unicode inmediatamente antes de la posición especificada.                                                                                                                    |
+| `codePointCount(int beginIndex, int endIndex)`                                                                                                          | Devuelve la cantidad de puntos de código Unicode en un subintervalo de esta cadena.                                                                                                                      |
+| `codePoints()`                                                                                                                                          | Devuelve una secuencia de puntos de código Unicode en la cadena.                                                                                                                                         |
+| `compareTo(String anotherString)`                                                                                                                       | Compara alfabéticamente esta cadena con otra cadena.                                                                                                                                                     |
+| `compareToIgnoreCase(String str)`                                                                                                                       | Compara lexicográficamente dos cadenas, ignorando las diferencias de mayúsculas y minúsculas.                                                                                                            |
+| `concat(String str)`                                                                                                                                    | Concatena la cadena especificada al final de esta cadena.                                                                                                                                                |
+| `endsWith(String suffix)`                                                                                                                               | Comprueba si esta cadena termina con el sufijo especificado.                                                                                                                                             |
+| `equals(Object anObject)`                                                                                                                               | Compara esta cadena con el objeto especificado.                                                                                                                                                          |
+| `equalsIgnoreCase(String anotherString)`                                                                                                                | Compara esta cadena con otra cadena, ignorando las diferencias de mayúsculas y minúsculas.                                                                                                               |
+| `formatted(Object... args)`                                                                                                                             | Formatea la cadena utilizando los argumentos proporcionados.                                                                                                                                             |
+| `getBytes()`, `getBytes(Charset charset)`, `getBytes(String charsetName)`                                                                               | Convierte la cadena en una secuencia de bytes utilizando el conjunto de caracteres predeterminado o ingresado por parámetro.                                                                             |
+| `getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)`                                                                                          | Copia los caracteres de esta cadena en el array de destino.                                                                                                                                              |
+| `isBlank()`                                                                                                                                             | Devuelve true si la cadena está vacía o contiene solo espacios en blanco.                                                                                                                                |
+| `isEmpty()`                                                                                                                                             | Devuelve true si la longitud de la cadena es 0.                                                                                                                                                          |
+| `lastIndexOf(int ch)`, `lastIndexOf(String str)`, `lastIndexOf(int ch, int fromIndex)`, `lastIndexOf(String str, int fromIndex)`                        | Devuelve el índice de la última aparición del carácter o cadena especificada, comenzando la búsqueda hacia atrás desde el índice especificado.                                                           |
+| `length()`                                                                                                                                              | Devuelve la longitud de esta cadena.                                                                                                                                                                     |
+| `lines()`                                                                                                                                               | Devuelve una secuencia de líneas de la cadena, separadas por saltos de línea.                                                                                                                            |
+| `matches(String regex)`                                                                                                                                 | Indica si esta cadena coincide con la expresión regular dada.                                                                                                                                            |
+| `offsetByCodePoints(int index, int codePointOffset)`                                                                                                    | Devuelve el índice en esta cadena que es desplazado desde el índice dado por el número de puntos de código.                                                                                              |
+| `regionMatches(int toffset, String other, int ooffset, int len)` / `regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)` | Prueba si dos regiones de cadenas son iguales.                                                                                                                                                           |
+| `repeat(int count)`                                                                                                                                     | Devuelve una cadena cuyo valor es la concatenación de esta cadena repetida _count_ veces.                                                                                                                |
+| `replace(char oldChar, char newChar)`, `replace(CharSequence target, CharSequence replacement)`                                                         | Devuelve una nueva cadena que resulta de reemplazar todas las apariciones del carácter o la secuencia de caracteres de destino en esta cadena con el carácter o la secuencia de caracteres de reemplazo. |
+| `replaceAll(String regex, String replacement)`                                                                                                          | Reemplaza cada subcadena de esta cadena que coincide con la expresión regular dada con la cadena de reemplazo.                                                                                           |
+| `replaceFirst(String regex, String replacement)`                                                                                                        | Reemplaza la primera subcadena de esta cadena que coincide con la expresión regular dada con la cadena de reemplazo.                                                                                     |
+
 ## Operadores en Java
 
 Los operadores en Java son símbolos especiales que se utilizan para realizar operaciones en variables y valores.
