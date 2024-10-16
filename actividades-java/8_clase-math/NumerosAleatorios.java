@@ -7,7 +7,7 @@ public class NumerosAleatorios {
     // Se multiplica el máximo número deseado menos el mínimo número para que quede
     // en el rango.
     // Si queremos incluir el número máximo se le suma 1, sería:
-    // (máx - mín + 1) + mín
+    // Math.ramdom()*(máx - mín + 1) + mín
     System.out.println(num);
   }
 }
