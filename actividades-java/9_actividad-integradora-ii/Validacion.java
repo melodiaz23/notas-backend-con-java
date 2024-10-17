@@ -4,20 +4,22 @@ import java.util.Scanner;
 public class Validacion {
   public void iniciarActividad(Scanner scanner) {
     String password;
-    Boolean esSegura;
+    Boolean esSegura = false;
     System.out.println("----------");
     System.out.println("VERIFICACIÓN DE CONTRASEÑAS");
     System.out.println("----------");
-    System.out.println("Ingresa una contraseña: ");
-    password = scanner.nextLine();
 
-    esSegura = validarPassword(password);
+    while (!esSegura) {
+      System.out.println("Ingresa una contraseña: ");
+      password = scanner.nextLine();
+      esSegura = validarPassword(password);
 
-    if (esSegura) {
-      System.out.println("¡Contraseña segura! Cumple con todos los criterios.");
-    } else {
-      System.out.println(
-          "Contraseña no segura. Debe tener al menos una letra mayúscula, una minúscula y un carácter especial.");
+      if (esSegura) {
+        System.out.println("¡Contraseña segura! Cumple con todos los criterios.");
+      } else {
+        System.out.println(
+            "Contraseña no segura. Debe tener al menos una letra mayúscula, una minúscula y un carácter especial.");
+      }
     }
 
   }
@@ -39,7 +41,6 @@ public class Validacion {
         } else if (Character.isLowerCase(password.charAt(i))) {
           System.out.println("TIENE MINÚSCULA!");
           tieneMinus = true;
-
         } else if (Character.isDigit(password.charAt(i))) {
           System.out.println("TIENE NÚMERO!");
           tieneNum = true;
@@ -50,7 +51,8 @@ public class Validacion {
       }
       return (tieneMayus && tieneMinus && tieneNum && tieneCaracterEspecial);
 
-      // Otra forma
+      // Otra forma, con Regular Expressions
+      // regex101.com
 
       // tieneMayus = password.matches(".*[A-Z].*");
       // tieneMinus = password.matches(".*[a-z].*");
