@@ -1788,3 +1788,37 @@ La variable `e` permite acceder a ciertos métodos que pueden ser utilizados, co
 - `InterruptedException`: Ocurre cuando un hilo en ejecución es interrumpido por otro hilo mientras está esperando, durmiendo o realizando una operación de bloqueo.
   - Por ejemplo, si un usuario quiere cancelar una tarea larga (como un cálculo intensivo o una descarga), sin necesidad de esperar a que termine.
 - Todos los tipos de excepciones: https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html
+
+## Arrays
+
+- Es una estructura de datos que permite almacenar una colección de elementos, ya sean valores o variables.
+- Son objetos y se instancian a partir de una clase predefinida en el lenguaje.
+- Tienen una longitud fija.
+
+Para declarar un array:
+
+```Java
+public static void main(String[] args) {
+	int numero = 6;
+	int[] array1 = {1,numero,2,3}; //array1 es un objeto de la clase int[]
+	int[] array2 = new int[4]; //array2 es un objeto de la clase int[]
+}
+```
+
+> - Al utilizar llaves, inicializamos el array con los valores o variables que deseamos almacenar.
+> - Al utilizar el operador "new", especificamos el nombre de la clase (en este caso `int[]`) y el tamaño del array.
+
+Es posible acceder y modificar los elementos de un array utilizando su índice.
+
+```Java
+public static void main(String[] args) {
+	String[] arr = new String[3];
+	arr[0] = "hola"; // Modifica el primer elemento del arreglo
+	System.out.println(arr[0]); // Accede al primer elemento del
+	arreglo
+	System.out.println(arr.length); // Imprime: 3
+}
+```
+
+> [!NOTE]
+> Todos los elementos en un array de Java deben ser del mismo tipo.
