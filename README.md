@@ -1789,6 +1789,72 @@ La variable `e` permite acceder a ciertos métodos que pueden ser utilizados, co
   - Por ejemplo, si un usuario quiere cancelar una tarea larga (como un cálculo intensivo o una descarga), sin necesidad de esperar a que termine.
 - Todos los tipos de excepciones: https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html
 
+### Bucles
+
+Es una estructura de control que permite ejecutar un bloque de código repetidamente un número específico de veces.
+
+Existen tres principales bucles en Java:
+
+#### Bucle `for`
+
+Combina la inicialización, la condición y el incremento (o decremento) en una sola línea.
+
+Es muy útil cuando sabemos exactamente cuántas veces queremos repetir una operación.
+
+Tiene 3 partes:
+
+- **Inicialización**: es donde se inicializa la variable de control del bucle. En la mayoría de los casos, esta variable se denomina "i".
+
+```Java
+for (int i = 0; ... ) {
+	//Código del bucle
+}
+```
+
+> `int i = 0;` inicializa la variable `i` con el valor 0.
+
+- **Condición**: Esta es la condición que se verifica antes de cada iteración del bucle. Si la condición es verdadera (“true”), se ejecuta el bloque de código dentro del bucle. Si es falsa (“false”), el bucle se detiene.
+
+```Java
+for (... ; i < 5; ... ) {
+	//Código del bucle
+}
+```
+
+> `i < 5` es la condición. Por lo tanto, mientras el valor de `i` sea menor que 5, el bloque de código del bucle continuará ejecutándose.
+
+- **Actualización**: Se actualiza la variable de control. En la mayoría de los casos, simplemente se incrementa o decrementa la variable.
+
+```Java
+for (... ; ... ; i++) {
+	//Código del bucle
+}
+```
+
+> `i++` incrementa el valor de "i" en 1 en cada iteración del bucle.
+
+El bucle `for` completo sería:
+
+```Java
+public static void main(String[] args) {
+	for (int i = 0; i < 5; i++) {
+		System.out.println("El valor de i es: " + i);
+	}
+}
+```
+
+> Imprimirá los números del 0 al 4 en la consola. Después de cada iteración, "i" se incrementa en uno (i++), y mientras "i" sea menor que 5 (i < 5), el bucle continuará. Cuando "i" llegue a 5, la condición "i < 5" será falsa y el bucle se detendrá.
+
+#### Bucle `while`
+
+Ejecuta un bloque de código mientras una condición
+especificada sea verdadera. La condición se evalúa antes de cada iteración.
+Por lo tanto, si la condición es falsa desde el principio, el bloque de código dentro del bucle no se ejecutará ni una sola vez.
+
+#### Bucle `do-while`
+
+La condición se evalúa después de que se ha ejecutado el bloque de código. Por lo tanto, el bloque de código se ejecutará al menos una vez, incluso si la condición es falsa desde el principio.
+
 ## Arrays
 
 - Es una estructura de datos que permite almacenar una colección de elementos, ya sean valores o variables.
@@ -1822,3 +1888,29 @@ public static void main(String[] args) {
 
 > [!NOTE]
 > Todos los elementos en un array de Java deben ser del mismo tipo.
+
+### `for i` y Arrays
+
+```Java
+public static void main(String[] args) {
+	String[] paises =  {"Uruguay","Argentina","Brasil","Venezuela"};
+	for (int i = 0; i < paises.length ; i++) {
+		System.out.println(paises[i]);
+	}
+}
+```
+
+### `for each`
+
+Se utiliza para recorrer elementos en arreglos o colecciones sin tener que lidiar con índices.
+
+```Java
+public static void main(String[] args) {
+	int[] arr = {1, 2, 3, 4, 5};
+	for (int num : arr) {
+		System.out.println("El valor es: " + num);
+	}
+}
+```
+
+> La variable `num` toma cada valor en el arreglo `arr` en cada iteración del bucle, lo que simplifica el proceso de iterar a través del arreglo sin necesidad de utilizar un índice.
