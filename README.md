@@ -1793,7 +1793,7 @@ La variable `e` permite acceder a ciertos métodos que pueden ser utilizados, co
 
 Es una estructura de control que permite ejecutar un bloque de código repetidamente un número específico de veces.
 
-Existen tres principales bucles en Java:
+Existen tres tipos principales de bucles en Java:
 
 #### Bucle `for`
 
@@ -1845,15 +1845,68 @@ public static void main(String[] args) {
 
 > Imprimirá los números del 0 al 4 en la consola. Después de cada iteración, "i" se incrementa en uno (i++), y mientras "i" sea menor que 5 (i < 5), el bucle continuará. Cuando "i" llegue a 5, la condición "i < 5" será falsa y el bucle se detendrá.
 
+#### `for each`
+
+Se utiliza para recorrer elementos en arreglos o colecciones sin tener que lidiar con índices.
+
+```Java
+public static void main(String[] args) {
+	int[] arr = {1, 2, 3, 4, 5};
+	for (int num : arr) {
+		System.out.println("El valor es: " + num);
+	}
+}
+```
+
+> La variable `num` toma cada valor en el arreglo `arr` en cada iteración del bucle, lo que simplifica el proceso de iterar a través del arreglo sin necesidad de utilizar un índice.
+
 #### Bucle `while`
 
-Ejecuta un bloque de código mientras una condición
-especificada sea verdadera. La condición se evalúa antes de cada iteración.
-Por lo tanto, si la condición es falsa desde el principio, el bloque de código dentro del bucle no se ejecutará ni una sola vez.
+Ejecuta un bloque de código mientras una condición especificada sea verdadera. La condición se evalúa antes de cada iteración.
+
+Si la condición es falsa desde el principio, el bloque de código dentro del bucle no se ejecutará ni una sola vez.
+
+> [!NOTE]
+> El bucle "while" se utiliza cuando se desea repetir un bloque de código siempre que una condición sea verdadera.
+>
+> Dentro del bloque de código del bucle "while", generalmente se debe incluir algún mecanismo para cambiar la condición y eventualmente hacer que sea falsa.
+
+```Java
+public static void main(String[] args) {
+    int numeroAleatorio = 0;
+    while (numeroAleatorio < 8) {
+      numeroAleatorio = (int) (Math.random() * (10 - 0 + 1) + 0);
+    }
+    System.out.println("Seguro es 8 o mayor a 8: " + numeroAleatorio);
+  }
+```
+
+> El bloque de código se ejecuta mientras `numeroAleatorio` sea menor que, y en cada iteración del bucle, el valor de `numeroAleatorio` cambia.
 
 #### Bucle `do-while`
 
-La condición se evalúa después de que se ha ejecutado el bloque de código. Por lo tanto, el bloque de código se ejecutará al menos una vez, incluso si la condición es falsa desde el principio.
+La condición se evalúa después de que se ha ejecutado el bloque de código. Por lo tanto, el bloque de código **se ejecutará al menos una vez**, incluso si la condición es falsa desde el principio.
+
+El flujo del `do-while` consiste en:
+
+1. Se ejecuta el bloque de código dentro del "do".
+2. Se evalúa la condición especificada después del "while".
+3. Si la condición es verdadera, el bloque de código se ejecuta nuevamente.
+4. Si es falsa, el bucle termina y la ejecución continúa después del bucle.
+
+```java
+public static void main(String[] args) {
+    Scanner pepe = new Scanner(System.in);
+    int num;
+    do {
+      System.out.print("Por favor, ingrese un número mayor a 0: ");
+      num = pepe.nextInt();
+    } while (num <= 0);
+    System.out.println("Ingresaste: " + num);
+  }
+```
+
+> El programa solicita al usuario que ingrese un número, si el número es menor o igual a 0, el programa seguirá solicitando al usuario que ingrese otro número. Esto continuará hasta que el usuario ingrese un número mayor que 0.
 
 ## Arrays
 
@@ -1899,18 +1952,3 @@ public static void main(String[] args) {
 	}
 }
 ```
-
-### `for each`
-
-Se utiliza para recorrer elementos en arreglos o colecciones sin tener que lidiar con índices.
-
-```Java
-public static void main(String[] args) {
-	int[] arr = {1, 2, 3, 4, 5};
-	for (int num : arr) {
-		System.out.println("El valor es: " + num);
-	}
-}
-```
-
-> La variable `num` toma cada valor en el arreglo `arr` en cada iteración del bucle, lo que simplifica el proceso de iterar a través del arreglo sin necesidad de utilizar un índice.
