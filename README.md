@@ -1154,6 +1154,122 @@ En Java, existen muchas clases estructuradas creadas por la plataforma o tercero
 > En Java, **las variables que se declaran dentro de un bloque tienen un ámbito limitado a ese bloque en particular**. Esto implica que solo son visibles y accesibles dentro de dicho bloque y no se pueden acceder desde fuera de él.
 > Una vez que se sale del bloque, esas variables dejan de existir y no se pueden utilizar.
 
+## Operadores en Java
+
+Los operadores en Java son símbolos especiales que se utilizan para realizar operaciones en variables y valores.
+
+### Operadores Aritméticos
+
+Son símbolos especiales utilizados para realizar operaciones matemáticas en variables. Incluyen:
+
+| Operador            | Descripción                         | Ejemplo |
+| ------------------- | ----------------------------------- | ------- |
+| Adición (+)         | Suma dos valores.                   | `a + b` |
+| Sustracción (-)     | Resta un valor de otro.             | `a - b` |
+| Multiplicación (\*) | Multiplica dos valores.             | `a * b` |
+| División (/)        | Divide un valor por otro.           | `a / b` |
+| Módulo (%)          | Obtiene el residuo de una división. | `a % b` |
+
+### Operadores de Asignación
+
+Se utilizan para asignar un valor a una variable, combinando la asignación con una operación aritmética o de bits. Los más comunes son:
+
+| Operador                          | Descripción                               | Ejemplo  |
+| --------------------------------- | ----------------------------------------- | -------- |
+| Asignación (=)                    | Asigna un valor a una variable.           | `a = b`  |
+| Suma y asignación (+=)            | Suma y luego asigna el valor.             | `a += b` |
+| Resta y asignación (-=)           | Resta y luego asigna el valor.            | `a -= b` |
+| Multiplicación y asignación (\*=) | Multiplica y luego asigna el valor.       | `a *= b` |
+| División y asignación (/=)        | Divide y luego asigna el valor.           | `a /= b` |
+| Módulo y asignación (%=)          | Aplica el módulo y luego asigna el valor. | `a %= b` |
+
+Ejemplo:
+
+```Java
+// Asignación simple
+a = b;
+// Suma y asignación
+a += b;      // a = a + b
+// Resta y asignación
+a -= b;      // a = a - b
+// ...
+
+```
+
+### Operadores de Incremento y Decremento
+
+Se utilizan para aumentar o disminuir el valor de una variable en una unidad.
+
+| Operador | Descripción                             | Ejemplo       |
+| -------- | --------------------------------------- | ------------- |
+| `++`     | Aumenta el valor de una variable en 1   | `a++` o `++a` |
+| `--`     | Disminuye el valor de una variable en 1 | `a--` o `--a` |
+
+### Operadores Relacionales o de Comparación
+
+Se utilizan para comparar dos valores y producir un resultado booleano que indica si la comparación es verdadera o falsa.
+
+| Operador               | Descripción                                     | Ejemplo  |
+| ---------------------- | ----------------------------------------------- | -------- |
+| Igual a (==)           | Verifica si dos valores son iguales.            | `a == b` |
+| No igual a (!=)        | Verifica si dos valores no son iguales.         | `a != b` |
+| Mayor que (>)          | Verifica si un valor es mayor que otro.         | `a > b`  |
+| Menor que (<)          | Verifica si un valor es menor que otro.         | `a < b`  |
+| Mayor o igual que (>=) | Verifica si un valor es mayor o igual que otro. | `a >= b` |
+| Menor o igual que (<=) | Verifica si un valor es menor o igual que otro. | `a <= b` |
+
+### Operadores Lógicos
+
+Se utilizan para combinar expresiones booleanas y producir un resultado booleano basado en ellas.
+
+| Operador         | Descripción                                                        | Ejemplo |
+| ---------------- | ------------------------------------------------------------------ | ------- |
+| AND lógico (&&)  | Devuelve verdadero si ambos operandos son verdaderos.              | a && b  |
+| OR lógico (\|\|) | Devuelve verdadero si al menos uno de los operadores es verdadero. | a\|\|b  |
+| NOT lógico (!)   | Invierte el valor de verdad del operando.                          | !a      |
+
+### Operador Condicional (Operador Ternario)
+
+Es una expresión condicional que permite tomar decisiones basadas en una condición.
+
+Es una forma concisa y eficiente de escribir expresiones condicionales simples en Java.
+
+| Operador | Descripción                                                         | Ejemplo         |
+| -------- | ------------------------------------------------------------------- | --------------- |
+| `? :`    | `a > b ? a : b` (si a es mayor que b, devuelve a, sino devuelve b). | `a > b ? a : b` |
+
+### Operadores de Bit
+
+Son utilizados para realizar operaciones a nivel de bits en los valores enteros. Estos operadores manipulan los bits individuales de los operandos.
+
+| Operador                                      | Descripción                                                                          | Ejemplo   |
+| --------------------------------------------- | ------------------------------------------------------------------------------------ | --------- |
+| AND binario (`&`)                             | Realiza una operación AND en cada par de bits.                                       | `a & b`   |
+| OR binario (\|)                               | Realiza una operación OR en cada par de bits.                                        | a \| b    |
+| OR binario (`^`)                              | Realiza una operación OR en cada par de bits.                                        | `a ^ b`   |
+| Complemento binario (`~`)                     | Invierte todos los bits.                                                             | `~a`      |
+| Desplazamiento a la izquierda (`<<`)          | Desplaza los bits a la izquierda, rellena con ceros a la derecha.                    | `a << 2`  |
+| Desplazamiento a la derecha (`>>`)            | Desplaza los bits a la derecha, rellena con el bit más significativo a la izquierda. | `a >> 2`  |
+| Desplazamiento a la derecha sin signo (`>>>`) | Desplaza los bits a la derecha, rellena con ceros a la izquierda.                    | `a >>> 2` |
+
+## Definiciones claves
+
+**IDE:** Integrated development environment. Es el entorno de desarrollo
+
+**Compilación:** Es un proceso en el que el código fuente escrito en lenguaje Java se traduce a un lenguaje que la computadora pueda entender y ejecutar.
+
+**Programa:** Es una serie de instrucciones escritas que una computadora puede ejecutar para procesar datos y producir un resultado.
+
+**Sentencias:** Son unidades mínimas de ejecución en un programa y se componen de reglas gramaticales conocidas como sintaxis.
+
+**Sintaxis:** define cómo se deben combinar las palabras, los símbolos y los elementos gramaticales para formar instrucciones y expresiones válidas.
+
+**Clase:** Es una de las unidades básicas más importantes de JAVA como lenguaje de tipo orientado a objeto. Dentro de ella se colocan datos y código del programa que vamos a empezar a codificar.
+
+**Paquetes:** Nos permite organizar los programas java y empaquetar muchos programas con un mismo fin.
+
+**Recursos:** Es un objeto que debe ser cerrado después de que el programa finalice.
+
 ## Clases
 
 Una clase se puede visualizar como un plano o una plantilla que define las características y comportamientos de un objeto.
@@ -1426,121 +1542,133 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 | **`toRadians(double anguloDeg)`**                     | Convierte un ángulo en grados a radianes.                                                              | `double`     |
 | **`ulp(double valor)`**                               | Devuelve la unidad de menor magnitud en el rango del valor especificado.                               | `double`     |
 
-## Operadores en Java
+### Clase Arrays
 
-Los operadores en Java son símbolos especiales que se utilizan para realizar operaciones en variables y valores.
+Es parte del paquete `java.util`, proporciona métodos **estáticos** que permiten manipular, copiar, ordenar, buscar y comparar arreglos.
 
-### Operadores Aritméticos
+#### `Arrays.sort()`
 
-Son símbolos especiales utilizados para realizar operaciones matemáticas en variables. Incluyen:
+- Ordena un arreglo en orden ascendente.
+- Aplica a tipos primitivos y objetos que implementen la interfaz `Comparable`.
 
-| Operador            | Descripción                         | Ejemplo |
-| ------------------- | ----------------------------------- | ------- |
-| Adición (+)         | Suma dos valores.                   | `a + b` |
-| Sustracción (-)     | Resta un valor de otro.             | `a - b` |
-| Multiplicación (\*) | Multiplica dos valores.             | `a * b` |
-| División (/)        | Divide un valor por otro.           | `a / b` |
-| Módulo (%)          | Obtiene el residuo de una división. | `a % b` |
-
-### Operadores de Asignación
-
-Se utilizan para asignar un valor a una variable, combinando la asignación con una operación aritmética o de bits. Los más comunes son:
-
-| Operador                          | Descripción                               | Ejemplo  |
-| --------------------------------- | ----------------------------------------- | -------- |
-| Asignación (=)                    | Asigna un valor a una variable.           | `a = b`  |
-| Suma y asignación (+=)            | Suma y luego asigna el valor.             | `a += b` |
-| Resta y asignación (-=)           | Resta y luego asigna el valor.            | `a -= b` |
-| Multiplicación y asignación (\*=) | Multiplica y luego asigna el valor.       | `a *= b` |
-| División y asignación (/=)        | Divide y luego asigna el valor.           | `a /= b` |
-| Módulo y asignación (%=)          | Aplica el módulo y luego asigna el valor. | `a %= b` |
-
-Ejemplo:
-
-```Java
-// Asignación simple
-a = b;
-// Suma y asignación
-a += b;      // a = a + b
-// Resta y asignación
-a -= b;      // a = a - b
-// ...
-
+```java
+int[] arr = {1, 5, 2, 6, 3, 7};
+Arrays.sort(arr); // El arreglo ahora está ordenado
 ```
 
-### Operadores de Incremento y Decremento
+#### `Arrays.binarySearch()`
 
-Se utilizan para aumentar o disminuir el valor de una variable en una unidad.
+- Realiza una búsqueda binaria en un arreglo ordenado.
+- Devuelve el índice del valor si se encuentra, o un valor negativo si no está presente.
 
-| Operador | Descripción                             | Ejemplo       |
-| -------- | --------------------------------------- | ------------- |
-| `++`     | Aumenta el valor de una variable en 1   | `a++` o `++a` |
-| `--`     | Disminuye el valor de una variable en 1 | `a--` o `--a` |
+```java
+int[] arr = {1, 2, 3, 4, 5};
+int index = Arrays.binarySearch(arr, 3); // Devuelve 2 (índice de 3)
+```
 
-### Operadores Relacionales o de Comparación
+💡 **Nota**: La búsqueda binaria es eficiente, pero requiere que los objetos implementen `Comparable`.
 
-Se utilizan para comparar dos valores y producir un resultado booleano que indica si la comparación es verdadera o falsa.
+#### `Arrays.equals()`
 
-| Operador               | Descripción                                     | Ejemplo  |
-| ---------------------- | ----------------------------------------------- | -------- |
-| Igual a (==)           | Verifica si dos valores son iguales.            | `a == b` |
-| No igual a (!=)        | Verifica si dos valores no son iguales.         | `a != b` |
-| Mayor que (>)          | Verifica si un valor es mayor que otro.         | `a > b`  |
-| Menor que (<)          | Verifica si un valor es menor que otro.         | `a < b`  |
-| Mayor o igual que (>=) | Verifica si un valor es mayor o igual que otro. | `a >= b` |
-| Menor o igual que (<=) | Verifica si un valor es menor o igual que otro. | `a <= b` |
+- Compara dos arreglos para verificar si tienen los mismos elementos en las mismas posiciones.
 
-### Operadores Lógicos
+```java
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {1, 2, 3};
+boolean isEqual = Arrays.equals(arr1, arr2); // Devuelve true
+```
 
-Se utilizan para combinar expresiones booleanas y producir un resultado booleano basado en ellas.
+#### `Arrays.fill()`
 
-| Operador         | Descripción                                                        | Ejemplo |
-| ---------------- | ------------------------------------------------------------------ | ------- |
-| AND lógico (&&)  | Devuelve verdadero si ambos operandos son verdaderos.              | a && b  |
-| OR lógico (\|\|) | Devuelve verdadero si al menos uno de los operadores es verdadero. | a\|\|b  |
-| NOT lógico (!)   | Invierte el valor de verdad del operando.                          | !a      |
+- Llena todos los elementos de un arreglo con un valor específico.
 
-### Operador Condicional (Operador Ternario)
+```java
+int[] arr = new int[5];
+Arrays.fill(arr, 1); // Todos los elementos ahora son 1
+```
 
-Es una expresión condicional que permite tomar decisiones basadas en una condición.
+#### `Arrays.copyOf()` y `Arrays.copyOfRange()`
 
-Es una forma concisa y eficiente de escribir expresiones condicionales simples en Java.
+- Copian un arreglo o una parte de él en un nuevo arreglo.
 
-| Operador | Descripción                                                         | Ejemplo         |
-| -------- | ------------------------------------------------------------------- | --------------- |
-| `? :`    | `a > b ? a : b` (si a es mayor que b, devuelve a, sino devuelve b). | `a > b ? a : b` |
+```java
+int[] original = {1, 2, 3, 4, 5};
+int[] copia = Arrays.copyOf(original, original.length); // Copia completa
+int[] parteDeUnaCopia = Arrays.copyOfRange(original, 1, 3); //Crea una copia de una parte del arreglo original (índices 1 a 2 - El tercer parámetro no es inclusivo)
+```
 
-### Operadores de Bit
+#### `Arrays.toString()`
 
-Son utilizados para realizar operaciones a nivel de bits en los valores enteros. Estos operadores manipulan los bits individuales de los operandos.
+- Convierte un arreglo en una cadena legible, útil para depuración.
 
-| Operador                                      | Descripción                                                                          | Ejemplo   |
-| --------------------------------------------- | ------------------------------------------------------------------------------------ | --------- |
-| AND binario (`&`)                             | Realiza una operación AND en cada par de bits.                                       | `a & b`   |
-| OR binario (\|)                               | Realiza una operación OR en cada par de bits.                                        | a \| b    |
-| OR binario (`^`)                              | Realiza una operación OR en cada par de bits.                                        | `a ^ b`   |
-| Complemento binario (`~`)                     | Invierte todos los bits.                                                             | `~a`      |
-| Desplazamiento a la izquierda (`<<`)          | Desplaza los bits a la izquierda, rellena con ceros a la derecha.                    | `a << 2`  |
-| Desplazamiento a la derecha (`>>`)            | Desplaza los bits a la derecha, rellena con el bit más significativo a la izquierda. | `a >> 2`  |
-| Desplazamiento a la derecha sin signo (`>>>`) | Desplaza los bits a la derecha, rellena con ceros a la izquierda.                    | `a >>> 2` |
+```java
+int[] arr = {1, 2, 3};
+System.out.println(Arrays.toString(arr)); // Imprime "[1, 2, 3]"
+```
 
-## Definiciones claves
+#### `Arrays.asList()`
 
-**IDE:** Integrated development environment. Es el entorno de desarrollo
+- Convierte un arreglo en una lista (`List`), lo que permite manipularlo usando métodos de la interfaz `List`.
 
-**Compilación:** Es un proceso en el que el código fuente escrito en lenguaje Java se traduce a un lenguaje que la computadora pueda entender y ejecutar.
+## Clase Wrappers
 
-**Programa:** Es una serie de instrucciones escritas que una computadora puede ejecutar para procesar datos y producir un resultado.
+**Son clases que mapean un tipo de dato primitivo dentro de un objeto.** Cada tipo de dato primitivo cuenta con una clase envolvente o "wrapper" que encapsula dicho tipo de dato primitivo en un objeto.
 
-**Sentencias:** Son unidades mínimas de ejecución en un programa y se componen de reglas gramaticales conocidas como sintaxis.
+Las clases "wrapper" correspondientes a cada tipo de dato primitivo, son
 
-**Sintaxis:** define cómo se deben combinar las palabras, los símbolos y los elementos gramaticales para formar instrucciones y expresiones válidas.
+| Tipo Primitivo | Clase Wrapper |
+| -------------- | ------------- |
+| `boolean`      | `Boolean`     |
+| `char`         | `Character`   |
+| `int`          | `Integer`     |
+| `double`       | `Double`      |
+| `byte`         | `Byte`        |
+| `short`        | `Short`       |
+| `long`         | `Long`        |
+| `float`        | `Float`       |
 
-**Clase:** Es una de las unidades básicas más importantes de JAVA como lenguaje de tipo orientado a objeto. Dentro de ella se colocan datos y código del programa que vamos a empezar a codificar.
+Las clases wrapper permiten que los tipos primitivos se comporten como objetos, proporcionando métodos adicionales para realizar operaciones útiles.
 
-**Paquetes:** Nos permite organizar los programas java y empaquetar muchos programas con un mismo fin.
+### Boolean
 
-**Recursos:** Es un objeto que debe ser cerrado después de que el programa finalice.
+| Método                      | Descripción                                                                                                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `toString()`                | Devuelve un objeto `String` que representa el valor de este booleano.                                                                                                                |
+| `Boolean.valueOf(String s)` | Devuelve un objeto `Boolean` dependiendo del string ingresado por parámetro. Si `s` es igual a `"true"` (ignorando mayúsculas y minúsculas), devuelve `true`, sino devuelve `false`. |
+| `booleanValue()`            | Devuelve el valor booleano del objeto `Boolean`.                                                                                                                                     |
+
+### Character
+
+| Método                                  | Descripción                                                                                                                   |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `toString()`                            | Devuelve un objeto `String` que representa el valor de esta variable de tipo `Character`.                                     |
+| `compareTo(Character anotherCharacter)` | Compara numéricamente con `anotherCharacter`, devuelve `0` si son iguales, `-1` si es menor numéricamente, y `1` si es mayor. |
+| `Character.valueOf(String s)`           | Devuelve un objeto `Character` basado en el valor del string ingresado por parámetro.                                         |
+| `Character.getNumericValue(char ch)`    | Devuelve el valor `int` que representa el carácter Unicode especificado por parámetro.                                        |
+| `Character.getType(char ch)`            | Devuelve un valor que indica la categoría general del carácter `ch`.                                                          |
+| `Character.isLetter(char ch)`           | Determina si el carácter especificado es una letra.                                                                           |
+| `Character.isWhitespace(char ch)`       | Determina si el carácter especificado es un espacio en blanco.                                                                |
+
+### Integer
+
+| Método                              | Descripción                                                                                                                 |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `toString()`                        | Devuelve un objeto `String` que representa el valor de este `Integer`.                                                      |
+| `compareTo(Integer anotherInteger)` | Compara numéricamente con `anotherInteger`, devuelve `0` si son iguales, `-1` si es menor numéricamente, y `1` si es mayor. |
+| `Integer.valueOf(String s)`         | Devuelve un objeto `Integer` dependiendo del string ingresado por parámetro.                                                |
+| `Integer.MAX_VALUE`                 | Una constante que contiene el valor máximo que puede tener un `int` ($2^{31}-1$).                                           |
+| `Integer.MIN_VALUE`                 | Una constante que contiene el valor mínimo que puede tener un `int` ($-2^{31}$).                                            |
+
+### Double
+
+| Método                            | Descripción                                                                                                                |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `toString()`                      | Devuelve un objeto `String` que representa el valor de este `Double`.                                                      |
+| `compareTo(Double anotherDouble)` | Compara numéricamente con `anotherDouble`, devuelve `0` si son iguales, `-1` si es menor numéricamente, y `1` si es mayor. |
+| `Double.valueOf(String s)`        | Devuelve un objeto `Double` dependiendo del string ingresado por parámetro.                                                |
+| `Double.MAX_VALUE`                | Una constante que contiene el mayor valor finito positivo de tipo `double`, $(2-2^{-52})\times2^{1023}$.                   |
+| `Double.MIN_VALUE`                | Una constante que contiene el menor valor positivo distinto de cero de tipo `double`, $2^{-1074}$.                         |
+| `doubleValue()`                   | Devuelve el valor primitivo `double` correspondiente a este `Double`.                                                      |
 
 ## Estructuras de Control
 
@@ -1907,6 +2035,8 @@ public static void main(String[] args) {
 ```
 
 > El programa solicita al usuario que ingrese un número, si el número es menor o igual a 0, el programa seguirá solicitando al usuario que ingrese otro número. Esto continuará hasta que el usuario ingrese un número mayor que 0.
+
+**Recurso**: https://ioflood.com/blog/do-while-loop-java/
 
 ## Arrays
 
