@@ -517,14 +517,6 @@ Es una solicitud para integrar cambios (commits) de una rama de desarrollo a otr
 6. Revisión por el equipo
 7. Hacer merge en la rama principal o de desarrollo.
 
-IDEA ejercicio.
-
-1. Crear un proyecto.
-2. Cada uno le hace fork
-3. Cada uno crea una rama
-4. Hace cambios y los sube
-5. Hacer PR al repositorio principal.
-
 ## Definiciones Claves
 
 **Repositorio:** Es un espacio centralizado donde se almacena, organiza y mantiene la información.
