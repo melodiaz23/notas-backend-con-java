@@ -31,16 +31,14 @@ Palabras reservadas propias del lenguaje que sirven para un uso específico:
 - `Definir` -> Declarar una variable.
 - `Como` -> Tipo de dato.
 
----
-
+***
 En PSeInt, los tipos de datos que podemos utilizar incluyen: entero, real, caracter, cadena y lógico:
 
 - **Entero** -> Permite guardar valores numéricos, sin decimales.
 - **Real** -> Permite guardar valores numéricos, con decimales.
 - **Caracter** -> Permite guardar letras, palabras, texto. También conocido como cadena de caracteres.
 - **Logico** -> Permite guardar datos con valor de verdad (verdadero o falso).
-
----
+***
 
 - `Escribir` -> Nos permite mostrar información por la salida del programa (función de salida).
 
@@ -291,7 +289,6 @@ Los arreglos pueden tener múltiples dimensiones, aunque en la práctica se util
 > Los arreglos, una vez se define el tamaño que va a tener el vector no se puede redimensionar (son estáticos). Y todos los valores son del mismo tipo.
 
 ## Vectores
-
 > Se representa gráficamente como una única fila con N columnas.
 
 Consiste en una secuencia de elementos, dispuestos uno detrás del otro, y posee las siguientes características:
@@ -469,6 +466,7 @@ El sistema de control de Git está estructurado en tres áreas clave:
 
 ![git areas](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/git-areas.png?raw=true)
 
+
 ## Git workflow
 
 Es un conjunto de prácticas recomendadas para trabajar de manera eficiente y productiva. Este flujo define cómo añadir, probar y fusionar nuevas funcionalidades de forma que se eviten
@@ -487,14 +485,12 @@ Un buen flujo de trabajo ofrece:
 GitHub es una plataforma en línea donde se pueden guardar y manejar los proyectos de software.
 
 GitHub proporciona una serie de herramientas y características adicionales que mejoran el flujo de trabajo, tales como:
-
 - Reportar y seguir problemas.
 - Revisar cambios.
 - Automatizar tareas.
 - Wiki y Páginas de GitHub.
 
-Las características más relevantes son:
-
+Las características más relevantes son: 
 - Creación de repositorios
 - Utiliza Git para el control de versiones.
 - Facilita la colaboración en proyectos.
@@ -503,7 +499,7 @@ Las características más relevantes son:
 - Proporciona herramientas para el seguimiento de problemas y tareas.
 - Es conocido por ser un centro para proyectos de código abierto.
 
-## ¿Qué es una pull request?
+## ¿Qué es una pull request? 
 
 Es una solicitud para integrar cambios (commits) de una rama de desarrollo a otra, comúnmente de una rama de un fork o de una rama secundaria a la rama principal o main.
 
@@ -525,15 +521,14 @@ Es una solicitud para integrar cambios (commits) de una rama de desarrollo a otr
 
 **Markdown:** Es un lenguaje de marcado ligero diseñado para facilitar la lectura y escritura.
 
-**README.md:** Es la primera página de documentación del proyecto. Sirve para:
-
-- Describir el proyecto.
-- Instrucciones de instalación.
-- Uso y ejemplos.
-- Enlaces a documentación adicional.
-- Información para contribuyentes.
-- Licencia.
-- Contacto y reconocimientos.
+**README.md:** Es la primera página de documentación del proyecto. Sirve para: 
+- Describir el proyecto. 
+- Instrucciones de instalación. 
+- Uso y ejemplos. 
+- Enlaces a documentación adicional. 
+- Información para contribuyentes. 
+- Licencia. 
+- Contacto y reconocimientos. 
 - Badges
 
 **HEAD:** Commit más reciente en la rama activa
@@ -598,15 +593,16 @@ Clona el repositorio de GitHub o BitBucket
 git clone <url>
 ```
 
+
 #### `git add`
 
-Mueve todos los archivos del working area al staging area:
+ Mueve todos los archivos del working area al staging area:
 
 ```sh
 git add .
 ```
 
-Agrega un archivo específico:
+Agrega un archivo específico: 
 
 ```sh
 git add <nombre_del_archivo>
@@ -639,11 +635,9 @@ git add docs/*.txt
 #### `git rm`
 
 Borra un archivo del repositorio y lo prepara para el próximo commit:
-
 ```sh
 git rm <archivo>
-```
-
+``` 
 > Para este caso no se usaría `git add`
 
 #### `git commit`
@@ -655,11 +649,9 @@ git commit -m "[mensaje_descriptivo]"
 ```
 
 Agrega y carga en el HEAD los cambios realizados, en lugar de hacer `git add <archivo>` y luego `git commit`:
-
 ```sh
 git commit -a -m "[mensaje_descriptivo]"
 ```
-
 > `-a`: Indica que Git debe incluir todos los archivos que han sido modificados y rastreados (No incluye archivos nuevos que no han sido rastreados).
 
 Modifica el último commit:
@@ -667,20 +659,18 @@ Modifica el último commit:
 ```sh
 git commit --amend -m "[mensaje_descriptivo]"
 ```
-
-> Remplaza el último commit con un nuevo commit que incluye todos los cambios que ya estaban en el commit original, más cualquier cambio adicional que se haya añadido
+>Remplaza el último commit con un nuevo commit que incluye todos los cambios que ya estaban en el commit original, más cualquier cambio adicional que se haya añadido
 
 Quita del HEAD un archivo y le pone el estado `untracked`:
-
 ```sh
 git checkout -- <file>
-# También se puede usar:
-# git restore --staged <file>
+# También se puede usar: 
+# git restore --staged <file>  
 ```
 
 #### `git log`
 
-Permite ver el historial de commits:
+Permite ver el historial de commits: 
 
 ```sh
 git log
@@ -692,7 +682,7 @@ Lista condensada con cada commit en una sola línea.
 git log --oneline
 ```
 
-Representación de las ramificaciones y fusiones en el historial de commits.
+ Representación de las ramificaciones y fusiones en el historial de commits.
 
 ```sh
 git log --oneline --graph
@@ -728,7 +718,7 @@ Cambia de rama:
 
 ```sh
 git checkout <nombre_de_la_rama>
-# Más reciente:
+# Más reciente: 
 git switch <nombre_de_la_rama>
 ```
 
@@ -739,9 +729,8 @@ git checkout -b <nombre_de_la_rama>
 ```
 
 Crea un rama en base a una branch del repositorio remoto:
-
 ```sh
-git switch -c <nuevo_nombre_de_la_rama> origin/branch-name
+git switch -c <nuevo_nombre_de_la_rama> origin/branch-name  
 # Antes git checkout -b
 ```
 
@@ -759,12 +748,12 @@ Clona un repositorio y le da un nombre específico al directorio clonado:
 git clone <url> git-demo
 ```
 
+
 Vincula un repositorio local con un repositorio remoto:
 
 ```Shell
 git remote add origin <url>:
 ```
-
 > `origin` es un nombre convencional que se da al repositorio remoto principal.
 
 #### `git push`
@@ -774,7 +763,6 @@ Envía los cambios locales de la rama al repositorio remoto en la rama especific
 ```Sh
 git push origin <nombre_de_la_rama>
 ```
-
 > Si la rama remota no existe, el comando **creará** una nueva rama remota con el nombre especificado.
 
 Sube los cambios al repositorio remoto y establece una rama de seguimiento upstream para la rama local actual:
@@ -782,48 +770,45 @@ Sube los cambios al repositorio remoto y establece una rama de seguimiento upstr
 ```Sh
 git push -u origin <nombre_de_la_rama>
 ```
-
 > De este modo no se necesitará especificar el nombre del repositorio remoto y la rama, ya que quedará por defecto.
 
-#### `git fetch`
+#### `git fetch` 
 
-Descarga los cambios del repositorio remoto pero no los fusiona en la rama.
+Descarga los cambios del repositorio remoto pero no los fusiona en la rama. 
 
 ```Sh
 git fetch
 ```
-
 > Se puede revisar los cambios antes de decidir integrarlos en la rama de trabajo local.
+
 
 #### `git merge`
 
 Une el branch actual con el especificado:
 
 ```sh
-git merge <nombre_de_la_rama>
+git merge <nombre_de_la_rama>  
 ```
-
 > Si no hay conflictos, Git realiza la fusión automáticamente. Si hay conflictos, se debe resolver manualmente para completar la fusión.
 
 #### `git pull`
 
 Trae los cambios de otra rama, y los fusiona con la rama actual:
-
 ```Sh
 git pull origin <nombre_de_la_rama>
 # Para asegurar que los cambios estén sincronizados con los últimos cambios en main:
-git pull origin main
+git pull origin main 
 ```
 
-> [!NOTE]
+
+> [!NOTE] 
 > **En Visual Studio Code:**
->
 > - Accept Current Change: para aceptar la versión del repositorio local como la versión correcta y más actual.
 > - Accept Incoming Change: para aceptar la versión que viene del repositorio remoto como la versión correcta y más actual.
 > - Accept Both Changes: para aceptar ambos cambios.
 > - Compare Changes: para comparar los campos.
 
----
+*** 
 
 Cuando deseamos **integrar una rama con otra** podemos hacer pull desde la rama que vamos a integrar. Por ejemplo si vamos a hacer pull de "languages", hacia develop debemos:
 
@@ -848,13 +833,11 @@ git pull origin develop
 #### `git remote`
 
 Muestra la lista de los repositorios remotos a los que se le está haciendo fetch y push:
-
 ```sh
 git remote -v
 ```
 
 Cambia la URL del repositorio remoto asociado al nombre `origin`:
-
 ```sh
 git remote set-url origin <url>
 ```
@@ -864,75 +847,63 @@ git remote set-url origin <url>
 #### `git reset`
 
 Saca un archivo del commit:
-
 ```sh
 git reset HEAD <archivo>
 ```
-
 > El archivo queda en estado unstaged.
 
 Devuelve el último commit que se hizo y pone los cambios en staging:
-
 ```sh
 git reset --soft HEAD^
 ```
 
 Devuelve el último commit, restableciendo los archivos al estado de ese commit anterior:
-
 ```sh
 git reset --hard HEAD^
 ```
 
 Devuelve los 2 últimos commits y todos los cambios al estado del commit anterior:
-
 ```sh
 git reset --hard HEAD^^
 ```
 
 Restablece el estado del repositorio al commit especificado:
-
 ```sh
 git log
 git reset --hard <commit_sha>
 ```
-
 > Todos los cambios que se hicieron en los commits posteriores al commit seleccionado se eliminarán.
-
 #### `git rebase`
 
 Une el branch actual con el master:
-
 ```sh
 git rebase
 ```
-
 > `git rebase` altera el historial de commits.
 
 Continúa la secuencia del rebase donde se pausó (si hay conflicto):
-
 ```sh
 git rebase --continue
 ```
 
 Omite el conflicto y sigue adelante:
-
 ```sh
 git rebase --skip
 ```
 
 Devuelve todo al principio del rebase:
-
 ```sh
 git rebase --abort
 ```
 
 Hace un rebase a un branch específico:
-
 ```sh
 git rebase <nameBranch>
 ```
 
----
+
+
+***
 
 # Servicios Backend
 
@@ -943,7 +914,6 @@ Un programador backend es responsable de recibir, procesar y almacenar datos en 
 # JAVA
 
 Java es un lenguaje de programación que fue diseñado bajo el paradigma **orientado a objetos**, lo que permite:
-
 - Modelar y representar objetos del mundo real de manera eficiente en código.
 - Organizar y estructurar el código de manera lógica y comprensible.
 - Reutilizar código de manera efectiva.
@@ -979,10 +949,11 @@ public class MiPrimerPrograma {
 - `println` -> Es un método, imprime en una nueva línea en la consola.
 - `print` -> Imprime en la misma línea.
 
-> [!NOTE]
+
+> [!NOTE] 
 > Al programar en Java, es crucial asignar y almacenar los datos en variables del tipo correcto para garantizar un funcionamiento adecuado.
 
-Para declarar una variable en Java:
+Para declarar una variable en Java: 
 
 ```Java
 int miVariable = 10;
@@ -1022,18 +993,17 @@ int numero1 = 17;
 final int NUMERO_15 = 15;
 ```
 
-- Al declarar una constante debemos _inicializarla de inmediato_.
+- Al declarar una constante debemos *inicializarla de inmediato*.
 - Las variables se escriben en `camelCase`.
 - Las constantes se escriben en `UPPER_CASE.`.
 
 ## Tipos de datos
 
 ![tipos de datos](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/tipos_de_datos.png?raw=true)
-
 ### Datos primitivos
 
 - Se caracterizan por poder almacenar un único valor.
-- La mayor parte de los tipos estructurados o complejos son composiciones a partir de datos primitivos.
+- La mayor parte de los tipos estructurados o complejos son composiciones a partir de datos primitivos. 
 - Los datos primitivos (8), sirven para gestionar los tipos de información más básicos como números o booleanos.
 
 #### Numéricos
@@ -1046,38 +1016,37 @@ final int NUMERO_15 = 15;
 ##### Tipos numéricos enteros
 
 1. **byte:** Emplea un sólo byte
-   _Tamaño:_ 1 byte (8 bits).
-   _Rango:_ [-128, 127].
+	*Tamaño:* 1 byte (8 bits).
+	*Rango:* [-128, 127].
 
 2. **short:** Usa el doble de almacenamiento que el anterior.
-   _Tamaño:_ 2 bytes (16 bits).
-   _Rango:_ [-32.768, 32.767].
+	*Tamaño:* 2 bytes (16 bits).
+	*Rango:* [-32.768, 32.767].
 
 3. **int:** Es el tipo de dato entero más empleado.
-   _Tamaño:_ 4 bytes (32 bits).
-   _Rango:_ [-2.147.483.648, 2.147.483.647] (o -2^31 a 2^31-1).
+	*Tamaño:* 4 bytes (32 bits).
+	*Rango:* [-2.147.483.648, 2.147.483.647] (o -2^31 a 2^31-1).
 
 4. **long:** Tipo de entero de mayor tamaño.
-   _Tamaño:_ 8 bytes (64 bits).
-   _Rango:_ [-9.223.372.036.854.775.808, 9.223.372.036.854.775.807] (o -2^63 a 2^63-1).
+	*Tamaño:* 8 bytes (64 bits).
+	*Rango:* [-9.223.372.036.854.775.808, 9.223.372.036.854.775.807] (o -2^63 a 2^63-1).
 
 ##### Tipos numéricos decimales
 
 Permiten representar números tanto muy grandes como muy pequeños, además de números decimales.
 
 1. **float:** Conocido como tipo de precisión simple. Soporta hasta 7 números después de la coma.
+    - *Tamaño:* 4 bytes (32 bits).
 
-   - _Tamaño:_ 4 bytes (32 bits).
-
-2. **double:** Utiliza un esquema de almacenamiento similar al `float`, pero con mayor capacidad. Soporta 15 números después de la coma
-   - _Tamaño:_ 8 bytes (64 bits).
+3. **double:** Utiliza un esquema de almacenamiento similar al `float`, pero con mayor capacidad. Soporta 15 números después de la coma
+    - *Tamaño:* 8 bytes (64 bits).
 
 > [!NOTE]
-> Mientras que _float_ podría ser adecuado para representar datos con una precisión de hasta dos dígitos decimales, el tipo _double_ ofrece una mayor precisión y un rango de valores más amplio, lo que puede resultar beneficioso en aplicaciones comerciales donde la exactitud de los datos desempeña un papel crucial.
+> Mientras que *float* podría ser adecuado para representar datos con una precisión de hasta dos dígitos decimales, el tipo *double* ofrece una mayor precisión y un rango de valores más amplio, lo que puede resultar beneficioso en aplicaciones comerciales donde la exactitud de los datos desempeña un papel crucial.
 
 #### Booleanos y caracteres
 
-##### `boolean`
+##### `boolean` 
 
 Facilita el trabajo con valores "verdadero/falso". El tipo de datos `boolean` Sólo acepta true o false,
 
@@ -1090,7 +1059,7 @@ boolean booleana = false;
 
 - Se utiliza para almacenar caracteres individuales.
 - Aunque se considera un tipo numérico, su representación habitual es el carácter cuyo código almacena.
-- Utiliza la codificación _UTF-16_ de Unicode.
+- Utiliza la codificación *UTF-16* de Unicode.
 - Debe estar rodeado de comillas simples
 
 ```Java
@@ -1099,7 +1068,7 @@ char caracter = 'a';
 
 ### Estructurados
 
-- Después de los primitivos, todos los demás tipos de datos son objetos, también llamados tipos estructurados o _"Clases"_.
+- Después de los primitivos, todos los demás tipos de datos son objetos, también llamados tipos estructurados o *"Clases"*.
 - Los objetos son instancias de las clases.
 - Se denominan estructurados por que su mayor parte están destinados a contener múltiples valores.
 - Pueden contener valores de tipo primitivo o de tipo objeto.
@@ -1142,7 +1111,8 @@ En Java, existen muchas clases estructuradas creadas por la plataforma o tercero
   - `Boolean`
   - `Character`
 
-> [!NOTE]
+
+> [!NOTE] 
 > En Java, **las variables que se declaran dentro de un bloque tienen un ámbito limitado a ese bloque en particular**. Esto implica que solo son visibles y accesibles dentro de dicho bloque y no se pueden acceder desde fuera de él.
 > Una vez que se sale del bloque, esas variables dejan de existir y no se pueden utilizar.
 
@@ -1154,32 +1124,32 @@ Los operadores en Java son símbolos especiales que se utilizan para realizar op
 
 Son símbolos especiales utilizados para realizar operaciones matemáticas en variables. Incluyen:
 
-| Operador            | Descripción                         | Ejemplo |
-| ------------------- | ----------------------------------- | ------- |
-| Adición (+)         | Suma dos valores.                   | `a + b` |
-| Sustracción (-)     | Resta un valor de otro.             | `a - b` |
-| Multiplicación (\*) | Multiplica dos valores.             | `a * b` |
-| División (/)        | Divide un valor por otro.           | `a / b` |
-| Módulo (%)          | Obtiene el residuo de una división. | `a % b` |
+| Operador    | Descripción                      | Ejemplo |
+|-------------|----------------------------------|---------|
+| Adición (+) | Suma dos valores.                | `a + b` |
+| Sustracción (-) | Resta un valor de otro.       | `a - b` |
+| Multiplicación (*) | Multiplica dos valores.    | `a * b` |
+| División (/) | Divide un valor por otro.        | `a / b` |
+| Módulo (%) | Obtiene el residuo de una división. | `a % b` |
 
 ### Operadores de Asignación
 
 Se utilizan para asignar un valor a una variable, combinando la asignación con una operación aritmética o de bits. Los más comunes son:
 
-| Operador                          | Descripción                               | Ejemplo  |
-| --------------------------------- | ----------------------------------------- | -------- |
-| Asignación (=)                    | Asigna un valor a una variable.           | `a = b`  |
-| Suma y asignación (+=)            | Suma y luego asigna el valor.             | `a += b` |
-| Resta y asignación (-=)           | Resta y luego asigna el valor.            | `a -= b` |
-| Multiplicación y asignación (\*=) | Multiplica y luego asigna el valor.       | `a *= b` |
-| División y asignación (/=)        | Divide y luego asigna el valor.           | `a /= b` |
-| Módulo y asignación (%=)          | Aplica el módulo y luego asigna el valor. | `a %= b` |
+| Operador            | Descripción                                  | Ejemplo   |
+|---------------------|----------------------------------------------|-----------|
+| Asignación (=)       | Asigna un valor a una variable.              | `a = b`   |
+| Suma y asignación (+=)| Suma y luego asigna el valor.                | `a += b`  |
+| Resta y asignación (-=)| Resta y luego asigna el valor.              | `a -= b`  |
+| Multiplicación y asignación (*=)| Multiplica y luego asigna el valor. | `a *= b`  |
+| División y asignación (/=) | Divide y luego asigna el valor.         | `a /= b`  |
+| Módulo y asignación (%=) | Aplica el módulo y luego asigna el valor. | `a %= b`  |
 
-Ejemplo:
+Ejemplo: 
 
 ```Java
 // Asignación simple
-a = b;
+a = b;      
 // Suma y asignación
 a += b;      // a = a + b
 // Resta y asignación
@@ -1190,16 +1160,15 @@ a -= b;      // a = a - b
 
 ### Operadores de Incremento y Decremento
 
-Se utilizan para aumentar o disminuir el valor de una variable en una unidad.
+Se utilizan para aumentar o disminuir el valor de una variable en una unidad. 
 
-| Operador | Descripción                             | Ejemplo       |
-| -------- | --------------------------------------- | ------------- |
-| `++`     | Aumenta el valor de una variable en 1   | `a++` o `++a` |
-| `--`     | Disminuye el valor de una variable en 1 | `a--` o `--a` |
-
+| Operador   | Descripción                           | Ejemplo        |
+|------------|---------------------------------------|----------------|
+| `++`       | Aumenta el valor de una variable en 1 | `a++` o `++a`  |
+| `--`       | Disminuye el valor de una variable en 1 | `a--` o `--a` |
 ### Operadores Relacionales o de Comparación
 
-Se utilizan para comparar dos valores y producir un resultado booleano que indica si la comparación es verdadera o falsa.
+Se utilizan para comparar dos valores y producir un resultado booleano que indica si la comparación es verdadera o falsa. 
 
 | Operador               | Descripción                                     | Ejemplo  |
 | ---------------------- | ----------------------------------------------- | -------- |
@@ -1212,7 +1181,7 @@ Se utilizan para comparar dos valores y producir un resultado booleano que indic
 
 ### Operadores Lógicos
 
-Se utilizan para combinar expresiones booleanas y producir un resultado booleano basado en ellas.
+Se utilizan para combinar expresiones booleanas y producir un resultado booleano basado en ellas. 
 
 | Operador         | Descripción                                                        | Ejemplo |
 | ---------------- | ------------------------------------------------------------------ | ------- |
@@ -1222,9 +1191,9 @@ Se utilizan para combinar expresiones booleanas y producir un resultado booleano
 
 ### Operador Condicional (Operador Ternario)
 
-Es una expresión condicional que permite tomar decisiones basadas en una condición.
+Es una expresión condicional que permite tomar decisiones basadas en una condición. 
 
-Es una forma concisa y eficiente de escribir expresiones condicionales simples en Java.
+Es una forma concisa y eficiente de escribir expresiones condicionales simples en Java. 
 
 | Operador | Descripción                                                         | Ejemplo         |
 | -------- | ------------------------------------------------------------------- | --------------- |
@@ -1244,6 +1213,7 @@ Son utilizados para realizar operaciones a nivel de bits en los valores enteros.
 | Desplazamiento a la derecha (`>>`)            | Desplaza los bits a la derecha, rellena con el bit más significativo a la izquierda. | `a >> 2`  |
 | Desplazamiento a la derecha sin signo (`>>>`) | Desplaza los bits a la derecha, rellena con ceros a la izquierda.                    | `a >>> 2` |
 
+
 ## Definiciones claves
 
 **IDE:** Integrated development environment. Es el entorno de desarrollo
@@ -1262,14 +1232,14 @@ Son utilizados para realizar operaciones a nivel de bits en los valores enteros.
 
 **Recursos:** Es un objeto que debe ser cerrado después de que el programa finalice.
 
+
 ## Clases
 
-Una clase se puede visualizar como un plano o una plantilla que define las características y comportamientos de un objeto.
+Una clase se puede visualizar como un plano o una plantilla que define las características y comportamientos de un objeto. 
 
 Al crear una **instancia** de una clase, se crea un objeto específico basado en esa plantilla.
 
 Las clases `System` están en un paquete que se descarga por defecto.
-
 ### Clase Scanner
 
 - La clase Scanner es utilizada en Java para obtener la entrada del usuario desde la consola.
@@ -1286,7 +1256,7 @@ Scanner miScanner = new Scanner(System.in);
 
 `System.in` -> Permite la entrada de datos.
 
-_Una vez que se tiene una instancia de Scanner, se pueden utilizar sus métodos para leer los datos ingresados por el usuario._ Algunos de ellos son:
+*Una vez que se tiene una instancia de Scanner, se pueden utilizar sus métodos para leer los datos ingresados por el usuario.* Algunos de ellos son:
 
 - `nextBoolean()`: Lee un valor booleano (`true` o `false`) desde la entrada.
 - `nextInt()`: Lee un número entero desde la entrada.
@@ -1295,6 +1265,7 @@ _Una vez que se tiene una instancia de Scanner, se pueden utilizar sus métodos 
 - `next()` : Lee hasta el primer espacio.
 
 Ejemplo:
+
 
 ```Java
 Scanner miScanner = new Scanner(System.in);
@@ -1306,13 +1277,11 @@ System.out.println("El número ingresado es: " + numero);
 La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fuente de datos que se quiera leer:
 
 1. **`System.in`**: Para leer desde la entrada estándar (teclado).
-
    ```java
    Scanner miScanner = new Scanner(System.in);
    ```
 
 2. **`File`**: Para leer desde un archivo.
-
    ```java
    File file = new File("ruta/del/archivo.txt");
    Scanner miScanner = new Scanner(file);
@@ -1324,11 +1293,12 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
    Scanner miScanner = new Scanner(data);
    ```
 
+
 > [!NOTE]
 > Es importante tener en cuenta que al utilizar la clase Scanner, es una buena práctica cerrar el objeto Scanner una vez que ya no se necesita. Esto se hace mediante la llamada al método `close()` del objeto Scanner.
->
+> 
 > En el ejemplo sería: `miScanner.close();`
->
+> 
 > La llamada a `close()` asegura que los recursos asociados con el objeto Scanner sean liberados adecuadamente, lo que contribuye a un mejor manejo de recursos y previene problemas de rendimiento en el programa.
 
 ### Clase String
@@ -1340,31 +1310,26 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 #### Métodos de la clase String
 
 - **`length()`**: Devuelve la longitud de la cadena (número de caracteres).
-
   ```java
   String texto = "Hola Mundo";
   int longitud = texto.length();  // Devuelve 10
   ```
 
 - **`charAt(int index)`**: Devuelve el carácter en la posición especificada.
-
   ```java
   String texto = "Hola Mundo";
   char primerCaracter = texto.charAt(0);  // Devuelve 'H'
   ```
 
 - **`substring(int beginIndex, int endIndex)`**: Devuelve una subcadena desde el índice de inicio hasta el índice de fin (excluido).
-
   ```java
   String texto = "Hola Mundo";
   String subcadena = texto.substring(5, 10);  // Devuelve "Mundo"
   ```
-
-  > - `substring` se puede usar con 1 o 2 parámetros. Cuando se puede usar el mismo método pero pasarle diferentes parámetros se le llama _sobrecarga de método_.
+  >- `substring` se puede usar con 1 o 2 parámetros. Cuando se puede usar el mismo método pero pasarle diferentes parámetros se le llama *sobrecarga de método*.
   > - Si se indica un sólo parámetro, toma el valor del índice y retorna los caracteres hasta el final de la cadena.
 
 - **`equals(String str)`**: Compara dos cadenas y devuelve `true` si son iguales.
-
   ```java
   String texto1 = "Hola";
   String texto2 = "Hola";
@@ -1378,10 +1343,9 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
   ```
 
 #### Otros métodos
-
 **Documentación**: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 
-**Código con ejemplos y notas**: https://github.com/melodiaz23/notas-backend-con-java/blob/master/actividades-java/7_clase-string/Notas.java
+**Código con ejemplos y notas**: https://github.com/melodiaz23/notas-backend-con-java/blob/master/actividades-java/7_clase-string/Notas.java  
 
 | **Método**                                                                                                                                              | **Descripción**                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1408,7 +1372,7 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 | `matches(String regex)`                                                                                                                                 | Indica si esta cadena coincide con la expresión regular dada.                                                                                                                                            |
 | `offsetByCodePoints(int index, int codePointOffset)`                                                                                                    | Devuelve el índice en esta cadena que es desplazado desde el índice dado por el número de puntos de código.                                                                                              |
 | `regionMatches(int toffset, String other, int ooffset, int len)` / `regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)` | Prueba si dos regiones de cadenas son iguales.                                                                                                                                                           |
-| `repeat(int count)`                                                                                                                                     | Devuelve una cadena cuyo valor es la concatenación de esta cadena repetida _count_ veces.                                                                                                                |
+| `repeat(int count)`                                                                                                                                     | Devuelve una cadena cuyo valor es la concatenación de esta cadena repetida *count* veces.                                                                                                                |
 | `replace(char oldChar, char newChar)`, `replace(CharSequence target, CharSequence replacement)`                                                         | Devuelve una nueva cadena que resulta de reemplazar todas las apariciones del carácter o la secuencia de caracteres de destino en esta cadena con el carácter o la secuencia de caracteres de reemplazo. |
 | `replaceAll(String regex, String replacement)`                                                                                                          | Reemplaza cada subcadena de esta cadena que coincide con la expresión regular dada con la cadena de reemplazo.                                                                                           |
 | `replaceFirst(String regex, String replacement)`                                                                                                        | Reemplaza la primera subcadena de esta cadena que coincide con la expresión regular dada con la cadena de reemplazo.                                                                                     |
@@ -1474,7 +1438,7 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 
 **Documentación**: https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html
 
-**Código con ejemplos y notas**:
+**Código con ejemplos y notas**:  
 
 | Método                                                | Descripción                                                                                            | Tipo de Dato |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
@@ -1534,12 +1498,12 @@ La clase `Scanner` puede aceptar varios tipos de argumentos dependiendo de la fu
 | **`toRadians(double anguloDeg)`**                     | Convierte un ángulo en grados a radianes.                                                              | `double`     |
 | **`ulp(double valor)`**                               | Devuelve la unidad de menor magnitud en el rango del valor especificado.                               | `double`     |
 
+
 ### Clase Arrays
 
 Es parte del paquete `java.util`, proporciona métodos **estáticos** que permiten manipular, copiar, ordenar, buscar y comparar arreglos.
 
 #### `Arrays.sort()`
-
 - Ordena un arreglo en orden ascendente.
 - Aplica a tipos primitivos y objetos que implementen la interfaz `Comparable`.
 
@@ -1549,7 +1513,6 @@ Arrays.sort(arr); // El arreglo ahora está ordenado
 ```
 
 #### `Arrays.binarySearch()`
-
 - Realiza una búsqueda binaria en un arreglo ordenado.
 - Devuelve el índice del valor si se encuentra, o un valor negativo si no está presente.
 
@@ -1561,7 +1524,6 @@ int index = Arrays.binarySearch(arr, 3); // Devuelve 2 (índice de 3)
 💡 **Nota**: La búsqueda binaria es eficiente, pero requiere que los objetos implementen `Comparable`.
 
 #### `Arrays.equals()`
-
 - Compara dos arreglos para verificar si tienen los mismos elementos en las mismas posiciones.
 
 ```java
@@ -1571,7 +1533,6 @@ boolean isEqual = Arrays.equals(arr1, arr2); // Devuelve true
 ```
 
 #### `Arrays.fill()`
-
 - Llena todos los elementos de un arreglo con un valor específico.
 
 ```java
@@ -1580,7 +1541,6 @@ Arrays.fill(arr, 1); // Todos los elementos ahora son 1
 ```
 
 #### `Arrays.copyOf()` y `Arrays.copyOfRange()`
-
 - Copian un arreglo o una parte de él en un nuevo arreglo.
 
 ```java
@@ -1590,7 +1550,6 @@ int[] parteDeUnaCopia = Arrays.copyOfRange(original, 1, 3); //Crea una copia de 
 ```
 
 #### `Arrays.toString()`
-
 - Convierte un arreglo en una cadena legible, útil para depuración.
 
 ```java
@@ -1599,7 +1558,6 @@ System.out.println(Arrays.toString(arr)); // Imprime "[1, 2, 3]"
 ```
 
 #### `Arrays.asList()`
-
 - Convierte un arreglo en una lista (`List`), lo que permite manipularlo usando métodos de la interfaz `List`.
 
 ## Clase Wrappers
@@ -1643,13 +1601,13 @@ Las clases wrapper permiten que los tipos primitivos se comporten como objetos, 
 
 ### Integer
 
-| Método                              | Descripción                                                                                                                 |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `toString()`                        | Devuelve un objeto `String` que representa el valor de este `Integer`.                                                      |
+| Método | Descripción |
+|--------|-------------|
+| `toString()` | Devuelve un objeto `String` que representa el valor de este `Integer`. |
 | `compareTo(Integer anotherInteger)` | Compara numéricamente con `anotherInteger`, devuelve `0` si son iguales, `-1` si es menor numéricamente, y `1` si es mayor. |
-| `Integer.valueOf(String s)`         | Devuelve un objeto `Integer` dependiendo del string ingresado por parámetro.                                                |
-| `Integer.MAX_VALUE`                 | Una constante que contiene el valor máximo que puede tener un `int` ($2^{31}-1$).                                           |
-| `Integer.MIN_VALUE`                 | Una constante que contiene el valor mínimo que puede tener un `int` ($-2^{31}$).                                            |
+| `Integer.valueOf(String s)` | Devuelve un objeto `Integer` dependiendo del string ingresado por parámetro. |
+| `Integer.MAX_VALUE` | Una constante que contiene el valor máximo que puede tener un `int` ($2^{31}-1$). |
+| `Integer.MIN_VALUE` | Una constante que contiene el valor mínimo que puede tener un `int` ($-2^{31}$). |
 
 ### Double
 
@@ -1678,10 +1636,11 @@ public static void main(String[] args){
 	// Sentencias que se ejecutan antes del if
 	if (condicion){
 	// Sentencias que se ejecutan si la condición es verdadera
-	}
+	}	
 	// Sentencias que se ejecutan después del "if"
 }
 ```
+
 
 ### `if`-`else`
 
@@ -1695,11 +1654,12 @@ public static void main(String[] args){
 	// Sentencias que se ejecutan si la condición es verdadera
 	} else {
 	// Sentencias que se ejecutan si la condición es falsa.
-	}
-
+	}	
+	
 	// Sentencias que se ejecutan después del "if"
 }
 ```
+
 
 ### `if`-`else`-`if`
 
@@ -1713,12 +1673,11 @@ public static void main(String[] args){
 	// Sentencias que se ejecutan si la condición es verdadera
 	} else if (condicion2){
 	// Sentencias que se ejecutan si la condición1 es falsa y la condicion2 es verdadera.
-	}
-
+	}	
+	
 	// Sentencias que se ejecutan después del "if"
 }
 ```
-
 > Después de la llave de cierre del bloque "else if (`condicion2`)", podemos agregar otro bloque "else" o "else if (`condicion`)" tantas veces como queramos.
 
 ### `switch`
@@ -1749,7 +1708,6 @@ public static void main(String[] args) {
 //Sentencias que se ejecutan después del "switch".
 }
 ```
-
 > Sin el `break`, el código continua ejecutando los casos siguientes, incluso si no coinciden con el valor de la expresión.
 
 ### Switch expression
@@ -1769,7 +1727,6 @@ public static void main(String[] args) {
     // Sentencias que se ejecutan después del "switch".
   }
 ```
-
 > - Switch expressions no requieren el uso de la palabra `break`.
 > - Si se requiere incluir varias líneas de código se utilizan llaves `{` `}`.
 
@@ -1791,8 +1748,7 @@ public static void main(String[] args) {
     }
 ```
 
-_Las expresiones permiten retornar un valor._
-
+*Las expresiones permiten retornar un valor.*
 #### `yield`
 
 Al utilizar bloques de código en una **expresión switch** para manejar múltiples líneas de código, se emplea la palabra clave `yield` para indicar el valor de retorno del case.
@@ -1816,7 +1772,8 @@ public static void main(String[] args) {
     }
 ```
 
-> [!NOTE]
+
+> [!NOTE] 
 > Si se conocen de antemano todos los valores que puede tomar una variable, es necesario tener un case correspondiente para cada uno de ellos. En caso de no conocer todos los posibles valores, es recomendable incluir una cláusula default para manejar cualquier valor no previsto.
 
 ### Jump statements
@@ -1824,12 +1781,10 @@ public static void main(String[] args) {
 Java soporta tres sentencias de salto:
 
 - **Break**:
-
   - Termina una secuencia en una declaración `switch`.
   - Sale de un bucle.
 
 - **Continue**:
-
   - Fuerza una iteración anticipada de un bucle, saltando el resto del código y pasando a la siguiente.
 
 - **Return**:
@@ -1839,16 +1794,16 @@ Java soporta tres sentencias de salto:
 
 Es un mecanismo que nos permite lidiar con situaciones anómalas que pueden ocurrir durante la ejecución de un programa.
 
-Es importante porque:
-
+Es importante porque: 
 - **Brinda robustez:** Se gestionan situaciones inesperadas sin que colapsen de manera abrupta.
 - **Control de flujo:** Permite dirigir el flujo del programa incluso en presencia de errores.
 - **Depuración y calidad del código:** Facilita la identificación y corrección de errores.
 
-> [!NOTE]
+
+> [!NOTE] 
 > Al utilizar el bloque `try-catch`, el programa salta las líneas de código dentro del bloque `try` cuando se encuentra con una línea que produce un error. En lugar de detenerse, continúa ejecutando el programa a partir del bloque `catch`, permitiendo que las líneas de código restantes se ejecuten después del bloque.
 
-Ejemplo:
+Ejemplo: 
 
 ```java
 
@@ -1874,14 +1829,13 @@ public class Clase {
   }
 }
 ```
-
 > `InputMismatchException` -> ocurre cuando se produce un error al intentar convertir la entrada del usuario.
 > `Exception` -> Permite atrapar cualquier excepción adicional no especificada. Va al final de todos los bloques catch.
 
 La variable `e` permite acceder a ciertos métodos que pueden ser utilizados, como:
 
 - `printStackTrace()` -> Imprime por consola la pila de llamadas de la excepción, mostrando el lugar exacto donde ocurrió el problema.
-- `getMessage()` -> Devuelve el mensaje de descripción del error.
+- `getMessage()` -> Devuelve el mensaje de descripción del error. 
 
 #### Excepciones Comunes en Java
 
@@ -1896,32 +1850,31 @@ La variable `e` permite acceder a ciertos métodos que pueden ser utilizados, co
 - `FileNotFoundException`: Ocurre al intentar acceder a un archivo que no existe en el sistema de archivos.
 
 - `IOException`: Excepción genérica que se lanza cuando ocurre un error de entrada/salida durante la lectura o escritura de datos.
-
-  - Si no se puede abrir o leer un archivo.
-  - Si falla una operación de escritura en un archivo.
-  - Si hay una interrupción en la red al comunicarse con un servidor.
+	- Si no se puede abrir o leer un archivo.
+	- Si falla una operación de escritura en un archivo.
+	- Si hay una interrupción en la red al comunicarse con un servidor.
 
 - `ClassNotFoundException`: Se lanza cuando se intenta cargar dinámicamente una clase que no se encuentra en el `classpath`.
-
-  - El `classpath` es la ubicación que la JVM utiliza para buscar las clases que no forman parte de las bibliotecas estándar.
+	- El `classpath` es la ubicación que la JVM utiliza para buscar las clases que no forman parte de las bibliotecas estándar.
 
 - `InterruptedException`: Ocurre cuando un hilo en ejecución es interrumpido por otro hilo mientras está esperando, durmiendo o realizando una operación de bloqueo.
-  - Por ejemplo, si un usuario quiere cancelar una tarea larga (como un cálculo intensivo o una descarga), sin necesidad de esperar a que termine.
+	- Por ejemplo, si un usuario quiere cancelar una tarea larga (como un cálculo intensivo o una descarga), sin necesidad de esperar a que termine.
+	
 - Todos los tipos de excepciones: https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html
+
 
 ### Bucles
 
 Es una estructura de control que permite ejecutar un bloque de código repetidamente un número específico de veces.
 
 Existen tres tipos principales de bucles en Java:
-
 #### Bucle `for`
 
-Combina la inicialización, la condición y el incremento (o decremento) en una sola línea.
+Combina la inicialización, la condición y el incremento (o decremento) en una sola línea. 
 
 Es muy útil cuando sabemos exactamente cuántas veces queremos repetir una operación.
 
-Tiene 3 partes:
+Tiene 3 partes: 
 
 - **Inicialización**: es donde se inicializa la variable de control del bucle. En la mayoría de los casos, esta variable se denomina "i".
 
@@ -1930,7 +1883,6 @@ for (int i = 0; ... ) {
 	//Código del bucle
 }
 ```
-
 > `int i = 0;` inicializa la variable `i` con el valor 0.
 
 - **Condición**: Esta es la condición que se verifica antes de cada iteración del bucle. Si la condición es verdadera (“true”), se ejecuta el bloque de código dentro del bucle. Si es falsa (“false”), el bucle se detiene.
@@ -1940,7 +1892,6 @@ for (... ; i < 5; ... ) {
 	//Código del bucle
 }
 ```
-
 > `i < 5` es la condición. Por lo tanto, mientras el valor de `i` sea menor que 5, el bloque de código del bucle continuará ejecutándose.
 
 - **Actualización**: Se actualiza la variable de control. En la mayoría de los casos, simplemente se incrementa o decrementa la variable.
@@ -1950,10 +1901,9 @@ for (... ; ... ; i++) {
 	//Código del bucle
 }
 ```
-
 > `i++` incrementa el valor de "i" en 1 en cada iteración del bucle.
 
-El bucle `for` completo sería:
+El bucle `for` completo sería: 
 
 ```Java
 public static void main(String[] args) {
@@ -1962,7 +1912,6 @@ public static void main(String[] args) {
 	}
 }
 ```
-
 > Imprimirá los números del 0 al 4 en la consola. Después de cada iteración, "i" se incrementa en uno (i++), y mientras "i" sea menor que 5 (i < 5), el bucle continuará. Cuando "i" llegue a 5, la condición "i < 5" será falsa y el bucle se detendrá.
 
 #### `for each`
@@ -1977,8 +1926,7 @@ public static void main(String[] args) {
 	}
 }
 ```
-
-> La variable `num` toma cada valor en el arreglo `arr` en cada iteración del bucle, lo que simplifica el proceso de iterar a través del arreglo sin necesidad de utilizar un índice.
+> La variable `num` toma cada valor en el arreglo `arr` en cada iteración del bucle, lo que simplifica el proceso de iterar a  través del arreglo sin necesidad de utilizar un índice.
 
 #### Bucle `while`
 
@@ -1986,9 +1934,10 @@ Ejecuta un bloque de código mientras una condición especificada sea verdadera.
 
 Si la condición es falsa desde el principio, el bloque de código dentro del bucle no se ejecutará ni una sola vez.
 
-> [!NOTE]
+
+> [!NOTE] 
 > El bucle "while" se utiliza cuando se desea repetir un bloque de código siempre que una condición sea verdadera.
->
+> 
 > Dentro del bloque de código del bucle "while", generalmente se debe incluir algún mecanismo para cambiar la condición y eventualmente hacer que sea falsa.
 
 ```Java
@@ -2000,14 +1949,13 @@ public static void main(String[] args) {
     System.out.println("Seguro es 8 o mayor a 8: " + numeroAleatorio);
   }
 ```
-
 > El bloque de código se ejecuta mientras `numeroAleatorio` sea menor que, y en cada iteración del bucle, el valor de `numeroAleatorio` cambia.
 
 #### Bucle `do-while`
 
 La condición se evalúa después de que se ha ejecutado el bloque de código. Por lo tanto, el bloque de código **se ejecutará al menos una vez**, incluso si la condición es falsa desde el principio.
 
-El flujo del `do-while` consiste en:
+El flujo del `do-while` consiste en: 
 
 1. Se ejecuta el bloque de código dentro del "do".
 2. Se evalúa la condición especificada después del "while".
@@ -2025,18 +1973,16 @@ public static void main(String[] args) {
     System.out.println("Ingresaste: " + num);
   }
 ```
-
 > El programa solicita al usuario que ingrese un número, si el número es menor o igual a 0, el programa seguirá solicitando al usuario que ingrese otro número. Esto continuará hasta que el usuario ingrese un número mayor que 0.
 
 **Recurso**: https://ioflood.com/blog/do-while-loop-java/
-
 ## Arrays
 
 - Es una estructura de datos que permite almacenar una colección de elementos, ya sean valores o variables.
 - Son objetos y se instancian a partir de una clase predefinida en el lenguaje.
 - Tienen una longitud fija.
 
-Para declarar un array:
+Para declarar un array: 
 
 ```Java
 public static void main(String[] args) {
@@ -2045,7 +1991,6 @@ public static void main(String[] args) {
 	int[] array2 = new int[4]; //array2 es un objeto de la clase int[]
 }
 ```
-
 > - Al utilizar llaves, inicializamos el array con los valores o variables que deseamos almacenar.
 > - Al utilizar el operador "new", especificamos el nombre de la clase (en este caso `int[]`) y el tamaño del array.
 
@@ -2061,7 +2006,8 @@ public static void main(String[] args) {
 }
 ```
 
-> [!NOTE]
+
+> [!NOTE] 
 > Todos los elementos en un array de Java deben ser del mismo tipo.
 
 ### `for i` y Arrays
