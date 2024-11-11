@@ -2190,3 +2190,46 @@ En Java, los parámetros pueden pasarse **por valor** o **por referencia**, lo q
 
 > [!NOTE]
 > Los parámetros son variables en la definición del método; los argumentos son los valores que se envían cuando se llama al método.
+
+### Debugger
+
+El término "debugger" se utiliza para referirse a una herramienta o proceso que se emplea en la detección, análisis y corrección de errores en el código de un programa. Su funcionamiento se basa en detener el programa en puntos específicos (“breakpoints”) definidos por el programador, lo cual le permite realizar las evaluaciones necesarias.
+
+Es importante porque:
+
+- Proporciona la **capacidad de localizar errores en nuestro código de manera eficiente**.
+- Permite **comprender en detalle cómo fluye la ejecución del programa**.
+- **Permite examinar y modificar el estado del programa en tiempo real,** lo que ofrece una comprensión acerca de cómo evolucionan nuestras variables y objetos a lo largo de la ejecución
+
+#### Breakpoints
+
+Son marcadores que se colocan en el código para detener la ejecución en un punto específico. Cuando se alcanza el punto de interrupción, el debugger pausa la ejecución y brinda la oportunidad de examinar el estado de las variables, analizar el flujo del programa y realizar modificaciones si es necesario.
+
+Pasos de depuración:
+
+![debugger](https://github.com/melodiaz23/notas-backend-con-java/blob/master/images/debugger.png?raw=true)
+
+- **Continue**: Permite reanudar la ejecución del programa después de detenerse en un punto de interrupción.
+
+- **Step Over**: Avanza al siguiente punto de interrupción o línea de código. Si hay una llamada a un método, el depurador ejecuta el método sin entrar en él. Ideal para avanzar sin inspeccionar detalles internos de los métodos.
+
+- **Step Into**: Avanza al siguiente punto de interrupción o línea de código, pero si encuentra una llamada a un método, ingresa en él y se detiene en su primera instrucción. Útil para analizar el contenido de los métodos.
+
+- **Step Out**: Continua la ejecución hasta salir del método actual. Útil para volver rápidamente a la línea que invocó el método sin recorrer el resto del método actual.
+
+- **Restart**: Reinicia la ejecución desde el principio, recargando archivos y restableciendo variables. Ideal para empezar la depuración de nuevo y verificar si los cambios resuelven el problema.
+
+- **Stop**: Finaliza completamente la ejecución y depuración del programa. Se utiliza para detener la depuración antes de la finalización natural del programa.
+
+- **Hot Code Replace**: Permite recargar el código para aplicar cambios en tiempo real sin reiniciar el programa. Útil para probar modificaciones rápidas y observar resultados inmediatos.
+
+### Funcionalidades de Depuración
+
+- **Watch y Expresiones**: La herramienta "Watch" permite monitorear y evaluar valores específicos mientras el programa se ejecuta. Es posible observar tanto variables como expresiones, proporcionando información detallada sobre el estado del programa.
+
+- **Inspección de la Pila de Llamadas**: Permite analizar el flujo del programa al mostrar los métodos invocados y el orden de las llamadas, lo que ayuda a identificar la causa de errores y comportamientos inesperados.
+
+- **Control de Flujo de Excepciones**:
+
+  - **Uncaught Exceptions** -> Detiene la ejecución en excepciones no capturadas (sin `try-catch`), mostrando detalles para investigar y corregir errores en el código.
+  - **Caught Exceptions** -> Detiene la ejecución en excepciones capturadas dentro de bloques `try-catch`, permitiendo analizar su manejo.
