@@ -29,18 +29,15 @@ public class App {
       opcion = scanner.nextInt();
       switch (opcion) {
         case 1 -> {
-
-        }
-        case 2 -> {
           if (empleados == null) {
             System.out.println("No existen empleados registrados");
           } else {
             Empleado.mostrarEmpleados(empleados);
           }
-
+        }
+        case 2 -> {
         }
         case 3 -> {
-
         }
         case 4 -> {
 
