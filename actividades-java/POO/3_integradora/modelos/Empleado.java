@@ -1,9 +1,22 @@
+
+import java.util.Arrays;
+
 // package modelos;
 public class Empleado {
   private String nombre;
   private Integer edad;
   private Integer salario;
   private String departamento;
+
+  public Empleado() {
+  }
+
+  public Empleado(String nombre, Integer edad, Integer salario, String departamento) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.salario = salario;
+    this.departamento = departamento;
+  }
 
   public String getNombre() {
     return nombre;
@@ -54,6 +67,13 @@ public class Empleado {
    * cada columna.
    */
   public static void mostrarEmpleados(Empleado[] empleados) {
+    System.out.println(" No. Fila  |  Nombre  | Edad  | Salario   | Departamento");
+    for (int i = 0; i < empleados.length; i++) {
+      System.out.printf("  %d      |    %s    |     %d    |  %d    |   %s  \n", i + 1, empleados[i].getNombre(),
+          empleados[i].getEdad(),
+          empleados[i].getSalario(), empleados[i].getDepartamento());
+    }
+    System.out.println();
 
   }
 
@@ -66,7 +86,31 @@ public class Empleado {
    * @return un nuevo arreglo según el criterio específico
    */
   public static Empleado[] filtarEmpleados(Empleado[] empleados, String criterio) {
-    return null;
+    Empleado[] arregloFiltrado = new Empleado[0];
+    int conteo = 0;
+    for (Empleado empleado : empleados) {
+      if (empleado.getNombre().equals(criterio) || empleado.getDepartamento().equals(criterio)) {
+        arregloFiltrado = Arrays.copyOf(arregloFiltrado, arregloFiltrado.length + 1);
+        arregloFiltrado[conteo] = empleado;
+        conteo++;
+      }
+    }
+    mostrarEmpleados(arregloFiltrado);
+    return arregloFiltrado;
+  }
+
+  public static Empleado[] filtarEmpleados(Empleado[] empleados, int max, int min) {
+    Empleado[] arregloFiltrado = new Empleado[0];
+    int conteo = 0;
+    for (Empleado empleado : empleados) {
+      if ((empleado.getSalario() > min && empleado.getSalario() < max)
+          || (empleado.getEdad() > min && empleado.getEdad() < max)) {
+        arregloFiltrado = Arrays.copyOf(empleados, empleados.length + 1);
+        arregloFiltrado[conteo] = empleado;
+        conteo++;
+      }
+    }
+    return arregloFiltrado;
   }
 
   /**
