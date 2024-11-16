@@ -67,9 +67,11 @@ public class Empleado {
    * cada columna.
    */
   public static void mostrarEmpleados(Empleado[] empleados) {
-    System.out.println(" No. Fila  |  Nombre  | Edad  | Salario   | Departamento");
+    System.out.println(" No. Fila |     Nombre      |    Edad   |    Salario   | Departamento");
+    System.out.println("----------------------------------------------------------------------");
     for (int i = 0; i < empleados.length; i++) {
-      System.out.printf("  %d      |    %s    |     %d    |  %d    |   %s  \n", i + 1, empleados[i].getNombre(),
+      System.out.printf("     %d    |     %s     |     %d    |     %d     |     %s \n", i + 1,
+          empleados[i].getNombre(),
           empleados[i].getEdad(),
           empleados[i].getSalario(), empleados[i].getDepartamento());
     }
@@ -89,13 +91,12 @@ public class Empleado {
     Empleado[] arregloFiltrado = new Empleado[0];
     int conteo = 0;
     for (Empleado empleado : empleados) {
-      if (empleado.getNombre().equals(criterio) || empleado.getDepartamento().equals(criterio)) {
+      if (empleado.getNombre().equalsIgnoreCase(criterio) || empleado.getDepartamento().equalsIgnoreCase(criterio)) {
         arregloFiltrado = Arrays.copyOf(arregloFiltrado, arregloFiltrado.length + 1);
         arregloFiltrado[conteo] = empleado;
         conteo++;
       }
     }
-    mostrarEmpleados(arregloFiltrado);
     return arregloFiltrado;
   }
 
@@ -103,9 +104,9 @@ public class Empleado {
     Empleado[] arregloFiltrado = new Empleado[0];
     int conteo = 0;
     for (Empleado empleado : empleados) {
-      if ((empleado.getSalario() > min && empleado.getSalario() < max)
-          || (empleado.getEdad() > min && empleado.getEdad() < max)) {
-        arregloFiltrado = Arrays.copyOf(empleados, empleados.length + 1);
+      if ((empleado.getSalario() >= min && empleado.getSalario() <= max)
+          || (empleado.getEdad() >= min && empleado.getEdad() <= max)) {
+        arregloFiltrado = Arrays.copyOf(arregloFiltrado, arregloFiltrado.length + 1);
         arregloFiltrado[conteo] = empleado;
         conteo++;
       }

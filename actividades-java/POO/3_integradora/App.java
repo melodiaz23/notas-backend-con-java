@@ -8,9 +8,9 @@ public class App {
   public static void main(String[] args) {
     System.out.println("\033\143");
 
-    empleados[0] = new Empleado("Melissa", 33, 1500, "TI");
-    empleados[1] = new Empleado("Guille", 34, 2500, "Informatica");
-    empleados[2] = new Empleado("Nico", 27, 1500, "IT");
+    empleados[0] = new Empleado("Melissa", 33, 1500, " TI ");
+    empleados[1] = new Empleado("Guille ", 34, 2500, "Ventas");
+    empleados[2] = new Empleado("Nico   ", 27, 1500, " QA ");
 
     try (Scanner scanner = new Scanner(System.in)) {
       menu(scanner);
@@ -62,10 +62,37 @@ public class App {
           empleado.setDepartamento(departamento);
         }
         case 3 -> {
-          System.out.println("Indica el criterio para el filtro");
-          String criterio = scanner.nextLine();
-          Empleado.filtarEmpleados(empleados, criterio);
-          // Empleado.mostrarEmpleados(Empleado.filtarEmpleados(empleados, criterio));
+          int opcionFiltro;
+          do {
+            System.out.println("¿Qué atributo deseas filtrar?");
+            System.out.println("1- Nombre");
+            System.out.println("2- Edad");
+            System.out.println("3- Salario");
+            System.out.println("4- Departamento");
+            System.out.print(">> ");
+            opcionFiltro = scanner.nextInt();
+            if (opcionFiltro > 4) {
+              System.out.println("Ingresa una opción válida");
+            }
+          } while (opcionFiltro > 4);
+          switch (opcionFiltro) {
+            case 1, 4 -> {
+              String criterio = scanner.nextLine();
+              System.out.println("Cual es el valor a filtrar? ");
+              Empleado.mostrarEmpleados(Empleado.filtarEmpleados(empleados, criterio));
+            }
+            case 2, 3 -> {
+              System.out.println("Indica el rango mínimo: ");
+              System.out.print(">> ");
+              int min = scanner.nextInt();
+              System.out.println("Indica el rango máximo: ");
+              System.out.print(">> ");
+              int max = scanner.nextInt();
+              scanner.nextLine();
+              Empleado.mostrarEmpleados(Empleado.filtarEmpleados(empleados, max, min));
+            }
+
+          }
 
         }
         case 4 -> {
