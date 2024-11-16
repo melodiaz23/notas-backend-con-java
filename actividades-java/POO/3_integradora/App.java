@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -7,17 +8,30 @@ public class App {
 
   public static void main(String[] args) {
     System.out.println("\033\143");
+    boolean reintentar = true;
 
     empleados[0] = new Empleado("Melissa", 33, 1500, " TI ");
     empleados[1] = new Empleado("Guille ", 34, 2500, "Ventas");
-    empleados[2] = new Empleado("Nico   ", 27, 1500, " QA ");
+    empleados[2] = new Empleado(" Nico  ", 27, 1500, " QA ");
 
     try (Scanner scanner = new Scanner(System.in)) {
-      menu(scanner);
+      do {
+        try {
+          menu(scanner);
+          reintentar = false;
+        } catch (InputMismatchException e) {
+          System.out.println("Has ingresado un valor que no corresponde al tipo de dato. Intenta nuevamente");
+          scanner.nextLine(); // Limpia el buffer, asegurando que no quede ninguna entrada residual que genere
+                              // error
+        } catch (Exception e) {
+          System.out.println("Ha ocurrido un error: " + e);
+          System.out.println("...CERRANDO PROGRAMA.");
+          reintentar = false;
+        }
+      } while (reintentar);
     } catch (Exception e) {
-      System.out.println("Ha ocurrido un error: " + e);
+      System.out.println("Ha ocurrido un error inesperado: " + e);
     }
-
   }
 
   /**
@@ -91,11 +105,22 @@ public class App {
               scanner.nextLine();
               Empleado.mostrarEmpleados(Empleado.filtarEmpleados(empleados, max, min));
             }
-
           }
-
         }
         case 4 -> {
+          int opcionFiltro;
+          do {
+            System.out.println("Indica el atributo que deseas ordenar:");
+            System.out.println("1- Nombre");
+            System.out.println("2- Edad");
+            System.out.println("3- Salario");
+            System.out.println("4- Departamento");
+            System.out.print(">> ");
+            opcionFiltro = scanner.nextInt();
+            if (opcionFiltro > 4) {
+              System.out.println("Ingresa una opción válida");
+            }
+          } while (opcionFiltro > 4);
 
         }
         case 5 -> {
