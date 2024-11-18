@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
-  static Empleado[] empleados = new Empleado[3];
+  static Empleado[] empleados = new Empleado[4];
 
   public static void main(String[] args) {
     System.out.println("\033\143");
@@ -13,6 +13,7 @@ public class App {
     empleados[0] = new Empleado("Melissa", 33, 1500, " TI ");
     empleados[1] = new Empleado("Guille ", 34, 2500, "Ventas");
     empleados[2] = new Empleado(" Nico  ", 27, 1500, " QA ");
+    empleados[3] = new Empleado("Isabela", 24, 2500, " QA ");
 
     try (Scanner scanner = new Scanner(System.in)) {
       do {
@@ -85,14 +86,15 @@ public class App {
             System.out.println("4- Departamento");
             System.out.print(">> ");
             opcionFiltro = scanner.nextInt();
+            scanner.nextLine();
             if (opcionFiltro > 4) {
               System.out.println("Ingresa una opción válida");
             }
           } while (opcionFiltro > 4);
           switch (opcionFiltro) {
             case 1, 4 -> {
-              String criterio = scanner.nextLine();
               System.out.println("Cual es el valor a filtrar? ");
+              String criterio = scanner.nextLine();
               Empleado.mostrarEmpleados(Empleado.filtarEmpleados(empleados, criterio));
             }
             case 2, 3 -> {
@@ -108,7 +110,7 @@ public class App {
           }
         }
         case 4 -> {
-          int opcionFiltro;
+          int criterio;
           do {
             System.out.println("Indica el atributo que deseas ordenar:");
             System.out.println("1- Nombre");
@@ -116,11 +118,13 @@ public class App {
             System.out.println("3- Salario");
             System.out.println("4- Departamento");
             System.out.print(">> ");
-            opcionFiltro = scanner.nextInt();
-            if (opcionFiltro > 4) {
+            criterio = scanner.nextInt();
+            if (criterio > 4) {
               System.out.println("Ingresa una opción válida");
             }
-          } while (opcionFiltro > 4);
+          } while (criterio > 4);
+
+          Empleado.mostrarEmpleados(Empleado.ordenarEmpleados(empleados, criterio));
 
         }
         case 5 -> {

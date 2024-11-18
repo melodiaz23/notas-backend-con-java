@@ -91,7 +91,8 @@ public class Empleado {
     Empleado[] arregloFiltrado = new Empleado[0];
     int conteo = 0;
     for (Empleado empleado : empleados) {
-      if (empleado.getNombre().equalsIgnoreCase(criterio) || empleado.getDepartamento().equalsIgnoreCase(criterio)) {
+      if (empleado.getNombre().trim().equalsIgnoreCase(criterio)
+          || empleado.getDepartamento().trim().equalsIgnoreCase(criterio)) {
         arregloFiltrado = Arrays.copyOf(arregloFiltrado, arregloFiltrado.length + 1);
         arregloFiltrado[conteo] = empleado;
         conteo++;
@@ -122,8 +123,65 @@ public class Empleado {
    *                  "salario" o "departamento"
    * @return un nuevo arreglo de empleados ordenado según el criterio
    */
-  public static Empleado[] ordenarEmpleados(Empleado[] empleados, String criterio) {
-    return null;
+  public static Empleado[] ordenarEmpleados(Empleado[] empleados, int criterio) {
+
+    Empleado[] arregloOrdenado = Arrays.copyOf(empleados, empleados.length);
+    switch (criterio) {
+      case 1 -> {
+        for (int i = 0; i < arregloOrdenado.length - 1; i++) {
+          for (int j = 0; j < arregloOrdenado.length - 1 - i; j++) {
+            if (arregloOrdenado[j].getNombre().trim().toCharArray()[0] > arregloOrdenado[j + 1].getNombre().trim()
+                .toCharArray()[0]) {
+              Empleado temp;
+              temp = arregloOrdenado[j];
+              arregloOrdenado[j] = arregloOrdenado[j + 1];
+              arregloOrdenado[j + 1] = temp;
+            }
+          }
+        }
+      }
+      case 2 -> {
+        for (int i = 0; i < arregloOrdenado.length - 1; i++) {
+          for (int j = 0; j < arregloOrdenado.length - i - 1; j++) {
+            if (arregloOrdenado[j].getEdad() > arregloOrdenado[j + 1].getEdad()) {
+              Empleado temp;
+              temp = arregloOrdenado[j];
+              arregloOrdenado[j] = arregloOrdenado[j + 1];
+              arregloOrdenado[j + 1] = temp;
+            }
+          }
+        }
+      }
+      case 3 -> {
+        for (int i = 0; i < arregloOrdenado.length - 1; i++) {
+          for (int j = 0; j < arregloOrdenado.length - i - 1; j++) {
+            if (arregloOrdenado[j].getSalario() > arregloOrdenado[j + 1].getSalario()) {
+              Empleado temp;
+              temp = arregloOrdenado[j];
+              arregloOrdenado[j] = arregloOrdenado[j + 1];
+              arregloOrdenado[j + 1] = temp;
+            }
+          }
+        }
+      }
+      case 4 -> {
+        for (int i = 0; i < arregloOrdenado.length - 1; i++) {
+          for (int j = 0; j < arregloOrdenado.length - 1 - i; j++) {
+            if (arregloOrdenado[j].getDepartamento().trim().toCharArray()[0] > arregloOrdenado[j + 1].getDepartamento()
+                .trim()
+                .toCharArray()[0]) {
+              Empleado temp;
+              temp = arregloOrdenado[j];
+              arregloOrdenado[j] = arregloOrdenado[j + 1];
+              arregloOrdenado[j + 1] = temp;
+            }
+          }
+        }
+      }
+    }
+
+    return arregloOrdenado;
+
   }
 
   /**
