@@ -51,7 +51,7 @@ public class App {
       opcion = scanner.nextInt();
       scanner.nextLine();
       switch (opcion) {
-        case 1 -> {
+        case 1, 6 -> {
           if (empleados == null) {
             System.out.println("No existen empleados registrados");
           } else {
@@ -128,15 +128,22 @@ public class App {
 
         }
         case 5 -> {
-
-        }
-        case 6 -> {
-
+          System.out.println("Indica el empleado para aumentar su salario");
+          String empleado = scanner.nextLine();
+          Empleado empleadoEncontrado = Empleado.buscarPorNombre(empleados, empleado);
+          if (empleadoEncontrado != null) {
+            System.out.println("Indica en que porcentaje lo deseas incrementar");
+            float incremento = scanner.nextFloat();
+            Empleado.incrementarSalario(empleadoEncontrado, incremento);
+            Empleado.mostrarEmpleados(empleados);
+          } else {
+            System.out.println("Empleado no existe");
+          }
         }
         case 7 -> {
         }
         default -> {
-
+          System.out.println("Ingresa una opción válida");
         }
       }
     } while (opcion != 7);

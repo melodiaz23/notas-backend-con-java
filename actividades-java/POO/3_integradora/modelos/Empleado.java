@@ -193,6 +193,11 @@ public class Empleado {
    *         encuentra
    */
   public static Empleado buscarPorNombre(Empleado[] empleados, String nombre) {
+    for (Empleado empleado : empleados) {
+      if (empleado.getNombre().trim().equalsIgnoreCase(nombre)) {
+        return empleado;
+      }
+    }
     return null;
   }
 
@@ -204,7 +209,8 @@ public class Empleado {
    * @return el empleado con el salario incrementado
    */
   public static Empleado incrementarSalario(Empleado empleado, float incremento) {
-    return null;
+    empleado.setSalario(Math.round(empleado.getSalario() + (empleado.getSalario() * (incremento / 100))));
+    return empleado;
   }
 
 }
