@@ -2233,3 +2233,227 @@ Pasos de depuración:
 
   - **Uncaught Exceptions** -> Detiene la ejecución en excepciones no capturadas (sin `try-catch`), mostrando detalles para investigar y corregir errores en el código.
   - **Caught Exceptions** -> Detiene la ejecución en excepciones capturadas dentro de bloques `try-catch`, permitiendo analizar su manejo.
+
+# Programación Orientada a Objetos (POO)
+
+La programación orientada a objetos (POO) es un paradigma de programación que se basa en el uso de _objetos_ y sus interacciones para diseñar aplicaciones y programas de software.
+
+Los **objetos** son instancias de clases, las cuales pueden incluir variables de instancia, métodos y otros datos necesarios para su funcionamiento.
+
+## Clases e instancias
+
+- Una **clase** representan un modelo o plantilla que define las características (atributos) y comportamientos (métodos) que deben tener los objetos de un tipo específico.
+- Una **instancia** es un objeto que se ha creado utilizando la plantilla de esa clase, mediante el operador `new`. Cada instancia puede acceder a los métodos que se han definido en la clase.
+
+> [!NOTE]
+> Una clase consiste en un conjunto de instrucciones que especifican cómo deben construirse las instancias de dicha clase.
+
+Ejemplo:
+
+- **Clase**:
+
+```java
+public class Perro {
+	// Atributos
+	private String nombre;
+	private String raza;
+	private int edad;
+	// Constructor
+	public Perro(String nombre, String raza, int edad) {
+	this.nombre = nombre;
+	this.raza = raza;
+	this.edad = edad;
+}
+}
+```
+
+- **Instancia**:
+
+```java
+public class Main {
+	public static void main(String[] args) {
+	// Crear una instancia de la clase Perro
+	Perro miPerro = new Perro("Max", "Labrador", 3);
+}
+}
+```
+
+## `this` y método constructor
+
+### Palabra clave `this`
+
+La palabra clave `this` en Java se utiliza para referirse al **objeto actual dentro de una clase**.
+
+Usos:
+
+- Referenciar **propiedades del objeto** desde métodos o constructores.
+- Invocar a otro constructor dentro de la misma clase usando `this(...)`, lo que se llama **delegación de constructores**.
+
+### Constructores
+
+- Un **constructor** es un método especial diseñado para **inicializar objetos** de una clase. Tiene el mismo nombre que la clase y no devuelve ningún valor (ni siquiera `void`).
+- Tiene como propósito establecer los valores iniciales de los atributos de un objeto cuando se crea.
+- Si no se define un constructor, Java proporciona uno sin parámetros conocido como **constructor por defecto**.
+- El constructor predeterminado (o por defecto) crea una instancia de la clase con los valores predeterminados de sus campos:
+- `0` para tipos numéricos
+- `false` para `boolean`
+- `null` para referencias de objetos
+
+Ejemplo:
+
+```java
+public class Persona {
+    String nombre; // propiedad de los objetos de la clase
+    public Persona() {} // constructor por defecto, no hace falta declararlo
+}
+```
+
+#### Sobrecarga de Constructores
+
+La **sobrecarga de constructores** permite definir varios constructores con diferentes listas de parámetros. Esto permite inicializar objetos de distintas maneras.
+
+Ejemplo de sobrecarga:
+
+```java
+public class Persona {
+    private String nombre;
+    private Integer edad;
+
+    // Constructor por defecto
+    public Persona() {
+        this("Desconocido", 0); // Se conoce c omo Llamada al constructor o delegación al constructor
+    }
+
+    // Constructor con parámetros
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+}
+```
+
+> - El **constructor por defecto** utiliza `this(...)` para invocar al constructor que toma `nombre` y `edad` como parámetros, evitando valores `null` en las propiedades.
+> - La llamada `this(...)` debe ser la **primera línea** del constructor.
+
+## Modificador `static`
+
+Una **variable estática** pertenece a la **clase** y no a las instancias individuales de esa clase. Esto significa que:
+
+- Solo existe **una copia** de la variable estática, sin importar cuántas instancias de la clase se creen.
+- Todas las instancias de la misma clase comparten el mismo valor de la variable estática.
+- Es útil para almacenar valores que deben ser **comunes** y **persistentes** para todas las instancias.
+
+> [!NOTE]
+> Dentro de los métodos que pertenecen a las instancias (métodos no estáticos), podemos acceder a **variables estáticas** y **variables de instancia**. Sin embargo, **en los métodos estáticos**, no se pueden acceder directamente a las **variables de instancia**, ya que estas requieren una instancia de la clase. Los métodos estáticos solo pueden acceder a **variables estáticas**.
+> Si no es estático no se puede referenciar dentro de un contexto estático.
+
+### Métodos estáticos
+
+Un **método estático** pertenece a la clase y no a una instancia específica, lo cual implica que:
+
+- **No puede acceder** a variables o métodos de instancia, ya que estos dependen de una instancia de la clase.
+- Suelen usarse para **operaciones generales** que no dependen de los datos de un objeto específico.
+
+Ejemplo de variables y métodos estáticos:
+
+```java
+public class Clase {
+    Integer variableNoEstatica;        // Variable de instancia
+    static Integer variableEstatica;   // Variable estática
+
+    public static void metodoEstatico() {
+        // Método estático
+    }
+
+    public void metodoNoEstatico() {
+        // Método no estático
+    }
+}
+```
+
+> [!NOTE]
+>
+> - Las **variables estáticas** se declaran dentro de la clase, pero **fuera de métodos, constructores o bloques**.
+> - No se pueden declarar variables estáticas dentro de métodos, a menos que estén en un **bloque estático**, donde su alcance se limita a ese bloque.
+> - Para **invocar métodos y variables estáticas**, se usa el nombre de la clase directamente, como `Clase.metodoEstatico()` o `Clase.variableEstatica`.
+
+## Métodos Getters y Setters en Java
+
+Los **métodos getters y setters** son esenciales para la **encapsulación** y **ocultación de datos** en Java. Estos métodos permiten obtener (`getters`) y establecer (`setters`) el valor de un atributo privado de una clase, controlando el acceso y modificación de los datos.
+
+Ejemplo:
+
+```java
+public class Persona {
+    // Atributos privados
+    private String nombre;
+    private int edad;
+
+    // Constructor
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    // Getter para nombre
+    public String getNombre() {
+        return nombre;
+    }
+
+    // Setter para nombre
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    // Getter para edad
+    public int getEdad() {
+        return edad;
+    }
+
+    // Setter para edad
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+}
+```
+
+> Los atributos `nombre` y `edad` son privados, lo que significa que solo pueden ser accedidos y modificados dentro de la clase.
+
+Ventajas:
+
+- **Encapsulación**: Los datos privados solo pueden ser modificados a través de métodos controlados.
+- **Modularidad y Mantenibilidad**: Permiten acceder y modificar los valores de forma segura, contribuyendo a un diseño de código más modular y fácil de mantener.
+- Mejora la **seguridad** y **robustez** del código al evitar el acceso directo a los atributos privados desde fuera de la clase.
+
+## Buenas Prácticas de POO
+
+| **Práctica**                     | **Descripción**                                                                                                                                                                            |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Entiende los Objetos**         | Visualiza cada objeto como un pequeño programa con sus propias características y funcionalidades. Esta mentalidad te permitirá descomponer problemas complejos en unidades más manejables. |
+| **Uso de Clases y Objetos**      | Aprende a emplear clases como modelos para crear objetos. Cada instancia de objeto que creas es una representación única de una clase.                                                     |
+| **Importancia de los Atributos** | Los atributos actúan como las "etiquetas" que definen las propiedades de tus objetos. Por ejemplo, en una clase "Perro", los atributos podrían ser su raza, color y edad.                  |
+| **Métodos para Acciones**        | Los métodos representan las "acciones" que pueden realizar tus objetos. Si tienes un objeto "Automóvil", puede tener métodos como "arrancar" o "frenar".                                   |
+| **Práctica Constante**           | La práctica es fundamental. Cuantos más ejemplos y ejercicios realices, más familiarizado estarás con los conceptos de la POO y más habilidades desarrollarás.                             |
+
+Artículo:
+https://www.baeldung.com/java-static#:~:text=In%20the%20Java%20programming%20language,an%20instance%20of%20that%20type.
+
+## Modificadores de Acceso
+
+Los modificadores de acceso son etiquetas que se les agregan a los atributos y métodos de una clase para controlar el acceso. Pueden ser:
+
+- `private`: La clase, el método o el atributo es accesible solamente dentro de la clase.
+- `public`: La clase, el método o el atributo es accesible desde cualquier lugar.
+- `protected`: La clase, el método o el atributo es accesible dentro del mismo paquete y también por subclases de cualquier paquete.
+- `default` (sin modificador): La clase, el método o el atributo es solo accesible dentro del mismo paquete. Es el comportamiento por defecto.
+
+- **Encapsulamiento**: Es el proceso de agrupar los datos (atributos) y los métodos que los manipulan dentro de una clase, formando una única unidad lógica. De esta manera, la clase puede gestionar sus datos y comportamientos de forma coherente y controlada.
+- **Ocultamiento de Información**: Es una técnica dentro del encapsulamiento que restringe el acceso directo a los atributos de una clase. Al marcar los atributos como `private`, estos no pueden ser accedidos o modificados directamente desde fuera de la clase; en su lugar, se accede a ellos mediante métodos públicos (como _getters_ y _setters_), permitiendo así un control seguro y definido de cómo se manipulan los datos internos de la clase.
+
+Beneficios del Encapsulación y Ocultación
+
+- **Control de Acceso**: Se obtiene un control completo sobre cómo y cuándo se accede o modifica la información de un objeto.
+
+- **Flexibilidad y Mantenimiento**: Al ocultar los detalles internos de la implementación de una clase, es posible cambiar esa implementación sin afectar otras partes del código que usan la clase.
+
+- **Seguridad de los Datos**: Al proteger los atributos de acceso directo, se asegura la integridad y coherencia de los datos, evitando que sean modificados de formas no deseadas o inesperadas.
