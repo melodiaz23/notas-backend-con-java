@@ -32,4 +32,14 @@ public class Jugador {
     }
   }
 
+  public static Jugador[] eliminarJugadores(Jugador[] jugadores, int index) {
+    Jugador[] temp = new Jugador[jugadores.length - 1];
+    for (int i = 0; i < jugadores.length; i++) {
+      if (index == i)
+        continue;
+      temp[i] = jugadores[i];
+    }
+    return temp;
+  }
+
 }

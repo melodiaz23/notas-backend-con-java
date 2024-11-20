@@ -20,4 +20,14 @@ public class Equipo {
       System.out.println(i + 1 + "-" + equipos[i].getNombre());
     }
   }
+
+  public static Equipo[] eliminarEquipo(Equipo[] equipos, int index) {
+    Equipo[] temp = new Equipo[equipos.length - 1];
+    for (int i = 0; i < equipos.length; i++) {
+      if (index == i)
+        continue;
+      temp[i] = equipos[i];
+    }
+    return temp;
+  }
 }
