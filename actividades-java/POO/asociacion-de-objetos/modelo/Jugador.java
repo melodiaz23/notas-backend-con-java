@@ -22,24 +22,38 @@ public class Jugador {
   }
 
   public void setEquipo(Equipo equipo) {
-    this.equipo = equipo; // ??
+    this.equipo = equipo;
   }
 
-  public static void listarJugadores(Jugador[] jugadores) {
+  public static Jugador[] jugadores = new Jugador[4];
+
+  public static void listarJugadores() {
+
     for (int i = 0; i < jugadores.length; i++) {
       System.out.println(i + 1 + "- " + jugadores[i].getNombre()
           + " | " + (jugadores[i].getEquipo() != null ? jugadores[i].getEquipo().getNombre() : "--"));
     }
   }
 
-  public static Jugador[] eliminarJugadores(Jugador[] jugadores, int index) {
+  public static void eliminarJugadores(int index) {
     Jugador[] temp = new Jugador[jugadores.length - 1];
+    int conteo = 0;
     for (int i = 0; i < jugadores.length; i++) {
-      if (index == i)
-        continue;
-      temp[i] = jugadores[i];
+      if (index == i) {
+        System.out.println("Has eliminado un jugador");
+      } else {
+      temp[conteo] = jugadores[i];
+      conteo++;
+      }
     }
-    return temp;
+    jugadores = temp;
   }
 
+  public static void refrescarJugadores(Equipo equipoABorrar){
+    for (Jugador jugador : jugadores){
+		    if (jugador.getEquipo().getNombre().equalsIgnoreCase(equipoABorrar.getNombre())) {
+			    jugador.setEquipo(null);
+		    }
+    }
+  }
 }
