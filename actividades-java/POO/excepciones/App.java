@@ -12,6 +12,7 @@ public class App {
     } catch (Exception e) {
       System.out.println("Error inesperado: " + e);
     } finally {
+      System.out.println("Bloque finally");
       scanner.close();
     }
   }
