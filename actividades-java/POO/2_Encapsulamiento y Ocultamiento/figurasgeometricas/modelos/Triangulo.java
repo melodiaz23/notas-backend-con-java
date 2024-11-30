@@ -1,3 +1,5 @@
+package figurasgeometricas.modelos;
+
 public class Triangulo {
   private Integer base;
   private Integer altura;

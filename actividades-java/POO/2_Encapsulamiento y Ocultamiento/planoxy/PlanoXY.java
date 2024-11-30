@@ -1,3 +1,5 @@
+package planoxy;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -31,7 +33,7 @@ public class PlanoXY {
             punto.setX(x);
             punto.setY(y);
             puntos[puntos.length - 1] = punto;
-            System.out.println("Punto creado en le posición: " + (puntos.length - 1));
+            System.out.println("planoxy.Punto creado en le posición: " + (puntos.length - 1));
           }
           case 2 -> {
             if (puntos.length < 1) {

@@ -1,3 +1,4 @@
+package figurasgeometricas.modelos;
 
 public class Circulo {
   private Integer radio;

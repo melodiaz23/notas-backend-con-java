@@ -1,3 +1,5 @@
+package planoxy;
+
 public class Punto {
   private int x;
   private int y;
@@ -19,14 +21,12 @@ public class Punto {
   }
 
   public double distanciaDesdeOrigen() {
-    double distancia = Math.sqrt((this.x * this.x + this.y * this.y));
-    return distancia;
+	  return Math.sqrt((this.x * this.x + this.y * this.y));
   }
 
   public static double calcularDistancia(Punto punto1, Punto punto2) {
-    double distancia = Math
-        .sqrt(Math.pow((punto2.getX() - punto1.getX()), 2) + Math.pow((punto2.getY() - punto1.getY()), 2));
-    return distancia;
+	  return Math
+	      .sqrt(Math.pow((punto2.getX() - punto1.getX()), 2) + Math.pow((punto2.getY() - punto1.getY()), 2));
   }
 
   public static Boolean estanAlineados(Punto punto1, Punto punto2, Punto punto3) {

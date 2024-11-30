@@ -1,3 +1,4 @@
+package figurasgeometricas.modelos;
 
 public class Rectangulo {
   private Integer ancho;

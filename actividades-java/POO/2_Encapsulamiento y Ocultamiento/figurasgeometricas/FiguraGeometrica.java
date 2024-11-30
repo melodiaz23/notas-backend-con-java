@@ -1,3 +1,7 @@
+package figurasgeometricas;
+import figurasgeometricas.modelos.Circulo;
+import figurasgeometricas.modelos.Rectangulo;
+import figurasgeometricas.modelos.Triangulo;
 
 import java.util.Arrays;
 import java.util.Scanner;
