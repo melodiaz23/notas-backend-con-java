@@ -1,7 +1,7 @@
 public class Actividad {
   public static void main(String[] args) {
     System.out.println("\033\143");
-    Animal[] animales = { new Perro("Beagle", "Luna", 2), new Gato("Cata", 4, "Siames") };
+    Animal[] animales = { new Perro("Beagle", "Luna", 2), new Gato("Cata", 4, "Siamés") };
 
     for (Animal animal : animales) {
       animal.comer();
