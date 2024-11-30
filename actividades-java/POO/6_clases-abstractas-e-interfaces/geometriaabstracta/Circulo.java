@@ -1,3 +1,5 @@
+package geometriaabstracta;
+
 public class Circulo extends Figura implements Dibujable {
   private int radio;
 

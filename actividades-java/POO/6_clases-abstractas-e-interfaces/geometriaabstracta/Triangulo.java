@@ -1,3 +1,5 @@
+package geometriaabstracta;
+
 public class Triangulo extends Figura implements Dibujable {
   private int base;
   private int lado1;

@@ -1,3 +1,5 @@
+package geometriaabstracta;
+
 public class Rectangulo extends Figura implements Dibujable {
   private int ancho;
   private int altura;
