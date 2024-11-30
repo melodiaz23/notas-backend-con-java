@@ -1,3 +1,4 @@
+package modelos;
 
 public class Rectangulo {
   private Integer ancho;

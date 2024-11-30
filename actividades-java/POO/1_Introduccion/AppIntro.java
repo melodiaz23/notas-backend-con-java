@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class App {
+public class AppIntro {
   public static void main(String[] args) {
     System.out.println("\033\143");
     // System.out.println("ACTIVIDAD 1");
@@ -72,7 +72,7 @@ public class App {
       System.out.println("----------");
       autoUsuario.imprimirDatos();
     } catch (Exception e) {
-      System.out.println(e);
+      System.out.println(e.getMessage());
     }
   }
 }
