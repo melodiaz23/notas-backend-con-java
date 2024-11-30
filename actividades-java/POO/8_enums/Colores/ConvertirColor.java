@@ -1,3 +1,5 @@
+import Colores.Color;
+
 public class ConvertirColor {
 
   public static String convertirHexadecimal(String valorHexadecimal) {

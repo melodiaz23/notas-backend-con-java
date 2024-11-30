@@ -1,3 +1,4 @@
+package Colores;
 
 public enum Color {
   ROJO("#FF0000"), AMARILLO("#FFFF00"), AZUL("#0000FF");

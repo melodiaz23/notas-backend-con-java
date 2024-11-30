@@ -1,7 +1,10 @@
+package Colores;
+
+import Colores.Color;
 
 import java.util.Scanner;
 
-public class App {
+public class Enums {
   public static void main(String[] args) {
     System.out.println("\033\143");
 
