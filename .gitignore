@@ -1,0 +1,20 @@
+# IntelliJ IDEA-specific files and directories to ignore
+
+.idea/                   # Exclude the entire .idea directory and its contents
+.idea/misc.xml           # Exclude misc.xml specifically (if .idea/ is not entirely ignored)
+*.iml                    # Module files
+*.ipr                    # Project files
+*.iws                    # Workspace files
+out/                     # Build output directory
+
+# Default ignored files
+/shelf/                  # User-specific shelving changes
+/workspace.xml           # User-specific workspace settings
+/httpRequests/           # Local HTTP client requests
+/dataSources/            # Datasource configurations
+/dataSources.local.xml   # User-specific datasource settings
+.idea/modules.xml        # Exclude additional IntelliJ-specific files
+
+# Logs and temporary files
+*.log                    # Log files
+*.tmp                    # Temporary files
