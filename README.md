@@ -2,8 +2,7 @@ Hola! 👋🏼
 
 Este repositorio recopila conceptos clave de programación orientados al desarrollo **Backend con Java**, basados en los aprendizajes del curso realizado a través de la plataforma Egg. Incluye temas como lógica de programación, control de versiones, y herramientas esenciales para la construcción de aplicaciones robustas con Java.
 
-💡 Explora los contenidos y profundiza en cada temática en la [Wiki](https://github.com/melodiaz23/notas-backend-con-java/wiki). 
-
+💡 Explora los contenidos y profundiza en cada temática en la [Wiki](https://github.com/melodiaz23/notas-backend-con-java/wiki/1.-Fundamentos-de-la-programaci%C3%B3n).
 
 ## Temas Principales
 
