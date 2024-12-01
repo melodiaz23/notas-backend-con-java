@@ -1,6 +1,9 @@
-En este repositorio he recopilado conceptos claves de programación, lo que incluye lógica de programación, control de versiones, y desarrollo Backend con Java.
+Hola! 👋🏼
 
-Puedes explorar los contenidos y profundiza en cada temática a través de la Wiki.
+Este repositorio recopila conceptos clave de programación orientados al desarrollo **Backend con Java**, basados en los aprendizajes del curso realizado a través de la plataforma Egg. Incluye temas como lógica de programación, control de versiones, y herramientas esenciales para la construcción de aplicaciones robustas con Java.
+
+💡 Explora los contenidos y profundiza en cada temática en la [Wiki](https://github.com/melodiaz23/notas-backend-con-java/wiki). 
+
 
 ## Temas Principales
 
@@ -9,10 +12,11 @@ Puedes explorar los contenidos y profundiza en cada temática a través de la Wi
 2. **Git & GitHub**  
    Control de versiones, flujo de trabajo y comandos esenciales.  
 3. **Introducción a Java**  
-   Fundamentos, tipos de datos, operadores, clases, métodos y estructuras de control.  
-4. **Programación Orientada a Objetos**  
+   Fundamentos, tipos de datos, operadores, clases, métodos y estructuras de control.
+5. **Programación Orientada a Objetos**  
    Conceptos clave como clases, objetos, herencia y encapsulamiento.  
-5. **Java Collection Frameworks**  
+6. **Java Collection Frameworks**  
    Manejo de colecciones como List, Set y Map.  
 
-Consulta la [Wiki](https://github.com/melodiaz23/notas-backend-con-java/wiki) para más detalles.
+📂 Además, puedes explorar muchas de las actividades y ejercicios planteados durante el curso en el siguiente enlace: [Actividades Java](https://github.com/melodiaz23/notas-backend-con-java/tree/master/actividades-java).  
+
