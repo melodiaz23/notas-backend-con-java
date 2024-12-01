@@ -1,0 +1,1 @@
+package biblioteca.utils;import java.time.LocalDateTime;import java.time.format.DateTimeFormatter;public class GenerarID {	public static String crear(){		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("HHmmss"));	}}

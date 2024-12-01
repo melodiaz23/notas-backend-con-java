@@ -1,7 +1,12 @@
+package biblioteca.modelos;
+
+import biblioteca.Catalogable;
+import biblioteca.ItemBiblioteca;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Revista extends ItemBiblioteca implements Catalogable {
   private int nroEdicion;
@@ -115,4 +120,8 @@ public class Revista extends ItemBiblioteca implements Catalogable {
     this.nombreRevista = nombreRevista;
   }
 
+  @Override
+  public void gestionarInfo(Scanner scanner) {
+
+  }
 }

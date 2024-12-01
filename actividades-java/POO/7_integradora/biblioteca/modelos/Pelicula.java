@@ -1,5 +1,10 @@
+package biblioteca.modelos;
+
+import biblioteca.Catalogable;
+import biblioteca.ItemBiblioteca;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Pelicula extends ItemBiblioteca implements Catalogable {
   @Override
@@ -19,6 +24,11 @@ public class Pelicula extends ItemBiblioteca implements Catalogable {
 
   @Override
   public void obtenerInformacion() {
+
+  }
+
+  @Override
+  public void gestionarInfo(Scanner scanner) {
 
   }
 }
