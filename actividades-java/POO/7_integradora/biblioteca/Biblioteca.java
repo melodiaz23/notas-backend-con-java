@@ -24,15 +24,15 @@ public class Biblioteca {
     libros.remove(libro);
   }
 
-  public static void agregarRevista(String titulo, String autor, int paginas) {
-    libros.add(new Libro(titulo, autor, paginas));
+  public void agregarRevista(int nroEdicion, int ejemplares, String nombreRevista) {
+    revistas.add(new Revista(nroEdicion, ejemplares, nombreRevista));
   }
 
-  public static void agregarPelicula(String titulo, String autor, int paginas) {
-    libros.add(new Libro(titulo, autor, paginas));
+  public void agregarPelicula(String titulo, String autor, int paginas) {
+    // pendiente
   }
 
-  public static void gestionarPrestamo(Scanner scanner, Libro libro) {
+  public static void gestionarPrestamoLibro(Scanner scanner, Libro libro) {
     scanner.nextLine();
     System.out.println("Ingresa el nombre de la persona que prestará " + libro.getTitulo());
     System.out.print(">> ");

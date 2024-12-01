@@ -6,7 +6,6 @@ import biblioteca.ItemBiblioteca;
 import biblioteca.utils.GenerarID;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import java.util.Scanner;
 
@@ -130,7 +129,7 @@ public class Libro extends ItemBiblioteca implements Catalogable {
       case 4 -> {
         if (prestado) devolver(this.idPrestamo);
         else {
-          Biblioteca.gestionarPrestamo(scanner,this);
+          Biblioteca.gestionarPrestamoLibro(scanner,this);
         }
       }
       case 5 -> {}

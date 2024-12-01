@@ -19,20 +19,16 @@ public class Revista extends ItemBiblioteca implements Catalogable {
 
   public Revista(int nroEdicion, int cantidadEjemplares, String nombreRevista) {
     this.nroEdicion = nroEdicion;
-    if (cantidadEjemplares < 0)
-      this.cantidadEjemplares = 0;
-    else
-      this.cantidadEjemplares = cantidadEjemplares;
+    // Math.max retorna el mayor de dos valores.
+    // Si cantidadEjemplares es un valor negativo, la función lo reemplaza con 0.
+	  this.cantidadEjemplares = Math.max(cantidadEjemplares, 0);
     this.nombreRevista = nombreRevista;
   }
 
   private Revista(int nroEdicion, int cantidadEjemplares, String nombreRevista, LocalDate fechaPrestamo,
       String idPrestamo) {
     this.nroEdicion = nroEdicion;
-    if (cantidadEjemplares < 0)
-      this.cantidadEjemplares = 0;
-    else
-      this.cantidadEjemplares = cantidadEjemplares;
+	  this.cantidadEjemplares = Math.max(cantidadEjemplares, 0);
     this.nombreRevista = nombreRevista;
     this.fechaPrestamo = fechaPrestamo;
     this.idPrestamo = idPrestamo;
@@ -82,7 +78,7 @@ public class Revista extends ItemBiblioteca implements Catalogable {
     // Asumiendo fecha de entrega con multa el 29-11-2024
     int diasMulta = periodo.getDays();
     if (diasMulta > 0)
-      System.out.println("El valor de la multa es de " + (diasMulta * 1) + "USD"); // Asumiendo valor de multa es de
+      System.out.println("El valor de la multa es de " + (diasMulta) + "USD"); // Asumiendo valor de multa es de
                                                                                    // 1usd x día.
     else
       System.out.println("El prestamo no generó multas.");

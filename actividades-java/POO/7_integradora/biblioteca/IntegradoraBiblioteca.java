@@ -1,11 +1,9 @@
 package biblioteca;
 
 import biblioteca.modelos.Libro;
-import biblioteca.modelos.Persona;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class IntegradoraBiblioteca {
   public static void main(String[] args) {
@@ -15,6 +13,10 @@ public class IntegradoraBiblioteca {
     biblioteca.agregarLibro("Cien años de soledad", "Gabo", 350);
     biblioteca.agregarLibro("Hábitos Atómicos", "James", 250);
     biblioteca.agregarLibro("La casa de los espíritus", "Isabel Allende", 350);
+
+    biblioteca.agregarRevista(1, 50, "Ciencia hoy");
+    biblioteca.agregarRevista(23, 0, "Tecnología Moderna");
+    biblioteca.agregarRevista(1, 50, "Historia y Cultura");
 
     try (Scanner scanner = new Scanner(System.in)) {
       String opcion;
@@ -27,7 +29,7 @@ public class IntegradoraBiblioteca {
               case 1 -> {
                 menuLibro(scanner, biblioteca);
               }
-              case 2 -> menuRevista();
+              case 2 -> menuRevista(scanner);
               case 3 -> menuPelicula();
               case 4 -> System.out.println("Saliendo del programa...");
               default -> System.out.println("Opción seleccionada NO es válida");
@@ -45,9 +47,7 @@ public class IntegradoraBiblioteca {
 
     // biblioteca.modelos.Revista[] revistas = new biblioteca.modelos.Revista[3];
 
-    // revistas[0] = new biblioteca.modelos.Revista(1, 50, "Ciencia Hoy");
-    // revistas[1] = new biblioteca.modelos.Revista(2, 0, "Tecnología Moderna");
-    // revistas[2] = new biblioteca.modelos.Revista(3, 20, "Historia y Cultura");
+
 
     // try (Scanner scanner = new Scanner(System.in)) {
     // for (biblioteca.modelos.Revista revista : revistas) {
@@ -104,7 +104,7 @@ public class IntegradoraBiblioteca {
             System.out.println("¿Qué libro deseas prestar?");
             Biblioteca.listarLibrosDisponibles();
             opcionLibroAPrestar = scanner.nextInt();
-            Biblioteca.gestionarPrestamo(scanner, Biblioteca.libros.get(opcionLibroAPrestar - 1));
+            Biblioteca.gestionarPrestamoLibro(scanner, Biblioteca.libros.get(opcionLibroAPrestar - 1));
           } catch (Exception e){
             System.out.println("No fue posible gestionar el préstamo: " + e);
           }
@@ -154,9 +154,7 @@ public class IntegradoraBiblioteca {
         libroSeleccionado.obtenerInformacion();
         libroSeleccionado.gestionarInfo(scanner);
       }
-      case 5->{
-
-      }
+      case 5->{}
       default -> System.out.println("Opción inválida");
     }
       } catch (Exception e){
@@ -166,10 +164,37 @@ public class IntegradoraBiblioteca {
     } while (opcion!=6);
   }
 
-  private static void menuRevista(){
-    System.out.println("---------------------");
-    System.out.println("GESTIÓN DE REVISTAS");
-    System.out.println("---------------------");
+  private static void menuRevista(Scanner scanner){
+    int opcion;
+    do {
+      try {
+        System.out.println("---------------------");
+        System.out.println("GESTIÓN DE REVISTAS");
+        System.out.println("---------------------");
+        System.out.println("1- Prestar revista");
+        System.out.println("2- Devolver revista");
+        System.out.println("3- Cargar nueva revista a la biblioteca");
+        System.out.println("4- Mostrar información de una revista");
+        System.out.println("5- Regresar al menú principal");
+        System.out.print(">> ");
+        opcion = scanner.nextInt();
+
+        switch (opcion){
+          case 1 -> {}
+          case 2 -> {}
+          case 3 -> {}
+          case 4 -> {}
+          case 5 -> {}
+          case 6 -> {}
+          default -> {}
+        }
+      } catch (Exception e){
+        opcion=0;
+        System.out.println("Ingresaste un valor no permitido: " + e);
+      }
+    } while (opcion!=6);
+
+
   }
 
   private static void menuPelicula() {
