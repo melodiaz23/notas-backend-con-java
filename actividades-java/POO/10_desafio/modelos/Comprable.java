@@ -1,0 +1,1 @@
+package modelos;public interface Comprable {	public Double calcularPrecio(Double descuento,Double impuesto);}

@@ -1,0 +1,1 @@
+package modelos;public class ProductoRopa extends Producto {	int talla;	String color;	public int getTalla() {		return talla;	}	public void setTalla(int talla) {		this.talla = talla;	}	public String getColor() {		return color;	}	public void setColor(String color) {		this.color = color;	}}
