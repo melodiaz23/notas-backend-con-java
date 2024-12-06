@@ -11,6 +11,7 @@ public class Merito {
 			ArrayList<Integer> notas = new ArrayList<>();
 			int nota;
 			String opc;
+
 			do {
 				System.out.println("Ingresa la nota al sistema:");
 				nota = scanner.nextInt();
@@ -23,6 +24,7 @@ public class Merito {
 				System.out.println("Deseas ingresar otra nota más? S/N");
 				opc = scanner.nextLine();
 			} while (opc.equalsIgnoreCase("S"));
+
 			notas.sort(Comparator.reverseOrder());
 			System.out.println("Lista de notas orden descendente");
 			System.out.println(notas);
