@@ -1,4 +1,4 @@
-package listadeinvitados;
+package listadeinvitados.model;
 
 import java.util.HashSet;
 

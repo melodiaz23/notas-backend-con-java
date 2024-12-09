@@ -1,5 +1,5 @@
 package listadeinvitados;
-
+import listadeinvitados.model.RegistroDeInvitados;
 import java.util.Scanner;
 
 public class App {
