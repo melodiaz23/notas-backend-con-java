@@ -15,7 +15,7 @@ public class Main {
         }
       } while (num1 > num2);
 
-      int numAleatorio = GestionDeNumero.numeroAleatorio(num1, num2);
+      Integer numAleatorio = GestionDeNumero.numeroAleatorio(num1, num2);
       int numAdivinado;
       do {
         System.out.println("Ahora adivina el número de ese rango!");
