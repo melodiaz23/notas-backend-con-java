@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Actividades {
+public class ActividadesArrays {
   public static void main(String[] args) {
     try (Scanner scanner = new Scanner(System.in)) {
       OperacionesArrays operacionesArrays = new OperacionesArrays();
-      Complementarios complementarios = new Complementarios();
+      ComplementariosArrays complementariosArrays = new ComplementariosArrays();
       // Sumando Elementos
       operacionesArrays.suma();
       // Promedio Elementos
@@ -18,11 +18,11 @@ public class Actividades {
 
       // COMPLEMENTARIOS
       // Contanto elementos pares
-      complementarios.elementosPares();
+      complementariosArrays.elementosPares();
       // Sumando elementos de posiciones pares
-      complementarios.sumaElementosPares();
+      complementariosArrays.sumaElementosPares();
       // Ordenando nombres
-      complementarios.ordenarNombres(scanner);
+      complementariosArrays.ordenarNombres(scanner);
 
     } catch (Exception e) {
       System.out.println("Ocurrió un error inesperado al ejecutar el programa: " +

@@ -15,12 +15,12 @@ public class ActividadesBucles {
       actividades.calculoPromedio();
       actividades.concatenarElementos();
 
-      // Complementarios
-      Complementarios complementarios = new Complementarios();
+      // ComplementariosArrays
+      ComplementariosArrays complementariosArrays = new ComplementariosArrays();
 
-      complementarios.invertirArray();
-      complementarios.sumaAcumulada();
-      complementarios.contarConcurrencias(scanner);
+      complementariosArrays.invertirArray();
+      complementariosArrays.sumaAcumulada();
+      complementariosArrays.contarConcurrencias(scanner);
     } catch (Exception e) {
       System.out.println(e);
     }

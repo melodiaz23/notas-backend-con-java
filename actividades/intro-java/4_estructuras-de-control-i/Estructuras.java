@@ -8,7 +8,7 @@ public class Estructuras {
 //    Clasificacion clasificacion = new Clasificacion();
 //    // Actividad 3
 //    Divisibilidad divisibilidad = new Divisibilidad();
-//    // Complementarios
+//    // ComplementariosArrays
 //    Complementarias complementarias = new Complementarias();
 
     // try-with-resources statement

@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class Complementarios {
+public class ComplementariosArrays {
 
   public void elementosPares() {
     int[] arreglo = { 2, 3, 4, 5, 6, 7 };

@@ -8,16 +8,16 @@ public class ActividadesBucles {
     AdvivinandoNumero advivinandoNumero = new AdvivinandoNumero();
     ValidandoPassword validandoPassword = new ValidandoPassword();
     NumeroDeDigitos numeroDeDigitos = new NumeroDeDigitos();
-    Complementarios complementarios = new Complementarios();
+    ComplementariosArrays complementariosArrays = new ComplementariosArrays();
 
     try (Scanner scanner = new Scanner(System.in)) {
       menuInteractivo.iniciarMenu(scanner);
       advivinandoNumero.adivinar(scanner);
       validandoPassword.validarPassword(scanner);
       numeroDeDigitos.calcularDigitos();
-      complementarios.tablasDeMultiplicar(scanner);
-      complementarios.contadorNumeroPareseImpares(scanner);
-      complementarios.sumaAcumulada(scanner);
+      complementariosArrays.tablasDeMultiplicar(scanner);
+      complementariosArrays.contadorNumeroPareseImpares(scanner);
+      complementariosArrays.sumaAcumulada(scanner);
 
     } catch (Exception e) {
       System.out.println("Ocurrió un error inesperado: " + e);

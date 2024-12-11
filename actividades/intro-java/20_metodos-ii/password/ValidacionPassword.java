@@ -1,3 +1,4 @@
+package password;
 
 import java.util.Scanner;
 
@@ -12,7 +13,6 @@ public class ValidacionPassword {
       } else {
         System.out.println("Contraseña insegura :(");
       }
-
     } catch (Exception e) {
       System.out.println(e);
     }
