@@ -6,7 +6,7 @@ public class ActividadesBucles {
     System.out.print("\033\143");
     try (Scanner scanner = new Scanner(System.in)) {
 
-      Actividades actividades = new Actividades();
+      ActividadesMath actividades = new ActividadesMath();
       actividades.imprimirElementos();
       actividades.encontrarMinimo();
       actividades.imprimirInversos();

@@ -6,7 +6,7 @@ public class ActividadesClaseArrays {
     System.out.println("\033\143"); // Limpia la consola
 
     try (Scanner scanner = new Scanner(System.in)) {
-      Actividades actividades = new Actividades();
+      ActividadesMath actividades = new ActividadesMath();
       actividades.ordenDescendente();
       actividades.busquedaBinaria(scanner);
       actividades.compararArreglos();
