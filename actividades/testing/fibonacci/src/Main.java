@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Fibonacci2 {
+public class Main {
   public static void main(String[] args) {
     System.out.println("\033\143"); // Limpia la consola
     try (Scanner scanner = new Scanner(System.in)) {
