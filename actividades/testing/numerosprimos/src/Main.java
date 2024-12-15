@@ -1,69 +1,39 @@
 import java.util.Scanner;
 
 public class Main {
+
   public static void main(String[] args) {
-    System.out.println("\033\143"); // Limpia la consola
+    Scanner sc = new Scanner(System.in);
+    int numero;
 
-    try (Scanner scanner = new Scanner(System.in)) {
-      int num;
-      boolean esPrimo;
+    do {
+      System.out.println("Ingrese un número para verificar si es primo:");
+      while (!sc.hasNextInt()) {
+        System.out.println("Entrada inválida. Por favor, introduzca un número entero.");
+        sc.next();
+      }
 
-      do {
-        esPrimo = true;
-        System.out.println("Introduce un número para verificar si es primo (0 para salir)");
-        num = scanner.nextInt();
+      numero = sc.nextInt();
 
-        if (esPrimo(num) && num > 1) {
-          System.out.println("Es primo.");
-        } else {
-          System.out.println("No es primo.");
-        }
+      if (esPrimo(numero)) {
+        System.out.println("¡Correcto! " + numero + " es un número primo.");
+      } else {
+        System.out.println(numero + " no es primo. Inténtelo de nuevo.");
+      }
 
-        if (esPrimoRecursivo(num) && num > 1) {
-          System.out.println("Es primo (Recursivo).");
-        } else {
-          System.out.println("No es primo (Recursivo).");
-        }
+    } while (!esPrimo(numero));
 
-      } while (!esPrimo || num != 0);
-
-    } catch (Exception e) {
-      System.out.println(e);
-    }
-
+    sc.close();
   }
 
+
   public static boolean esPrimo(int numero) {
-    if (numero % 2 == 0) {
-      if (numero == 2) {
-        return true;
-      }
-      return false;
-    }
-    for (int i = 3; i <= Math.sqrt(numero); i += 2) {
+    if (numero <= 1) return false;
+    for (int i = 2; i <= Math.sqrt(numero); i++) {
       if (numero % i == 0) {
         return false;
       }
     }
     return true;
-  }
-
-  public static boolean esPrimoRecursivo(int numero) {
-
-    if (numero % 2 == 0) {
-      if (numero == 2) {
-        return true;
-      }
-      return false;
-    }
-    return esPrimoRecursivo(numero,
-        ((int) Math.sqrt(numero)) % 2 == 0 ? (int) Math.sqrt(numero) + 1 : (int) Math.sqrt(numero));
-  }
-
-  public static boolean esPrimoRecursivo(int numero, int divisor) {
-    if (divisor < 3) {
-      return true;
-    }
-    return numero % divisor != 0 && esPrimoRecursivo(numero, divisor - 2);
   }
 }
