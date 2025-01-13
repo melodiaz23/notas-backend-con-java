@@ -6,6 +6,9 @@ VALUES ('Ventas');
 INSERT INTO departamentos (nombre)
 VALUES ('Recursos Humanos'); 
 
+-- En caso de Error Code: 1175. You are using safe update mode
+-- SET SQL_SAFE_UPDATES = 0;
+
 -- Insertar empleado: Ana Rodriguez
 INSERT INTO empleados (nombre, apellido, edad, salario, correo_electronico, departamento_id)
 VALUES ('Ana', 'Rodriguez', 28, 3000.00, 'anarodriguez@mail.com', 1);
