@@ -60,8 +60,3 @@ SELECT * FROM empleados;
 SELECT * FROM clientes;
 
 SELECT * FROM productos;
-
-
-
-
-
