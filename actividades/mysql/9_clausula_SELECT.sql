@@ -99,7 +99,7 @@ WHEN cantidad >= 3 AND cantidad < 6 THEN 'Cantidad moderada'
 ELSE 'Mucha cantidad'
 END AS "Tamaño venta"
 
-FROM ventas ORDER BY SUM(cantidad) DESC;
+FROM ventas ORDER BY cantidad DESC;
 
 SELECT nombre,
 CASE
@@ -110,11 +110,4 @@ END AS "Inicial"
 
 FROM clientes ORDER BY nombre ASC;
 
-SELECT nombre,salario,
-CASE
-WHEN salario >=3500 THEN 'Salario alto'
-WHEN salario >=3000 AND salario <3500 THEN 'Salario medio'
-ELSE 'Salario Bajo'
-END AS "Categoria Salario"
 
-FROM empleados ORDER BY salario ASC;
