@@ -36,16 +36,18 @@ CREATE TEMPORARY TABLE escuela_primaria_temp (
 TABLE escuela_primaria_temp;
 
 
-
 INSERT INTO escuela_primaria_temp (id, nombre, apellido, edad, grado)
 VALUES 
-(1, "Alejandro", "González", 11, 5),
-(2, "Isabella", "López", 10, 4),
-(3, "Lucas", "Martinez", 11, 5)
-;
-
-
-
+    (1, "Alejandro", "González", 11, 5),
+    (2, "Isabella", "López", 10, 4),
+    (3, "Lucas", "Martínez", 11, 5),
+    (4, "Sofía", "Rodríguez", 10, 4),
+    (5, "Mateo", "Pérez", 12, 6),
+    (6, "Valentina", "Fernández", 12, 6),
+    (7, "Diego", "Torres", 10, 4),
+    (8, "Martina", "Gómez", 11, 5),
+    (9, "Joaquín", "Hernández", 10, 4),
+    (10, "Valeria", "Díaz", 11, 5);
 
 
 
