@@ -1,4 +1,3 @@
--- Recuperar el nombre, apellido y teléfono de todos los clientes. 
 
 -- Mostrar nombre, apellido y teléfono de todos los clientes
 
