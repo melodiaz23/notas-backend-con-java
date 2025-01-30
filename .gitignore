@@ -35,3 +35,6 @@ out/
 *.log                    
 # Temporary files
 *.tmp                    
+
+# Ignorar todos los archivos llamados config.properties en cualquier carpeta
+**/config.properties
