@@ -44,10 +44,11 @@ WHERE gp.gama = 'Herramientas';
 -- Visualizar todos los pedidos de un cliente específico
 SELECT 
    c.nombre_cliente, 
-   p.id_pedido
+   p.id_pedido,
+   p.estado
 FROM pedido p
 JOIN cliente c ON c.id_cliente = p.id_cliente
-WHERE c.nombre_cliente = 'GoldFish Garden';
+WHERE c.id_cliente = 4;
 
 
 -- Visualizar todos los pedidos con un estado específico
