@@ -9,15 +9,16 @@ FROM cliente;
 
 SELECT *
 FROM cliente 
-WHERE codigo_cliente='1';
+WHERE codigo_cliente=2;
 
 -- Mostrar los datos de los clientes asociados a un empleado en particular.
 
 SELECT 
-   nombre_cliente 'Nombre Cliente', 
-   CONCAT(nombre_contacto, ' ', apellido_contacto) 'Datos Contacto', 
+   nombre_cliente, 
+   nombre_contacto, 
+   apellido_contacto, 
    telefono, 
-   id_empleado 'ID empleado'
+   id_empleado
 FROM cliente WHERE id_empleado=13;
 
 -- Consultas en tabla producto
@@ -31,8 +32,8 @@ WHERE cantidad_en_stock < 30;
 -- Dado el nombre de la gama, mostrar códigos del producto, nombre del producto, código y nombre de la gama.
 
 SELECT 
-   p.codigo_producto 'Código del producto',
-   p.nombre 'Nombre producto',
+   p.codigo_producto,
+   p.nombre,
    p.id_gama,
    gp.gama
 FROM producto p
@@ -43,8 +44,8 @@ WHERE gp.gama = 'Herramientas';
 
 -- Visualizar todos los pedidos de un cliente específico
 SELECT 
-   c.nombre_cliente 'Nombre del Cliente', 
-   p.id_pedido 'ID del pedido' 
+   c.nombre_cliente, 
+   p.id_pedido
 FROM pedido p
 JOIN cliente c ON c.id_cliente = p.id_cliente
 WHERE c.nombre_cliente = 'GoldFish Garden';
@@ -52,9 +53,9 @@ WHERE c.nombre_cliente = 'GoldFish Garden';
 
 -- Visualizar todos los pedidos con un estado específico
 SELECT 
-   c.nombre_cliente 'Nombre del Cliente', 
-   p.id_pedido 'ID del Pedido', 
-   p.estado 'Estado'
+   c.nombre_cliente, 
+   p.id_pedido, 
+   p.estado
 FROM pedido p
 JOIN cliente c ON c.id_cliente = p.id_cliente
 WHERE p.estado = 'Entregado';
