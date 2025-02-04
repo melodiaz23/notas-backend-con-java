@@ -1,5 +1,6 @@
 import entidades.Cliente;
 import persistencia.ClienteDAO;
+import persistencia.ProductoDAO;
 
 public class Main {
   public static void main(String[] args) {
@@ -13,6 +14,8 @@ public class Main {
 
     clienteDAO.guardarCliente(cliente2);
     clienteDAO.listarTodosLosClientes();
+
+    ProductoDAO productoDAO = new ProductoDAO();
 
   }
 }
