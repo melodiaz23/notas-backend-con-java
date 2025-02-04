@@ -11,7 +11,7 @@ public abstract class DAO {
   private final String HOST = "127.0.0.1";
   private final String PORT = "3306";
   private final String USER = "root";
-  private final String PASSWORD = "root";
+  private final String PASSWORD = "admin";
   private final String DATABASE = "vivero";
   private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
