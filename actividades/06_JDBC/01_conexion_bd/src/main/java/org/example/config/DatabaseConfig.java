@@ -6,8 +6,15 @@ import java.sql.SQLException;
 
 public class DatabaseConfig {
   public static Connection getConnection() {
-    ConfigLoader config = new ConfigLoader("src/main/resources/config.properties");
+    // Para configurar la conexión, crea un archivo 'config.properties' en la carpeta 'src/main/resources'
+    // con las propiedades necesarias (db.host, db.port, db.name, db.password, db.database).
+    // db.host=
+    // db.port=
+    // db.name=
+    // db.password=
+    // db.database=
 
+    ConfigLoader config = new ConfigLoader("src/main/resources/config.properties");
     String host = config.getProperty("db.host");
     String port = config.getProperty("db.port");
     String name = config.getProperty("db.name");
