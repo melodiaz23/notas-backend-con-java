@@ -42,11 +42,41 @@ public class ClienteDAO extends DAO {
       clientes.add(cliente);
     }
       clientes.forEach(Cliente::imprimirDatosCliente); // Metodo de referencia
-
     } catch (SQLException | ClassNotFoundException e) {
       throw new RuntimeException(e);
     }
     return clientes;
+  }
+
+  public Cliente buscarClientePorCodigo(int codigo){
+    String script = "SELECT * FROM cliente WHERE codigo_cliente =" + codigo + ";";
+
+    try {
+      consultarDataBase(script);
+
+        Cliente cliente = new Cliente();
+      while (resultSet.next()){
+        cliente.setIdCliente(resultSet.getInt("id_cliente"));
+        cliente.setCodigoCliente(resultSet.getInt("codigo_cliente"));
+        cliente.setNombreCliente(resultSet.getString("nombre_cliente"));
+        cliente.setNombreContacto(resultSet.getString("nombre_contacto"));
+        cliente.setApellidoContacto(resultSet.getString("apellido_contacto"));
+        cliente.setTelefono(resultSet.getString("telefono"));
+        cliente.setFax(resultSet.getString("fax"));
+        cliente.setCiudad(resultSet.getString("ciudad"));
+        cliente.setPais(resultSet.getString("pais"));
+        cliente.setCodigoPostal(resultSet.getString("pais"));
+        cliente.setRegion(resultSet.getString("region"));
+        cliente.setIdEmpleado(resultSet.getInt("id_empleado"));
+        cliente.setLimiteCredito(resultSet.getDouble("limite_credito"));
+      }
+
+      return cliente;
+
+    } catch (SQLException | ClassNotFoundException e) {
+      throw new RuntimeException(e);
+    }
+
   }
 
 
