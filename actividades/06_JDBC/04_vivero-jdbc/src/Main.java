@@ -29,10 +29,11 @@ public class Main {
 //          5, 50000);
       System.out.println(clienteServicio.validarCodigo(22));
 
-
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
+
+
 
   }
 }

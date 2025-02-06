@@ -2,7 +2,7 @@ package servicios;
 import entidades.Cliente;
 import persistencia.ClienteDAO;
 
-import java.util.Objects;
+import java.util.List;
 
 public class ClienteServicio {
   private ClienteDAO cd;
@@ -29,14 +29,15 @@ public class ClienteServicio {
     }
   }
 
-  public void listarTodosLosClientes(){
-
+  public List<Cliente> listarTodosLosClientes() {
+    return cd.listarTodosLosClientes();
   }
 
   public Cliente validarCodigo(int codigo) throws Exception {
     if (codigo < 1) {
       throw new Exception("Código no puede ser menor a 0");
     }
+
     try {
       int temp = Integer.parseInt(String.valueOf(codigo));
     } catch (NumberFormatException e){
@@ -46,7 +47,6 @@ public class ClienteServicio {
 
     Cliente resultado = cd.buscarClientePorCodigo(codigo);
     if (tieneValoresNulos(resultado)) throw new Exception("Código no existe");
-
     return resultado;
   }
 

@@ -1,4 +1,7 @@
 package servicios;
 
-public class PedidoServicio {
+import persistencia.DAO;
+
+public class PedidoServicio extends DAO {
+
 }
