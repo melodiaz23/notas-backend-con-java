@@ -53,7 +53,7 @@ public class ClienteDAO extends DAO {
 
     try {
       consultarDataBase(script);
-        Cliente cliente = new Cliente();
+      Cliente cliente = new Cliente();
       while (resultSet.next()){
         cliente.setIdCliente(resultSet.getInt("id_cliente"));
         cliente.setCodigoCliente(resultSet.getInt("codigo_cliente"));
