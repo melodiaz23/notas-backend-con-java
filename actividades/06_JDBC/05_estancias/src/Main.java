@@ -21,6 +21,7 @@ public class Main {
     try {
       clienteServicio.listarTodosLosClientes().forEach(System.out::println); // Metodo de referencia Clase::metodoDeInstancia
       Cliente clienteEncontrado = clienteServicio.buscarClientePorCodigo(4);
+      clienteServicio.guardarCliente(null);
       System.out.println(clienteEncontrado);
     } catch (ClassNotFoundException | SQLException e) {
       throw new RuntimeException(e);
