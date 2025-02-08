@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClienteDAO extends DAO {
 
-  public List<Cliente> listarClientes() throws ClassNotFoundException {
+  public List<Cliente> listarClientes() throws SQLException {
     String script = "SELECT * FROM clientes;";
     List<Cliente> clientes = new ArrayList<>();
 
@@ -25,13 +25,13 @@ public class ClienteDAO extends DAO {
         cliente.setEmail(result.getString("email"));
         clientes.add(cliente);
       }
-      } catch (SQLException e) {
-      throw new RuntimeException(e);
+      } catch (SQLException | ClassNotFoundException e) {
+      throw new SQLException(e);
     }
     return clientes;
   }
 
-  public void guardarCliente(Cliente cliente){
+  public void guardarCliente(Cliente cliente) {
     String script = "INSERT INTO clientes VALUES('" + cliente.getNombre() + "','" + cliente.getCalle() + "'," + cliente.getNumero() + ",'" +
         cliente.getCodigoPostal() + "', '" + cliente.getCiudad() + "', '" + cliente.getPais() + "','" + cliente.getEmail() + "');";
     try {
