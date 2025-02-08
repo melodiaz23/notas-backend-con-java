@@ -42,8 +42,7 @@ public class ClienteDAO extends DAO {
   }
 
   public Cliente buscarClientePorCodigo(int idCliente){
-    String script = "SELECT * FROM cliente WHERE id_cliente =" + idCliente + ";";
-
+    String script = "SELECT * FROM clientes WHERE id_cliente =" + idCliente + ";";
 
       try (ResultSet result = consultarDataBase(script)) {
         Cliente cliente = new Cliente();
