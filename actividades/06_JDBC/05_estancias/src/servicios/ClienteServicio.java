@@ -23,15 +23,16 @@ public class ClienteServicio {
     clienteDAO.guardarCliente(cliente);
   }
 
+  private void validacionDatos(Cliente cliente) {
+    if (cliente == null) throw new IllegalArgumentException("Cliente no puede ser nulo");
+    if (cliente.getNombre() == null || cliente.getNombre().isEmpty()) throw new IllegalArgumentException("Nombre no puede ser nulo o vacío");
+    if (cliente.getCiudad() == null) throw new IllegalArgumentException("Ciudad no puede ser nulo");
+    if (cliente.getPais() == null) throw new IllegalArgumentException("País no puede ser nulo");
+  }
+
   public Cliente buscarClientePorCodigo(int codigo) {
     return clienteDAO.buscarClientePorCodigo(codigo);
   }
 
-  private void validacionDatos(Cliente cliente) {
-    if (cliente == null) throw new IllegalArgumentException("Cliente no puede ser nulo");
-    if (cliente.getNombre() == null) throw new IllegalArgumentException("Nombre no puede ser nulo");
-    if (cliente.getCiudad() == null) throw new IllegalArgumentException("Ciudad no puede ser nulo");
-    if (cliente.getPais() == null) throw new IllegalArgumentException("País no puede ser nulo");
-  }
 
 }
