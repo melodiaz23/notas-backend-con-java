@@ -88,4 +88,17 @@ public class Familia {
   public void setIdCasaFamilia(int idCasaFamilia) {
     this.idCasaFamilia = idCasaFamilia;
   }
+
+  @Override
+  public String toString() {
+    return "Familia{" +
+        "idFamilia=" + idFamilia +
+        ", nombre='" + nombre + '\'' +
+        ", edadMinima=" + edadMinima +
+        ", edadMaxima=" + edadMaxima +
+        ", numHijos=" + numHijos +
+        ", email='" + email + '\'' +
+        ", idCasaFamilia=" + idCasaFamilia +
+        '}';
+  }
 }

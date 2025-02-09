@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FamiliaDAO extends DAO {
     public List<Familia> listarFamilias() throws SQLException{
-        String script = "SELECT * FROM familias:";
+        String script = "SELECT * FROM familias;";
         List<Familia> familias = new ArrayList<>();
 
         try(ResultSet rs = consultarDataBase(script)){
@@ -32,7 +32,7 @@ public class FamiliaDAO extends DAO {
     }
 
     public Familia buscarFamiliaPorId(int idFamilia) {
-        String script = "SELECT * FROM familias WHERE id_familias = " + idFamilia + ";";
+        String script = "SELECT * FROM familias WHERE id_familia = " + idFamilia + ";";
         try (ResultSet rs = consultarDataBase(script)) {
             Familia familia = new Familia();
             while (rs.next()) {
