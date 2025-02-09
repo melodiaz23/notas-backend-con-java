@@ -19,5 +19,5 @@ Este repositorio recopila conceptos clave de programación orientados al desarro
 6. **Java Collection Frameworks**  
    Manejo de colecciones como List, Set y Map.  
 
-📂 Además, puedes explorar muchas de las actividades y ejercicios planteados durante el curso en la carpeta correspondiente de este mismo repositorio: [Actividades](https://github.com/melodiaz23/notas-backend-con-java/tree/master/actividades), O haz un fork del repo, para trabajar a tu ritmo! ☺️
+📂 Además, puedes explorar muchas de las actividades y ejercicios planteados durante el curso en la carpeta correspondiente de este mismo repositorio: [Actividades](https://github.com/melodiaz23/notas-backend-con-java/tree/master/actividades), o haz un fork del repo, para trabajar a tu ritmo! ☺️
 
