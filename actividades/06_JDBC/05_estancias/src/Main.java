@@ -1,8 +1,10 @@
 import entidades.Casa;
 import entidades.Estancia;
+import entidades.Familia;
 import servicios.CasaServicio;
 import servicios.ClienteServicio;
 import servicios.EstanciaServicio;
+import servicios.FamiliaServicio;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -14,6 +16,7 @@ public class Main {
     ClienteServicio clienteServicio = new ClienteServicio();
     EstanciaServicio estanciaServicio = new EstanciaServicio();
     CasaServicio casaServicio = new CasaServicio();
+    FamiliaServicio familiaServicio = new FamiliaServicio();
 
 //    try (Scanner scanner = new Scanner(System.in)) {
 //    int opcion;
@@ -43,6 +46,11 @@ public class Main {
       System.out.println(casas);
       System.out.println(casaServicio.buscarCasaPorId(5));
 
+      // Familias
+      List<Familia> familias = familiaServicio.listarFamilias();
+      System.out.println(familias);
+      System.out.println(familiaServicio.buscarFamiliaPorId(4));
+
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
@@ -51,7 +59,7 @@ public class Main {
   public static void menu(){
     System.out.println("""
         - BIENVENIDO AL PROGRAMA DE GESTIÓN DE ESTANCIAS -
-        1- 
+        1-
         2- Salir""");
 
 
