@@ -1,6 +1,5 @@
 package persistencia;
 
-import entidades.Casa;
 import entidades.Familia;
 
 import java.sql.ResultSet;
@@ -50,21 +49,40 @@ public class FamiliaDAO extends DAO {
         }
     }
 
-    public List<Familia> ubicacionFamilias() throws SQLException{
-        String script = "SELECT nombre,email FROM familias ORDER BY nombre ASC;";
-        List<Familia> familias = new ArrayList<>();
-
-        try(ResultSet rs = consultarDataBase(script)){
-            while(rs.next()){
-                Familia familia = new Familia();
-                familia.setNombre(rs.getString("nombre"));
-                familia.setEmail(rs.getString("email"));
-                familias.add(familia);
-            }
+    public void crearFamilia(Familia familia) throws SQLException{
+        String script = "INSERT INTO familias(id_familia,nombre,edad_minima,edad_maxima,num_hijos,email,id_casa_familia) " +
+                "VALUES ('"+ familia.getNombre() + "', " + familia.getEdadMinima() + ", " + familia.getEdadMaxima() + ","+ familia.getNumHijos() + "," + familia.getEmail() + "')";
+        try{
+            insertarModificarEliminarDataBase(script);
         } catch (SQLException | ClassNotFoundException e) {
-            throw new SQLException(e);
+            throw new SQLException("Error al listar las familias " + e);
         }
-        return familias;
-
     }
+
+    public void eliminarFamilia(int idFamilia) throws SQLException{
+        try{
+            String script = "DELETE FROM familias WHERE id_familia = " + idFamilia + ";";
+            insertarModificarEliminarDataBase(script);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new SQLException("Error al eliminar familia " + e);
+        }
+    }
+
+//    public List<Familia> ubicacionFamilias() throws SQLException{
+//        String script = "SELECT familias.nombre, casas.ciudad, casas.pais FROM familias JOIN casas ON id_casas_familia = id_casa;";
+//        List<Familia> familias = new ArrayList<>();
+//
+//        try(ResultSet rs = consultarDataBase(script)){
+//            while(rs.next()){
+//                Familia familia = new Familia();
+//                familia.setNombre(rs.getString("nombre"));
+//                familias.add(familia);
+//            }
+//        } catch (SQLException | ClassNotFoundException e) {
+//            throw new SQLException(e);
+//        }
+//        return familias;
+//
+//    }
 }
+
