@@ -1,9 +1,6 @@
 package persistencia;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+
 public abstract class DAO {
   protected Connection conexion = null;
   protected ResultSet resultSet = null;
@@ -38,34 +35,40 @@ public abstract class DAO {
         conexion.close();
       }
     } catch (Exception e) {
-      System.out.println(e.getMessage());
+      System.out.println("Error al cerrar la conexión: " + e.getMessage());
       throw e;
     }
   }
 
-  protected void insertarModificarEliminarDataBase(String script) throws SQLException, ClassNotFoundException {
-    try {
-      connectarDataBase();
-      statement = conexion.createStatement();
-      statement.executeUpdate(script);
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
+  protected void insertarModificarEliminarDataBase(String script, Object... params) throws SQLException, ClassNotFoundException {
+    try (PreparedStatement statement = prepareStatement(script, params)) {
+      statement.executeUpdate();
+      System.out.println("Dato modificado en DB");
+    } catch (SQLException | ClassNotFoundException e) {
+      System.out.println("Error al modificar datos en la base de datos: " + e.getMessage());
       throw e;
     } finally {
-      System.out.println("Dato modificado en DB");
       desconectarDataBase();
     }
   }
 
-  protected ResultSet consultarDataBase(String script) throws SQLException, ClassNotFoundException {
+  protected ResultSet consultarDataBase(String script, Object... params) throws SQLException, ClassNotFoundException {
     try {
-      connectarDataBase();
-      statement = conexion.createStatement();
-      resultSet = statement.executeQuery(script);
-      return resultSet;
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
+      PreparedStatement statement = prepareStatement(script, params);
+      return statement.executeQuery();
+    } catch (SQLException | ClassNotFoundException e) {
+      System.out.println("Error al consultar la base de datos: " + e.getMessage());
       throw e;
     }
   }
+
+  private PreparedStatement prepareStatement(String script, Object... params) throws SQLException, ClassNotFoundException {
+    connectarDataBase();
+    PreparedStatement statement = conexion.prepareStatement(script);
+    for (int i = 0; i < params.length; i++) {
+      statement.setObject(i + 1, params[i]);
+    }
+    return statement;
+  }
+
 }
