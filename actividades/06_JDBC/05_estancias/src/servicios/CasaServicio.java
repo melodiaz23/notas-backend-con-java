@@ -3,6 +3,7 @@ import entidades.Casa;
 import persistencia.CasaDAO;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 
 public class CasaServicio {
@@ -14,6 +15,10 @@ public class CasaServicio {
 
   public List<Casa> listarTodasLasCasas() throws SQLException {
     return casaDAO.listarTodasLasCasas();
+  }
+
+  public List<Casa> listarTodasLasCasasEntreFechas(String fechaInicial, String fechaFinal, String pais ) throws SQLException, ParseException {
+    return casaDAO.listasCasasEntreFechas(fechaInicial, fechaFinal, pais);
   }
 
   public Casa buscarCasaPorId(int id) throws SQLException {

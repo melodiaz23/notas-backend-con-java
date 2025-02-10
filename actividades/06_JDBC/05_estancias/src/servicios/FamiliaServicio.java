@@ -21,21 +21,29 @@ public class FamiliaServicio {
     }
 
 
-    public List<Familia> listarFamilias() throws SQLException{
+    public List<Familia> listarFamilias() throws SQLException, ClassNotFoundException {
         return familiaDAO.listarFamilias();
     }
 
-    public Familia buscarFamiliaPorId(int idFamilia) throws SQLException{
+    public Familia buscarFamiliaPorId(int idFamilia) throws SQLException, ClassNotFoundException {
         return familiaDAO.buscarFamiliaPorId(idFamilia);
     }
 
-    public void crearFamilia(Familia familia) throws SQLException{
+    public void crearFamilia(Familia familia) throws SQLException, ClassNotFoundException {
         validarDatos(familia);
         familiaDAO.crearFamilia(familia);
     }
 
     public void eliminarFamilia(int idFamilia) throws SQLException{
         familiaDAO.eliminarFamilia(idFamilia);
+    }
+
+    public List<Familia> filtrarDatos(int edadMin, int cantHijo) throws Exception {
+        return familiaDAO.filtrarDatos(edadMin, cantHijo);
+    }
+
+    public List<Familia> filtrarDatosPorEmail(String email) throws Exception {
+        return familiaDAO.buscarPorEmail(email);
     }
 
 }
