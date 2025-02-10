@@ -4,8 +4,10 @@ import entidades.Casa;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CasaDAO extends DAO {
@@ -86,6 +88,72 @@ public List<Casa> listarTodasLasCasas() throws SQLException {
     } catch (SQLException | ClassNotFoundException e) {
       throw new SQLException("Error al eliminar casa " + e);
     }
+  }
+
+  public List<Casa> listasCasasEntreFechas(String fechaInicial, String fechaFinal, String pais ) throws SQLException, ParseException {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    Date fechaDesde = dateFormat.parse(fechaInicial);
+    Date fechaHasta = dateFormat.parse(fechaFinal);
+
+    String sql = "SELECT * FROM casas WHERE pais = ? AND fecha_desde >= ? AND fecha_hasta <= ?;";
+
+    List<Casa> casas = new ArrayList<>();
+
+    try (ResultSet result= consultarDataBase(sql, pais, fechaDesde, fechaHasta)) {
+        while (result.next()){
+          Casa casa = new Casa(
+              result.getInt("id_casa"),
+              result.getString("calle"),
+              result.getInt("numero"),
+              result.getInt("codigo_postal"),
+              result.getString("ciudad"),
+              result.getString("pais"),
+              result.getDate("fecha_desde"),
+              result.getDate("fecha_hasta"),
+              result.getInt("tiempo_minimo"),
+              result.getInt("tiempo_maximo"),
+              result.getInt("precio_habitacion"),
+              result.getString("tipo_vivienda")
+          );
+          casas.add(casa);
+        }
+    } catch (SQLException | ClassNotFoundException e) {
+      throw new SQLException("Error al listar casas entre fechas: " +  e);
+    }
+    return casas;
+  }
+
+  public List<Casa> listarCasasSegunDias(String fechaInicial, int dias) throws ParseException, SQLException {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    Date fechaDesde = dateFormat.parse(fechaInicial);
+
+    String sql = "SELECT * FROM casas WHERE fecha_desde >= ? AND tiempo_minimo >= ? AND tiempo_maximo <= ?";
+
+    List<Casa> casas = new ArrayList<>();
+
+    try (ResultSet result= consultarDataBase(sql, fechaDesde, dias, dias)) {
+      while (result.next()){
+        Casa casa = new Casa(
+            result.getInt("id_casa"),
+            result.getString("calle"),
+            result.getInt("numero"),
+            result.getInt("codigo_postal"),
+            result.getString("ciudad"),
+            result.getString("pais"),
+            result.getDate("fecha_desde"),
+            result.getDate("fecha_hasta"),
+            result.getInt("tiempo_minimo"),
+            result.getInt("tiempo_maximo"),
+            result.getInt("precio_habitacion"),
+            result.getString("tipo_vivienda")
+        );
+        casas.add(casa);
+      }
+    } catch (SQLException | ClassNotFoundException e) {
+      throw new SQLException("Error al listar casas según días: " +  e);
+    }
+    return casas;
+
   }
 }
 
