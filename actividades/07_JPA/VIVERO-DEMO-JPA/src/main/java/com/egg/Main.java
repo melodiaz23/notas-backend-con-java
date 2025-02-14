@@ -165,10 +165,8 @@ import java.util.Scanner;
       System.out.print("Seleccione una opción: ");
       opcion = scanner.nextInt();
       switch (opcion) {
-          case 1 -> {
-            // Se toman dados del cliente y luego...
-            oficinaServicio.crearOficina("OF123", "Madrid", "España", "Madrid", "123456789", "28001");
-          }
+          case 1 -> // Se toman dados del cliente y luego...
+              oficinaServicio.crearOficina("OF123", "Madrid", "España", "Madrid", "123456789", "28001");
           case 2 -> {
             // Con fines de prueba, se intenta modificar la oficina con ID 9
           Oficina oficinaAModificar = oficinaServicio.encontrarOficina(9);
@@ -176,17 +174,11 @@ import java.util.Scanner;
 //        oficinaAModificar.setCodigoOficina("PRUEBA");
           oficinaServicio.actualizarOficina(oficinaAModificar);
           }
-          case 3 -> {
-            // Se busca oficina con ID: 9
-            System.out.println(oficinaServicio.encontrarOficina(9));
-          }
-          case 4 -> {
-            // Elimina la oficina creada en case 1
-            oficinaServicio.eliminarOficina(10);
-          }
-          default -> {
-            System.out.println("Selecciona una opción válida");
-          }
+          case 3 -> // Se busca oficina con ID: 9
+              System.out.println(oficinaServicio.encontrarOficina(9));
+          case 4 -> // Elimina la oficina creada en case 1
+              oficinaServicio.eliminarOficina(10);
+          default -> System.out.println("Selecciona una opción válida");
       }
     } while (opcion != 7);
    } catch (Exception e) {
