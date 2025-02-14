@@ -74,5 +74,17 @@ public class Oficina {
     this.telefono = telefono;
   }
 
+  @Override
+  public String toString() {
+    return "Oficina{" +
+        "idOficina=" + idOficina +
+        ", ciudad='" + ciudad + '\'' +
+        ", codigoPostal='" + codigoPostal + '\'' +
+        ", codigoOficina='" + codigoOficina + '\'' +
+        ", pais='" + pais + '\'' +
+        ", region='" + region + '\'' +
+        ", telefono='" + telefono + '\'' +
+        '}';
+  }
 }
 
