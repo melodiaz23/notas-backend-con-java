@@ -1,5 +1,7 @@
 package com.egg;
+import com.egg.entidades.Cliente;
 import com.egg.entidades.Oficina;
+import com.egg.servicios.ClienteServicio;
 import com.egg.servicios.OficinaServicio;
 
 import java.util.Scanner;
@@ -11,9 +13,9 @@ import java.util.Scanner;
     int opcionPrincipal;
     do {
       System.out.println("""
-                ---------------------
+                ----------------------
                 === Menú Principal ===
-                ---------------------
+                ----------------------
                 1. Gestionar Clientes
                 2. Gestionar Pedidos
                 3. Gestionar Productos
@@ -41,13 +43,16 @@ import java.util.Scanner;
   }
 
   private static void menuClientes(Scanner scanner) {
+    try (ClienteServicio clienteServicio = new ClienteServicio()) {
     int opcion;
     do {
       System.out.println("""
+                ---------------------------
                 === Gestión de Clientes ===
+                ---------------------------
                 1. Crear Cliente
-                2. Listar Clientes
-                3. Actualizar Cliente
+                2. Actualizar Cliente
+                3. Buscar cliente por ID
                 4. Eliminar Cliente
                 5. Buscar Cliente por Ciudad
                 6. Ver Clientes con Crédito Superior a un Monto
@@ -55,12 +60,20 @@ import java.util.Scanner;
                 """);
       System.out.print("Seleccione una opción: ");
       opcion = scanner.nextInt();
-    } while (opcion != 7);
-
     switch (opcion) {
-        case 1 -> {}
-        case 2 -> {}
+        case 1 -> clienteServicio.guardarCliente("García", "Madrid", 123, "28001", "123456789", 1, 5000.0, "Empresa S.A.", "Juan García", "España", "Madrid", "987654321");
+        case 2 -> {
+          Cliente clienteAModificar = clienteServicio.buscarCliente(20);
+          clienteAModificar.setNombreCliente("PRUEBA");
+//          clienteAModificar.setNombreCliente("Empresa S.A.");
+          clienteServicio.actualizarCliente(clienteAModificar);
+        }
+        case 3 -> System.out.println(clienteServicio.buscarCliente(20));
+        case 4 -> clienteServicio.eliminarCliente(20);
         default -> {}
+    }
+    } while (opcion != 7); } catch (Exception e) {
+      System.out.println("Ocurrió un error al ejecutar el menú oficinas: " + e);
     }
 
   }
