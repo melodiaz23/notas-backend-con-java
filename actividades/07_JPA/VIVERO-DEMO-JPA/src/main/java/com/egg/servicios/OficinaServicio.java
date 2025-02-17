@@ -4,6 +4,8 @@ package com.egg.servicios;
 import com.egg.entidades.Oficina;
 import com.egg.persistencia.OficinaDAO;
 
+import java.util.List;
+
 // Implementa interfaz AutoCloseable
 public class OficinaServicio implements AutoCloseable {
   // Instancio a la unidad d persistencia para acceder a los metodos del EM
@@ -47,6 +49,10 @@ public class OficinaServicio implements AutoCloseable {
    } else {
      System.out.println("Oficina con ID especificado no existe.");
    }
+ }
+
+ public List<Oficina> listarOficinas(){
+    return oficinaDAO.listarOficias();
  }
 
   @Override

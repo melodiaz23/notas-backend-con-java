@@ -2,6 +2,8 @@ package com.egg.servicios;
 import com.egg.entidades.Cliente;
 import com.egg.persistencia.ClienteDAO;
 
+import java.util.List;
+
 public class ClienteServicio implements AutoCloseable {
   private final ClienteDAO clienteDAO;
 
@@ -48,6 +50,21 @@ public class ClienteServicio implements AutoCloseable {
       System.out.println("Cliente con ID especificado no existe.");
     }
   }
+
+  public List<Cliente> listarClientes(){
+    return clienteDAO.listarClientes();
+  }
+
+  public List<Cliente> buscarPorNombre(String nombre){
+    return clienteDAO.buscarPorNombre(nombre);
+  }
+
+  public List<Cliente> buscarPorCiudad(String ciudad){
+    return clienteDAO.buscarPorCiudad(ciudad);
+  }
+
+
+
 
   @Override
   public void close() throws Exception {

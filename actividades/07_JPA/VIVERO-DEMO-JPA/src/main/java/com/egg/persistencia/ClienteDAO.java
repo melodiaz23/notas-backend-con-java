@@ -6,6 +6,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
 
+import java.util.List;
+
 public class ClienteDAO {
   private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ViveroPU");
   private final EntityManager em = emf.createEntityManager();
@@ -36,6 +38,21 @@ public class ClienteDAO {
     em.getTransaction().begin();
     em.remove(cliente);
     em.getTransaction().commit();
+  }
+
+  public List<Cliente> listarClientes(){
+    return em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
+  }
+
+  public List<Cliente> buscarPorNombre(String nombre){
+    String query = "SELECT c FROM Cliente c WHERE c.nombreCliente LIKE :nombre";
+    return em.createQuery(query, Cliente.class).setParameter("nombre", "%" + nombre + "%").getResultList();
+  }
+
+  public List<Cliente> buscarPorCiudad(String ciudad){
+    String query = "SELECT c FROM Cliente c WHERE c.ciudad = :ciudad";
+    return em.createQuery(query, Cliente.class).setParameter("ciudad", ciudad).getResultList();
+
   }
 
   public void cerrarEntidades() throws Exception {

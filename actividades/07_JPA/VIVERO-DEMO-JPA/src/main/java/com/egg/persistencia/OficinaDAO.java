@@ -8,6 +8,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
 
+import java.util.List;
+
 public class OficinaDAO {
   private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ViveroPU");
   private final EntityManager em = emf.createEntityManager();
@@ -39,6 +41,10 @@ public class OficinaDAO {
       em.getTransaction().begin();
       em.remove(oficina);
       em.getTransaction().commit();
+  }
+
+  public List<Oficina> listarOficias(){
+    return em.createQuery("SELECT o FROM Oficina o", Oficina.class).getResultList();
   }
 
 public void cerrarEntidades() throws Exception {
