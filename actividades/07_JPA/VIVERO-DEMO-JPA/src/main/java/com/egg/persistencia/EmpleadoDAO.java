@@ -29,8 +29,8 @@ public class EmpleadoDAO {
   }
 
   public List<Empleado> listarEmpleadosConOficina(){
-    String query = "SELECT e.nombre, o.ciudad, o.idOficina FROM Empleado e JOIN Oficina o";
-    return em.createQuery(query).getResultList();
+    String query = "SELECT e FROM Empleado e JOIN Oficina o ON e.oficina.idOficina = o.idOficina";
+    return em.createQuery(query, Empleado.class).getResultList();
 
   }
 }

@@ -190,11 +190,15 @@ import java.util.Scanner;
           case  5-> {}
           case  6-> {
             empleadoServicio.buscarEmpleadosPorId(2).forEach(empleado -> {
-              System.out.println(empleado.getNombre() + " | " + empleado.getOficina() + " | " +
+              System.out.println(empleado.getNombre() + " | " + empleado.getOficina().getCiudad() + " | " +
                   empleado.getCodigoEmpleado());
             });
           }
-          case 7 -> {}
+          case 7 -> {
+            empleadoServicio.listarEmpleadoConOficina().forEach(empleado -> {
+              System.out.println(empleado.getNombre() + " | " + empleado.getOficina().getIdOficina() + " | " +  empleado.getOficina().getCiudad());
+            });
+          }
           case 8 -> {
 
           }
