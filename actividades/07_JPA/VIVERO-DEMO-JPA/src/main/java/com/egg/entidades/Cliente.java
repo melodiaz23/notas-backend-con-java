@@ -33,7 +33,7 @@ public class Cliente {
   private int idEmpleado;
 
   @Column(name = "limite_credito")
-  private double limite_credito;
+  private double limiteCredito;
 
   @Column(name = "nombre_cliente")
   private String nombreCliente;
@@ -149,14 +149,32 @@ public class Cliente {
     this.idEmpleado = idEmpleado;
   }
 
-  public double getLimite_credito() {
-    return limite_credito;
+  public double getLimiteCredito() {
+    return limiteCredito;
   }
 
-  public void setLimite_credito(double limite_credito) {
-    this.limite_credito = limite_credito;
+  public void setLimiteCredito(double limiteCredito) {
+    this.limiteCredito = limiteCredito;
   }
 
+  @Override
+  public String toString() {
+    return "Cliente{" +
+        "idCliente=" + idCliente +
+        ", apellidoContacto='" + apellidoContacto + '\'' +
+        ", ciudad='" + ciudad + '\'' +
+        ", codigoCliente=" + codigoCliente +
+        ", codigoPostal='" + codigoPostal + '\'' +
+        ", fax='" + fax + '\'' +
+        ", idEmpleado=" + idEmpleado +
+        ", limiteCredito=" + limiteCredito +
+        ", nombreCliente='" + nombreCliente + '\'' +
+        ", nombreContacto='" + nombreContacto + '\'' +
+        ", pais='" + pais + '\'' +
+        ", region='" + region + '\'' +
+        ", telefono='" + telefono + '\'' +
+        '}';
+  }
 }
 
 

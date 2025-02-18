@@ -21,7 +21,7 @@ public class Producto {
   private short cantidadEnStock;
 
   @Column(name = "codigo_producto")
-  private int codigoProducto;
+  private String codigoProducto;
 
   @Column(name="descripcion")
   private String descripcion;
@@ -35,11 +35,11 @@ public class Producto {
   @Column (name="proveedor")
   private String proveedor;
 
-  @Column (name="precioVenta")
-  private double precioVenta;
+  @Column (name="precio_venta")
+  private int precioVenta;
 
-  @Column (name="precioProveedor")
-  private double precioProveedor;
+  @Column (name="precio_proveedor")
+  private int precioProveedor;
 
   @ManyToOne
   @JoinColumn (name="id_gama")
@@ -56,11 +56,11 @@ public class Producto {
     this.idProducto = idProducto;
   }
 
-  public int getCodigoProducto() {
+  public String getCodigoProducto() {
     return codigoProducto;
   }
 
-  public void setCodigoProducto(int codigoProducto) {
+  public void setCodigoProducto(String codigoProducto) {
     this.codigoProducto = codigoProducto;
   }
 
@@ -109,7 +109,7 @@ public class Producto {
     return precioVenta;
   }
 
-  public void setPrecioVenta(double precioVenta) {
+  public void setPrecioVenta(int precioVenta) {
     this.precioVenta = precioVenta;
   }
 
@@ -117,7 +117,7 @@ public class Producto {
     return precioProveedor;
   }
 
-  public void setPrecioProveedor(double precioProveedor) {
+  public void setPrecioProveedor(int precioProveedor) {
     this.precioProveedor = precioProveedor;
   }
 
