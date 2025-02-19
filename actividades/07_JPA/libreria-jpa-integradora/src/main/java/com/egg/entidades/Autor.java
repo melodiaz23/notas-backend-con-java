@@ -36,11 +36,11 @@ public class Autor {
     this.nombre = nombre;
   }
 
-  public Boolean getAlta() {
+  public boolean getAlta() {
     return alta;
   }
 
-  public void setAlta(Boolean alta) {
+  public void setAlta(boolean alta) {
     this.alta = alta;
   }
 

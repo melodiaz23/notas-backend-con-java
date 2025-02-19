@@ -1,26 +1,38 @@
 package com.egg;
-
 import com.egg.entidades.Autor;
 import com.egg.servicios.AutorServicio;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import com.egg.ui.MenuAutor;
+
+import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) throws Exception {
-    AutorServicio autorServicio = new AutorServicio();
+    menu();
+  }
 
-//    Autor autor = new Autor();
-//    autor.setNombre("Isabel Allende");
-//    autor.setAlta(true);
-//    autorServicio.adicionarAutor(autor);
+  public static void menu() {
+    try (Scanner scanner = new Scanner(System.in)) {
+      int opcion;
+      do {
+        System.out.println("""
+            ----------------------
+            === Menú Principal ===
+            ----------------------
+            1. Gestionar Autores
+            2. Gestionar Editoriales
+            3. Gestionar Libros
+            4. Salir""");
+        System.out.print("Seleccione una opción: ");
+        opcion = scanner.nextInt();
+        switch (opcion) {
+          case 1 -> MenuAutor.mostrarMenu(scanner);
+          default -> {
+          }
+        }
+      } while (opcion != 4);
 
-
-    autorServicio.eliminarAutor(3);
-
-    autorServicio.listarTodosLosAutores().forEach(a -> {
-      System.out.println(a.getAlta());
-    });
-
+    } catch (Exception e) {
+      System.out.println("Error en menú principal: " + e);
+    }
   }
 }
