@@ -20,7 +20,7 @@ public class Libro {
   private Integer ejemplares;
 
   @Column(name = "alta")
-  private Boolean alta;
+  private boolean alta;
 
   @ManyToOne
   @JoinColumn(name = "id_autor")

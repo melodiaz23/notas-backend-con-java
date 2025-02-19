@@ -3,6 +3,7 @@ package com.egg.servicios;
 import com.egg.entidades.Autor;
 import com.egg.persistencia.AutorDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AutorServicio {
@@ -26,8 +27,6 @@ public class AutorServicio {
 
   }
 
-
-
   public void actualizarAutor(Autor autor){
     autorDAO.actualizarAutor(autor);
   }
@@ -37,7 +36,16 @@ public class AutorServicio {
   }
 
   public List<Autor> listarTodosLosAutores(){
-    return autorDAO.listarTodosLosAutores();
+    List<Autor> autores = new ArrayList<>();
+    for (Autor autor : autorDAO.listarTodosLosAutores()){
+      // Si el autor no ha sido "eliminado"...
+      if (autor.getAlta()) autores.add(autor);
+    }
+    return autores;
+  }
+
+  public List<Autor> buscarAutorPorNombre(String nombre){
+    return autorDAO.buscarAutorPorNombre(nombre);
   }
 
   private Boolean autorExiste(Autor autor){

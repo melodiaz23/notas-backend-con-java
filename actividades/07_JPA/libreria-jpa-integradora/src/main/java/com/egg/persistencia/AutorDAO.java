@@ -1,7 +1,6 @@
 package com.egg.persistencia;
 
 import com.egg.entidades.Autor;
-import com.egg.entidades.Libro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
