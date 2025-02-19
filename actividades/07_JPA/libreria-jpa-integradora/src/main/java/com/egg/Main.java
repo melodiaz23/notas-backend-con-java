@@ -1,6 +1,4 @@
 package com.egg;
-import com.egg.entidades.Autor;
-import com.egg.servicios.AutorServicio;
 import com.egg.ui.MenuAutor;
 
 import java.util.Scanner;
