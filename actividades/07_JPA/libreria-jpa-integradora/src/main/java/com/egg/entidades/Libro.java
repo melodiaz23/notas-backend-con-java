@@ -22,11 +22,11 @@ public class Libro {
   @Column(name = "alta")
   private boolean alta;
 
-  @ManyToOne
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinColumn(name = "id_autor")
   private Autor autor;
 
-  @ManyToOne
+  @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinColumn(name = "id_editorial")
   private Editorial editorial;
 

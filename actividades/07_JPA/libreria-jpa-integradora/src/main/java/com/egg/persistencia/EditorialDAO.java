@@ -29,4 +29,16 @@ public class EditorialDAO {
   public List<Editorial> listarTodosLasEditoriales(){
     return em.createQuery("SELECT e FROM Editorial e", Editorial.class).getResultList();
   }
+
+  public void cerrarEntidades() throws Exception {
+    try {
+      if (em != null && em.isOpen()) {
+        em.close();
+      } if (emf != null && emf.isOpen()) {
+        emf.close();
+      }
+    } catch (Exception e) {
+      throw new Exception("Error al cerrar entidades");
+    }
+  }
 }

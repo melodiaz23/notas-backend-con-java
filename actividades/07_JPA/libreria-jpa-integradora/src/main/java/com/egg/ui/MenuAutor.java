@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MenuAutor {
   public static void mostrarMenu(Scanner scanner) throws Exception {
       int opcion;
-      AutorServicio autorServicio = new AutorServicio();
+    try (AutorServicio autorServicio = new AutorServicio()) {
       do {
         System.out.println("""
             ----------------------
@@ -31,7 +31,6 @@ public class MenuAutor {
             Autor autor = new Autor();
             autor.setNombre(nombre);
             autorServicio.adicionarAutor(autor);
-            System.out.println("Autor adicionado exitosamente.");
           }
           case 2 -> {
             // Actualizar Autor
@@ -50,6 +49,7 @@ public class MenuAutor {
             }
           }
           case 3 -> {
+            // Buscar autor por ID
             System.out.print("Ingrese el ID del autor a buscar: ");
             int id = scanner.nextInt();
             Autor autor = autorServicio.buscarAutor(id);
@@ -60,6 +60,7 @@ public class MenuAutor {
             }
           }
           case 4 -> {
+            // Buscar autor por nombre
             System.out.print("Ingrese el nombre del autor a buscar: ");
             String nombre = scanner.nextLine();
             List<Autor> autores = autorServicio.buscarAutorPorNombre(nombre);
@@ -73,21 +74,26 @@ public class MenuAutor {
             }
           }
           case 5 -> {
+            System.out.print("Ingrese el ID del autor a eliminar: ");
+            int id = scanner.nextInt();
+            autorServicio.eliminarAutor(id);
+          }
+          case 6 -> {
             List<Autor> autores = autorServicio.listarTodosLosAutores();
             if (!autores.isEmpty()) {
               System.out.println("Lista de todos los autores:");
               for (Autor autor : autores) {
-                System.out.println(autor.getNombre());
+                System.out.println(autor.getNombre() + " | " + autor.getAlta());
               }
             } else {
               System.out.println("No hay autores registrados.");
             }
           }
-          case 6 -> System.out.println("Volviendo al menú principal...");
           case 7 -> System.out.println("Volviendo al menú principal...");
           default -> System.out.println("Opción no válida.");
         }
-      } while (opcion != 6);
+      } while (opcion != 7);
     }
+  }
   }
 

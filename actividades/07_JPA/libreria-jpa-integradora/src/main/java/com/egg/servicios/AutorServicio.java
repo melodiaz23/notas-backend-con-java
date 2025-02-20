@@ -1,38 +1,57 @@
 package com.egg.servicios;
-
 import com.egg.entidades.Autor;
 import com.egg.persistencia.AutorDAO;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
-public class AutorServicio {
+public class AutorServicio implements AutoCloseable {
   AutorDAO autorDAO = new AutorDAO();
 
-  public void adicionarAutor(Autor autor) throws Exception {
-    if (autorExiste(autor)) {
-      throw new Exception("Autor ya existe");
+  public void adicionarAutor(Autor autor) throws IllegalArgumentException {
+    List<Autor> autores = buscarAutorPorNombre(autor.getNombre());
+    boolean esElMismo = false;
+    if (!autores.isEmpty()){
+      for (Autor a : autores){
+        if (autor.getNombre().equalsIgnoreCase(a.getNombre()) && !a.getAlta()){
+          a.setAlta(true);
+          autorDAO.actualizarAutor(a);
+          System.out.println("Autor ya existía y ha sido reactivado");
+          break;
+        } else if (autor.getNombre().equalsIgnoreCase(a.getNombre())) {
+          esElMismo = true;
+        }
+      }
     }
-    autorDAO.adicionarAutor(autor);
+    if (!esElMismo){
+      autorDAO.adicionarAutor(autor);
+      System.out.println("Autor adicionado");
+    } else {
+      throw new IllegalArgumentException("Autor ya existe");
+    }
   }
 
-  public void eliminarAutor(Integer id) throws Exception {
+  public void eliminarAutor(Integer id) throws NoSuchElementException {
     Autor autor = autorDAO.buscarAutor(id);
     if (autor != null){
       autor.setAlta(false);
       autorDAO.actualizarAutor(autor);
+      System.out.println("Autor eliminado");
     } else {
-      throw new Exception("Autor no existe");
+      throw new NoSuchElementException("Autor no existe");
     }
-
   }
 
   public void actualizarAutor(Autor autor){
     autorDAO.actualizarAutor(autor);
   }
 
-  public Autor buscarAutor(Integer id){
-    return autorDAO.buscarAutor(id);
+  public Autor buscarAutor(Integer id) throws NoSuchElementException {
+    Autor autor = autorDAO.buscarAutor(id);
+    if (autor == null) {
+      throw new NoSuchElementException("Autor no existe");
+    }
+    return autor;
   }
 
   public List<Autor> listarTodosLosAutores(){
@@ -48,9 +67,9 @@ public class AutorServicio {
     return autorDAO.buscarAutorPorNombre(nombre);
   }
 
-  private Boolean autorExiste(Autor autor){
-    return !autorDAO.buscarAutorPorNombre(autor.getNombre()).isEmpty();
+
+  @Override
+  public void close() throws Exception {
+    autorDAO.cerrarEntidades();
   }
-
-
 }

@@ -10,6 +10,7 @@
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.password" value="admin"/>
             <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
+<!--            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>-->
 
             <!-- Configuración HikariCP como proveedor de conexión -->
             <property name="hibernate.connection.provider_class" value="com.zaxxer.hikari.hibernate.HikariConnectionProvider"/>

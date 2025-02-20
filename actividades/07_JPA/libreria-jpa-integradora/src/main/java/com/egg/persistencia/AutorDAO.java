@@ -35,4 +35,16 @@ public class AutorDAO {
   public List<Autor> listarTodosLosAutores(){
     return em.createQuery("SELECT a FROM Autor a", Autor.class).getResultList();
   }
+
+  public void cerrarEntidades() throws Exception {
+    try {
+      if (em != null && em.isOpen()) {
+        em.close();
+      } if (emf != null && emf.isOpen()) {
+        emf.close();
+      }
+    } catch (Exception e) {
+      throw new Exception("Error al cerrar entidades");
+    }
+  }
 }
