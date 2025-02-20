@@ -14,8 +14,9 @@ public class Autor {
   @Column(name = "nombre", length = 64)
   private String nombre;
 
-  @Column(name = "alta")
-  private boolean alta;
+
+  @Column(name = "alta", columnDefinition = "boolean default true")
+  private boolean alta=true;
 
   public Autor() {
   }

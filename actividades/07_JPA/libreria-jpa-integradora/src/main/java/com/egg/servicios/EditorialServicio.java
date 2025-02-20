@@ -4,7 +4,7 @@ import com.egg.persistencia.EditorialDAO;
 
 import java.util.List;
 
-public class EditorialServicio {
+public class EditorialServicio implements AutoCloseable {
   EditorialDAO editorialDAO = new EditorialDAO();
 
   public void adicionarEditorial(Editorial editorial){
@@ -24,6 +24,8 @@ public class EditorialServicio {
   }
 
 
-
-
+  @Override
+  public void close() throws Exception {
+    editorialDAO.cerrarEntidades();
+  }
 }
