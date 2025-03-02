@@ -23,7 +23,6 @@ public class AutorServicio {
     Autor autor = new Autor();
     autor.setNombre(nombre);
     autorRepositorio.save(autor);
-
   }
 
   @Transactional(readOnly = true)
