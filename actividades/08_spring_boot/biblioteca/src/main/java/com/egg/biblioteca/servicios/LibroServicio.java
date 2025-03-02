@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.egg.biblioteca.excepciones.MiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,8 +29,8 @@ public class LibroServicio {
   private LibroRepositorio libroRepositorio;
 
   @Transactional
-  public void crearLibro(Long isbn, String titulo, Integer ejemplares, UUID idAutor, UUID idEditorial) {
-    try {
+  public void crearLibro(Long isbn, String titulo, Integer ejemplares, UUID idAutor, UUID idEditorial) throws MiException {
+      validar(isbn, titulo, ejemplares, idAutor, idEditorial);
       Autor autor = autorRepositorio.findById(idAutor).get();
       Editorial editorial = editorialRepositorio.findById(idEditorial).get();
 
@@ -41,10 +42,6 @@ public class LibroServicio {
       libro.setAutor(autor);
       libro.setEditorial(editorial);
       libroRepositorio.save(libro);
-
-    } catch (Exception e) {
-      System.out.println("Error al crear el libro");
-    }
   }
 
   @Transactional(readOnly = true)
@@ -65,6 +62,24 @@ public class LibroServicio {
       libro.setAutor(respAutor.get());
       libro.setEditorial(respEditorial.get());
       libroRepositorio.save(libro);
+    }
+  }
+
+  private void validar(Long isbn, String titulo, Integer ejemplares, UUID idAutor, UUID idEditorial) throws MiException {
+    if (isbn == null) {
+      throw new MiException("El ISBN no puede ser nulo.");
+    }
+    if (titulo == null || titulo.trim().isEmpty()) {
+      throw new MiException("El título no puede ser nulo o estar vacío.");
+    }
+    if (ejemplares == null) {
+      throw new MiException("La cantidad de ejemplares no puede ser nula.");
+    }
+    if (idAutor == null) {
+      throw new MiException("El ID del autor no puede ser nulo o estar vacío.");
+    }
+    if (idEditorial == null) {
+      throw new MiException("El ID de la editorial no puede ser nulo o estar vacío.");
     }
   }
 }
