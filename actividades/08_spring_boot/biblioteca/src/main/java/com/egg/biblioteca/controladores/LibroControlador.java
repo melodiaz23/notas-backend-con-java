@@ -45,7 +45,7 @@ public class LibroControlador {
     } catch (MiException ex) {
       modelo.put("error", ex.getMessage());
 
-      return "libro_form.html"; // volvemos a cargar el formulario.
+      return "libro_form.html";
     }
     return "index.html";
   }

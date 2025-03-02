@@ -7,7 +7,8 @@ import java.util.UUID;
 @Entity
 public class Editorial {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.UUID)
+//  @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
 
   @Column
