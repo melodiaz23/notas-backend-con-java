@@ -26,7 +26,7 @@ public class AutorServicio {
   }
 
   @Transactional(readOnly = true)
-  public List<Autor> listarAutor(){
+  public List<Autor> listarAutores(){
     return autorRepositorio.findAll();
   }
 

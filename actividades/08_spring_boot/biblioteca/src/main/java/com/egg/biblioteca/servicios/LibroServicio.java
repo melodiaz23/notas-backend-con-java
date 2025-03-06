@@ -31,17 +31,19 @@ public class LibroServicio {
   @Transactional
   public void crearLibro(Long isbn, String titulo, Integer ejemplares, UUID idAutor, UUID idEditorial) throws MiException {
       validar(isbn, titulo, ejemplares, idAutor, idEditorial);
-      Autor autor = autorRepositorio.findById(idAutor).get();
-      Editorial editorial = editorialRepositorio.findById(idEditorial).get();
+      Optional<Autor> respAutor = autorRepositorio.findById(idAutor);
+      Optional<Editorial> resEditorial = editorialRepositorio.findById(idEditorial);
 
+      if (respAutor.isPresent() && resEditorial.isPresent()){
       Libro libro = new Libro();
       libro.setIsbn(isbn);
       libro.setTitulo(titulo);
       libro.setEjemplares(ejemplares);
       libro.setAlta(new Date(0));
-      libro.setAutor(autor);
-      libro.setEditorial(editorial);
+      libro.setAutor(respAutor.get());
+      libro.setEditorial(resEditorial.get());
       libroRepositorio.save(libro);
+      }
   }
 
   @Transactional(readOnly = true)
