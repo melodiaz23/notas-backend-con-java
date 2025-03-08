@@ -31,13 +31,20 @@ public class AutorServicio {
   }
 
   @Transactional
-  public void modificarAutor(String nombre, UUID id){
+  public void modificarAutor(String nombre, UUID id) throws MiException {
     Optional<Autor> respuesta = autorRepositorio.findById(id);
     if (respuesta.isPresent()) {
       Autor autor = respuesta.get();
       autor.setNombre(nombre);
       autorRepositorio.save(autor);
+    } else {
+      throw new MiException("Error al modificar autor");
     }
+  }
+
+  @Transactional(readOnly = true)
+  public Autor getOne(UUID id){
+    return autorRepositorio.getReferenceById(id);
   }
 
   private void validar(String nombre) throws MiException {
