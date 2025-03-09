@@ -69,13 +69,15 @@
   </div>
 </nav>
 
-<div class="container m-5" >
-
-  <table class="table table-dark">
+<div class="container">
+  <table class="table table-dark table-striped inline-block">
     <thead>
     <tr>
-      <th scope="col">ISBNr</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Título</th>
       <th scope="col">Nombre del Autor</th>
+      <th scope="col">No. Ejemplares</th>
+      <th scope="col">Editorial</th>
       <th scope="col">Acciones</th>
 
     </tr>
@@ -84,8 +86,11 @@
     <tr>
       <th scope="row" th:text="${libro.isbn}"></th>
       <td th:text="${libro.titulo}"></td>
+      <td th:text="${libro.autor.nombre}"></td>
+      <td th:text="${libro.ejemplares}"></td>
+      <td th:text="${libro.editorial.nombre}"></td>
       <td>
-        <a><i class="fas fa-feather-alt">  </i> Modificar </a>
+        <a th:href="@{/libro/modificar/__${libro.isbn}__}"><i class="fas fa-feather-alt">  </i> Modificar </a>
       </td>
     </tr>
 
