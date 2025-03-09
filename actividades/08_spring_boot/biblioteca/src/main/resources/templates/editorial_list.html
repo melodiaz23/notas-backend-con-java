@@ -69,9 +69,8 @@
     </div>
 </nav>
 
-<div class="container m-5" >
-
-    <table class="table table-dark">
+<div class="container">
+    <table class="table table-dark table-striped inline-block">
         <thead>
         <tr>
             <th scope="col">Id del Autor</th>
@@ -85,7 +84,7 @@
             <th scope="row" th:text="${editorial.id}"></th>
             <td th:text="${editorial.nombre}"></td>
             <td>
-                <a><i class="fas fa-feather-alt">  </i> Modificar </a>
+                <a th:href="@{/editorial/modificar/__${editorial.id}__}"><i class="fas fa-feather-alt">  </i> Modificar </a>
             </td>
         </tr>
 
