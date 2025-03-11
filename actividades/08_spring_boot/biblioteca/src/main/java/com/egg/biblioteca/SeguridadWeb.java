@@ -15,9 +15,20 @@ public class SeguridadWeb {
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
         .authorizeHttpRequests((authorize) -> authorize
-            .requestMatchers("/css/", "/js/", "/img/", "/**").permitAll()
-        )
-        .csrf(AbstractHttpConfigurer::disable);
+            .requestMatchers("/css/", "/js/", "/img/", "/**").permitAll())
+              .formLogin(
+                (form) -> form // Configura el formulario de inicio de sesión
+                    .loginPage("/login") // URL de la página de inicio de sesión.
+                    .loginProcessingUrl("/logincheck") // Envía datos de inicio de sesión
+                    .usernameParameter("email") // Nombre de los campos en el formulario de inicio de sesión
+                    .passwordParameter("password")
+                    .defaultSuccessUrl("/inicio") // URL a la que se redirige el usuario después de sesión exitosa.
+                    .permitAll())
+              .logout((logout) -> logout
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/")
+                    .permitAll()
+            ).csrf(AbstractHttpConfigurer::disable);
     return http.build();
   }
 

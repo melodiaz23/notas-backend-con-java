@@ -4,6 +4,7 @@ import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +25,6 @@ public class PortalControlador {
     return "registro.html";
   }
 
-  @GetMapping("/login")
-  public String login() {
-    return "login.html";
-  }
-
   @PostMapping("/registro")
   public String registro(@RequestParam String nombre,
                          @RequestParam String email,
@@ -46,7 +42,19 @@ public class PortalControlador {
     }
   }
 
+  @GetMapping("/login")
+  public String login(@RequestParam(required = false) String error,  ModelMap modelo){
+    if (error!=null){
+      modelo.put("error", "Error en el login: Usuario o contraseña incorrecto");
+    }
+    return "login.html";
+  }
 
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  @GetMapping("/inicio")
+  public String inicio() {
+    return "inicio.html";
+  }
 
 
 }
