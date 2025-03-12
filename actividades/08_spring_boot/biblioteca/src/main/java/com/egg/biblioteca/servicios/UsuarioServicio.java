@@ -4,6 +4,7 @@ import com.egg.biblioteca.entidades.Usuario;
 import com.egg.biblioteca.enumeraciones.Rol;
 import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.repositorios.UsuarioRepositorio;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +45,11 @@ public class UsuarioServicio implements UserDetailsService {
       List<GrantedAuthority> permisos = new ArrayList<>(); // Contiene todos los permisos
       GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + usuario.getRol());
       permisos.add(p);
+      ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+      HttpSession session = attr.getRequest().getSession(true);
+      session.setAttribute("usuariosession", usuario);
+
+
       return new User(usuario.getEmail(), usuario.getPassword(), permisos);
     } else {
       return null;
