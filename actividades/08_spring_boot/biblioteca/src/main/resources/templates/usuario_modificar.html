@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+
+<nav th:replace="~{/fragments/navbar :: navbar}"></nav>
+<div class="container-fluid m-5 contenedor">
+
+    <form class="formulario" th:action="@{/perfil/__${usuario.id}__}" method="POST" enctype="multipart/form-data">
+
+        <input hidden th:value="${id}" name="id">
+        <div class="form-group my-3">
+            <h3 class="card-title">Editar Usuario</h3>
+        </div>
+        <div class="form-group my-3">
+            <input type="text" class="form-control" name="nombre" th:value="${usuario.nombre}">
+        </div>
+        <div class="form-group my-3">
+            <input type="email" class="form-control" name="email" th:value="${usuario.email}">
+        </div>
+        <div class="form-group my-3">
+            <input type="file" class="form-control" name="archivo">
+        </div>
+        <div class="form-group my-3">
+            <input type="password" class="form-control" name="password" placeholder="PASSWORD">
+        </div>
+        <div class="form-group my-3">
+            <input type="password" class="form-control" name="password2" placeholder="REPETIR PASSWORD">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-3 botones">Actualizar</button>
+    </form>
+
+<!--    <div th:replace="~{fragments/mensajeEE :: div}"></div>-->
+
+    <section class=" text-center container">
+        <div class="row mt-3">
+            <div class="divVolver">
+                <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/usuarios}"
+                   class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                <a sec:authorize="hasRole('USER')" th:href="@{/inicio}"
+                   class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--<footer th:replace="~{fragments/footer :: footer}"></footer>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>

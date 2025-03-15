@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <title>Biblioteca Egg</title>
@@ -10,62 +12,8 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navBar">
-    <div class="containerImg">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-            <img class="logo" src="/img/Egg.png" alt="Img logo egg">
-        </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto elementos">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                    Libros
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" th:href="@{/libro/lista}">Listar Libros</a></li>
-                </ul>
-            </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                    Autores
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" th:href="@{/autor/lista}">Listar Autores</a></li>
-                </ul>
-            </li>
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                    Editoriales
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" th:href="@{/editorial/lista}">Listar Editoriales</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                    Perfil
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+<nav th:replace="~{/fragments/navbar :: navbar}"></nav>
 
 <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3 mensajeExito">
     <div class="card-body">
@@ -75,7 +23,7 @@
 </div>
 <div th:if="${error}!=null" class="card text-white bg-danger mb-3 mensajeError">
     <div class="card-body">
-        <h5 class="card-title">Error ðŸ‘Ž</h5>
+        <h5 class="card-title">Error</h5>
         <p class="card-text" th:text="${error}"></p>
     </div>
 </div>
@@ -86,7 +34,9 @@
         </div>
         <div class="container contenedorLibros">
             <p class="tituloLibros">Encontrá todos los Libros Aquí!</p>
-
+            <div th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
+                <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}">
+            </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
         <div class="bg-circle-2 bg-circle"></div>
@@ -95,17 +45,7 @@
     </section>
 </header>
 
-<footer class="text-muted py-5">
-    <div class="containerFooter">
-        <p class="mb-1">Album example is &copy; Bootstrap,<br>but please download and customize it for yourself!</p>
-        <p class="mb-0">New to Bootstrap? <a href="/"><br>Visit the homepage</a> or read our <a
-                href="../getting-started/introduction/">getting started guide</a>.</p>
-        <p class="float-end mb-1">
-            <a href="#" style="text-decoration:none"><span>⬆️</span> Back to top</a>
-        </p>
-    </div>
-</footer>
-
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
