@@ -33,9 +33,12 @@
             <a class="navbar-brand" href="#">BIBLIOTECA EGG</a>
         </div>
         <div class="container contenedorLibros">
-            <p class="tituloLibros">Encontrá todos los Libros Aquí!</p>
-            <div th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
-                <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}">
+            <p class="tituloLibros" th:if="${session.usuariosession == null}">Encuentra todos los Libros Aquí ☺️ </p>
+            <p class="tituloLibros" th:if="${session.usuariosession != null}" th:text="'Hola de nuevo, ' + ${session.usuariosession.nombre}"></p>
+            <div class="imagenContainer" th:if="${session.usuariosession.imagen != null}">
+                <a class="d-flex align-items-center">
+                    <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" alt="Img perfil">
+                </a>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
