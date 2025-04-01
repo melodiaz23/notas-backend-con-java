@@ -17,9 +17,9 @@ public class EditorialServicio {
   private final EditorialRepositorio editorialRepositorio;
 
   @Transactional
-  public Editorial crearEditorial(Editorial editorial) {
+  public void crearEditorial(Editorial editorial) {
     editorial.setEditorialActiva(true);
-    return editorialRepositorio.save(editorial);
+    editorialRepositorio.save(editorial);
   }
 
   @Transactional(readOnly = true)

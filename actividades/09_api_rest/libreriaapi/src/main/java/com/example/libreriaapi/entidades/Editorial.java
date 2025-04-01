@@ -20,7 +20,7 @@ public class Editorial {
   private Boolean editorialActiva;
 
   @Column(name = "nombre_editorial", nullable = false)
-  private boolean nombreEditorial;
+  private String nombreEditorial;
 
 }
 
