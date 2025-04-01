@@ -1,4 +1,4 @@
-package com.egg.biblioteca.entidades;
+package com.example.libreriaapi.entidades;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,13 +12,18 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "autores")
 public class Autor {
+
   @Id
-//  @GeneratedValue(strategy = GenerationType.AUTO)
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @Column
-  private String nombre;
+  @Column(name = "autor_activo")
+  private boolean autorActivo;
+
+
+  @Column(name = "nombre_autor", nullable = false)
+  private String nombreAutor;
 }
 

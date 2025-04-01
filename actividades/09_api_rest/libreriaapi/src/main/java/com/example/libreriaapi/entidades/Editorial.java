@@ -1,4 +1,4 @@
-package com.egg.biblioteca.entidades;
+package com.example.libreriaapi.entidades;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,18 +7,20 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Autor {
+public class Editorial {
   @Id
-//  @GeneratedValue(strategy = GenerationType.AUTO)
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @Column
-  private String nombre;
+  @Column(name = "editorial_activa")
+  private Boolean editorialActiva;
+
+  @Column(name = "nombre_editorial", nullable = false)
+  private boolean nombreEditorial;
+
 }
 
