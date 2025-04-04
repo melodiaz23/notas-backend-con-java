@@ -10,4 +10,6 @@ import java.util.UUID;
 public interface EditorialRepositorio extends JpaRepository<Editorial, UUID> {
 
   List<Editorial> findByEditorialActivaTrue();
+
+  List<Editorial> findByEditorialActivaFalse();
 }

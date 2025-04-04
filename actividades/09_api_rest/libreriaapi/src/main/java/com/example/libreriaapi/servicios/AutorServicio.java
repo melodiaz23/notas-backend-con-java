@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -33,13 +34,25 @@ public class AutorServicio {
   }
 
   @Transactional(readOnly = true)
-  public Optional<Autor> obtenerAutorPorId(UUID id) {
-    return autorRepositorio.findById(id);
+  public Autor obtenerAutorPorId(UUID id) {
+    Optional<Autor> respuesta = autorRepositorio.findById(id);
+    if(respuesta.isPresent()){
+      return respuesta.get();
+    } else {
+      throw new NoSuchElementException("No se encontró el autor con ID: " + id);
+    }
   }
 
   @Transactional
-  public Autor actualizarAutor(Autor autor) {
-    return autorRepositorio.save(autor);
+  public void modificarAutor(String nombre, UUID id) {
+    Optional<Autor> respuesta = autorRepositorio.findById(id);
+    if (respuesta.isPresent()) {
+      Autor autor = respuesta.get();
+      autor.setNombreAutor(nombre);
+      autorRepositorio.save(autor);
+    } else {
+      throw new NoSuchElementException("No se encontró el autor con ID: " + id);
+    }
   }
 
   @Transactional
